@@ -4,22 +4,10 @@ import stats from '@/data/stats.json';
 import postCategories from '@/data/post-categories.json';
 import productCategories from '@/data/product-categories.json';
 
-const categoryIcons: Record<string, string> = {
-  'Microphones': '🎤',
-  'Headphones and IEMs': '🎧',
-  'Studio Monitors': '🔊',
-  'Audio Interfaces': '🎸',
-  'DJ Controllers': '🎛️',
-  'Mixers': '🎚️',
-  'MIDI Controllers': '🎹',
-  'PA Systems': '📢',
-  'Keyboards and Synthesizers': '🎹',
-  'Turntables': '💿',
-};
-
 export default function HomePage() {
   const featuredProducts = products.filter(p => p.featured).slice(0, 6);
   const displayProducts = featuredProducts.length > 0 ? featuredProducts : products.slice(0, 6);
+  const activePostCats = postCategories.filter(c => c.count > 0).slice(0, 6);
 
   return (
     <>
@@ -27,14 +15,12 @@ export default function HomePage() {
       <section className="hero">
         <div className="container" style={{ position: 'relative', zIndex: 1, padding: '4rem 0' }}>
           <div style={{ maxWidth: '700px' }}>
-            <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#D4A843', marginBottom: '1rem' }}>
-              Professional Audio Equipment
-            </p>
+            <p className="label" style={{ marginBottom: '1rem' }}>Professional Audio Equipment</p>
             <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.25rem', letterSpacing: '-0.03em' }}>
               Professional Sound Gear<br />
-              <span style={{ color: '#D4A843' }}>Curated For Pros</span>
+              <span className="text-accent">Curated For Pros</span>
             </h1>
-            <p style={{ fontSize: '1.125rem', color: '#888888', marginBottom: '2rem', maxWidth: '500px', lineHeight: 1.6 }}>
+            <p className="text-secondary" style={{ fontSize: '1.125rem', marginBottom: '2rem', maxWidth: '500px', lineHeight: 1.6 }}>
               Expert reviews, buying guides, and hand-picked audio equipment for musicians, DJs, producers, and audio engineers.
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -46,7 +32,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section style={{ padding: '0' }}>
+      <section>
         <div className="container">
           <div className="stats-bar">
             <div className="stat-item">
@@ -74,21 +60,18 @@ export default function HomePage() {
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
             <div>
-              <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#D4A843', marginBottom: '0.5rem' }}>Browse</p>
+              <p className="label" style={{ marginBottom: '0.5rem' }}>Browse</p>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Shop by Category</h2>
             </div>
-            <Link href="/gear" style={{ fontSize: '0.8125rem', color: '#D4A843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <Link href="/gear" className="text-accent" style={{ fontSize: '0.8125rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               View All →
             </Link>
           </div>
           <div className="grid-4">
             {productCategories.map(cat => (
               <Link key={cat.slug} href={`/gear?cat=${cat.slug}`} className="card" style={{ padding: '1.5rem', display: 'block' }}>
-                <div style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>
-                  {categoryIcons[cat.name] || '🔊'}
-                </div>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.25rem' }}>{cat.name}</h3>
-                <p style={{ fontSize: '0.75rem', color: '#555555' }}>{cat.count} product{cat.count !== 1 ? 's' : ''}</p>
+                <p className="text-muted" style={{ fontSize: '0.75rem' }}>{cat.count} product{cat.count !== 1 ? 's' : ''}</p>
               </Link>
             ))}
           </div>
@@ -96,14 +79,14 @@ export default function HomePage() {
       </section>
 
       {/* Featured Gear */}
-      <section className="section" style={{ background: '#111111' }}>
+      <section className="section bg-secondary">
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
             <div>
-              <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#D4A843', marginBottom: '0.5rem' }}>Top Picks</p>
+              <p className="label" style={{ marginBottom: '0.5rem' }}>Top Picks</p>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Featured Gear</h2>
             </div>
-            <Link href="/gear" style={{ fontSize: '0.8125rem', color: '#D4A843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <Link href="/gear" className="text-accent" style={{ fontSize: '0.8125rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               View All →
             </Link>
           </div>
@@ -114,19 +97,19 @@ export default function HomePage() {
                   {product.image ? (
                     <img src={product.image} alt={product.short_name} loading="lazy" />
                   ) : (
-                    <div style={{ color: '#555555', fontSize: '0.75rem' }}>No Image</div>
+                    <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>
                   )}
                 </div>
                 <div style={{ padding: '1rem' }}>
-                  <p style={{ fontSize: '0.6875rem', color: '#D4A843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>
+                  <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>
                     {product.categories[0]?.replace('Shop: ', '') || 'Gear'}
                   </p>
                   <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {product.short_name}
                   </h3>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '1rem', fontWeight: 700, color: '#D4A843' }}>${product.price}</span>
-                    <span style={{ fontSize: '0.6875rem', color: '#555555', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
+                    <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       View Deal →
                     </span>
                   </div>
@@ -142,18 +125,18 @@ export default function HomePage() {
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
             <div>
-              <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#D4A843', marginBottom: '0.5rem' }}>Learn</p>
+              <p className="label" style={{ marginBottom: '0.5rem' }}>Learn</p>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Buying Guides</h2>
             </div>
-            <Link href="/blog" style={{ fontSize: '0.8125rem', color: '#D4A843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <Link href="/blog" className="text-accent" style={{ fontSize: '0.8125rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               All Guides →
             </Link>
           </div>
           <div className="grid-3">
-            {postCategories.filter(c => c.count > 0).slice(0, 6).map(cat => (
+            {activePostCats.map(cat => (
               <Link key={cat.slug} href="/blog" className="card" style={{ padding: '1.5rem', display: 'block' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.375rem' }}>{cat.name}</h3>
-                <p style={{ fontSize: '0.75rem', color: '#555555' }}>{cat.count} guide{cat.count !== 1 ? 's' : ''}</p>
+                <p className="text-muted" style={{ fontSize: '0.75rem' }}>{cat.count} guide{cat.count !== 1 ? 's' : ''}</p>
               </Link>
             ))}
           </div>
@@ -161,10 +144,10 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="section" style={{ background: '#111111' }}>
+      <section className="section bg-secondary">
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem' }}>Find Your Perfect Sound</h2>
-          <p style={{ color: '#888888', marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
+          <p className="text-secondary" style={{ marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
             Browse {stats.products}+ professional audio products across {stats.categories} categories, or read our expert buying guides.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

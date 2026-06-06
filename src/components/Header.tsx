@@ -5,24 +5,24 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const productCategories = [
-  { name: 'Microphones', slug: 'microphones', href: '/gear?cat=microphones' },
-  { name: 'Headphones', slug: 'headphones', href: '/gear?cat=headphones-and-iems' },
-  { name: 'Studio Monitors', slug: 'studio-monitors', href: '/gear?cat=studio-monitors' },
-  { name: 'Audio Interfaces', slug: 'audio-interfaces', href: '/gear?cat=audio-interfaces' },
-  { name: 'DJ Controllers', slug: 'dj-controllers', href: '/gear?cat=dj-controllers' },
-  { name: 'Mixers', slug: 'mixers', href: '/gear?cat=mixers' },
-  { name: 'MIDI Controllers', slug: 'midi-controllers', href: '/gear?cat=midi-controllers' },
-  { name: 'PA Systems', slug: 'pa-systems', href: '/gear?cat=pa-systems' },
-  { name: 'Keyboards & Synths', slug: 'keyboards-and-synthesizers', href: '/gear?cat=keyboards-and-synthesizers' },
-  { name: 'Turntables', slug: 'turntables', href: '/gear?cat=turntables' },
+  { name: 'Microphones', href: '/gear?cat=microphones' },
+  { name: 'Headphones', href: '/gear?cat=headphones-and-iems' },
+  { name: 'Studio Monitors', href: '/gear?cat=studio-monitors' },
+  { name: 'Audio Interfaces', href: '/gear?cat=audio-interfaces' },
+  { name: 'DJ Controllers', href: '/gear?cat=dj-controllers' },
+  { name: 'Mixers', href: '/gear?cat=mixers' },
+  { name: 'MIDI Controllers', href: '/gear?cat=midi-controllers' },
+  { name: 'PA Systems', href: '/gear?cat=pa-systems' },
+  { name: 'Keyboards & Synths', href: '/gear?cat=keyboards-and-synthesizers' },
+  { name: 'Turntables', href: '/gear?cat=turntables' },
 ];
 
 const guideCategories = [
-  { name: 'Studio Recording', slug: 'studio-recording', href: '/blog' },
-  { name: 'Music Production', slug: 'music-production', href: '/blog' },
-  { name: 'Live Sound', slug: 'live-sound', href: '/blog' },
-  { name: 'DJ Gear', slug: 'dj-gear', href: '/blog' },
-  { name: 'Guitars & Bass', slug: 'guitars-bass', href: '/blog' },
+  { name: 'Studio Recording', href: '/blog' },
+  { name: 'Music Production', href: '/blog' },
+  { name: 'Live Sound', href: '/blog' },
+  { name: 'DJ Gear', href: '/blog' },
+  { name: 'Guitars & Bass', href: '/blog' },
 ];
 
 export default function Header() {
@@ -53,32 +53,33 @@ export default function Header() {
 
   return (
     <header
+      className="bg-primary"
       style={{
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        background: scrolled ? 'rgba(10,10,10,0.95)' : '#0a0a0a',
-        borderBottom: '1px solid #222222',
+        borderBottom: '1px solid var(--border)',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        background: scrolled ? 'rgba(10,10,10,0.95)' : 'var(--bg-primary)',
         transition: 'all 0.2s',
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.02em' }}>
-          <span style={{ color: '#D4A843' }}>S</span>
+          <span className="text-accent">S</span>
           <span>S</span>
-          <span style={{ color: '#555555', fontWeight: 400, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Superstar Soundz</span>
+          <span className="text-muted" style={{ fontWeight: 400, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Superstar Soundz</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }} className="desktop-nav">
-          <Link href="/" className={isActive('/') && pathname === '/' ? 'nav-link active' : 'nav-link'}>Home</Link>
+        <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+          <Link href="/" className={`nav-link ${isActive('/') && pathname === '/' ? 'active' : ''}`}>Home</Link>
 
           <li ref={gearRef} style={{ position: 'relative', listStyle: 'none' }}>
             <button
               onClick={() => { setGearDropdown(!gearDropdown); setGuidesDropdown(false); }}
-              className={isActive('/gear') ? 'nav-link active' : 'nav-link'}
+              className={`nav-link ${isActive('/gear') ? 'active' : ''}`}
               style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
             >
               Gear
@@ -89,7 +90,7 @@ export default function Header() {
             {gearDropdown && (
               <div className="nav-dropdown">
                 {productCategories.map(cat => (
-                  <Link key={cat.slug} href={cat.href} onClick={() => setGearDropdown(false)}>{cat.name}</Link>
+                  <Link key={cat.name} href={cat.href} onClick={() => setGearDropdown(false)}>{cat.name}</Link>
                 ))}
               </div>
             )}
@@ -98,7 +99,7 @@ export default function Header() {
           <li ref={guidesRef} style={{ position: 'relative', listStyle: 'none' }}>
             <button
               onClick={() => { setGuidesDropdown(!guidesDropdown); setGearDropdown(false); }}
-              className={isActive('/blog') ? 'nav-link active' : 'nav-link'}
+              className={`nav-link ${isActive('/blog') ? 'active' : ''}`}
               style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
             >
               Guides
@@ -109,22 +110,22 @@ export default function Header() {
             {guidesDropdown && (
               <div className="nav-dropdown">
                 {guideCategories.map(cat => (
-                  <Link key={cat.slug} href={cat.href} onClick={() => setGuidesDropdown(false)}>{cat.name}</Link>
+                  <Link key={cat.name} href={cat.href} onClick={() => setGuidesDropdown(false)}>{cat.name}</Link>
                 ))}
               </div>
             )}
           </li>
 
-          <Link href="/services" className={isActive('/services') ? 'nav-link active' : 'nav-link'}>Services</Link>
-          <Link href="/about" className={isActive('/about') ? 'nav-link active' : 'nav-link'}>About</Link>
-          <Link href="/contact" className={isActive('/contact') ? 'nav-link active' : 'nav-link'}>Contact</Link>
+          <Link href="/services" className={`nav-link ${isActive('/services') ? 'active' : ''}`}>Services</Link>
+          <Link href="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>About</Link>
+          <Link href="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>Contact</Link>
         </nav>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          style={{ display: 'none', background: 'none', border: 'none', color: '#e8e8e8', cursor: 'pointer', padding: '0.5rem' }}
           className="mobile-toggle"
+          style={{ display: 'none', background: 'none', border: 'none', color: 'var(--text-primary)', cursor: 'pointer', padding: '0.5rem' }}
         >
           {mobileOpen ? (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
@@ -136,19 +137,19 @@ export default function Header() {
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <div style={{ borderTop: '1px solid #222222', padding: '1rem 0', background: '#111111' }}>
+        <div className="bg-secondary" style={{ borderTop: '1px solid var(--border)', padding: '1rem 0' }}>
           <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <Link href="/" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/') ? '#D4A843' : '#e8e8e8' }}>Home</Link>
+            <Link href="/" onClick={() => setMobileOpen(false)} className={isActive('/') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>Home</Link>
             <div style={{ padding: '0.75rem 0' }}>
-              <div style={{ color: '#555555', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>Gear</div>
+              <div className="text-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>Gear</div>
               {productCategories.map(cat => (
-                <Link key={cat.slug} href={cat.href} onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '0.5rem 1rem', color: '#888888', fontSize: '0.875rem' }}>{cat.name}</Link>
+                <Link key={cat.name} href={cat.href} onClick={() => setMobileOpen(false)} className="text-secondary" style={{ display: 'block', padding: '0.5rem 1rem', fontSize: '0.875rem' }}>{cat.name}</Link>
               ))}
             </div>
-            <Link href="/blog" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/blog') ? '#D4A843' : '#e8e8e8' }}>Guides</Link>
-            <Link href="/services" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/services') ? '#D4A843' : '#e8e8e8' }}>Services</Link>
-            <Link href="/about" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/about') ? '#D4A843' : '#e8e8e8' }}>About</Link>
-            <Link href="/contact" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/contact') ? '#D4A843' : '#e8e8e8' }}>Contact</Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)} className={isActive('/blog') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>Guides</Link>
+            <Link href="/services" onClick={() => setMobileOpen(false)} className={isActive('/services') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>Services</Link>
+            <Link href="/about" onClick={() => setMobileOpen(false)} className={isActive('/about') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>About</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className={isActive('/contact') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>Contact</Link>
           </div>
         </div>
       )}
@@ -158,15 +159,15 @@ export default function Header() {
           padding: 0.5rem 0.75rem;
           font-size: 0.8125rem;
           font-weight: 500;
-          color: #888888;
+          color: var(--text-secondary);
           border-radius: 4px;
           transition: all 0.15s;
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
         .nav-link:hover, .nav-link.active {
-          color: #D4A843;
-          background: rgba(212, 168, 67, 0.1);
+          color: var(--accent);
+          background: var(--accent-dim);
         }
         @media (max-width: 1024px) {
           .desktop-nav { display: none !important; }
