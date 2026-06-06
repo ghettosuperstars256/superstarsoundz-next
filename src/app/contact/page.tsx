@@ -1,4 +1,40 @@
+'use client';
+
+import { useState } from 'react';
+
 export default function ContactPage() {
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [statusMsg, setStatusMsg] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus('sent');
+        setStatusMsg(data.message);
+        setForm({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+        setStatusMsg(data.error || 'Something went wrong.');
+      }
+    } catch {
+      setStatus('error');
+      setStatusMsg('Network error. Please try again.');
+    }
+  };
+
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.75rem 1rem',
@@ -35,18 +71,18 @@ export default function ContactPage() {
         <div className="container">
           <div className="grid-2">
             <div>
-              <form style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div>
                   <label style={labelStyle}>Name</label>
-                  <input type="text" placeholder="Your name" style={inputStyle} />
+                  <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Your name" style={inputStyle} required />
                 </div>
                 <div>
                   <label style={labelStyle}>Email</label>
-                  <input type="email" placeholder="your@email.com" style={inputStyle} />
+                  <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" style={inputStyle} required />
                 </div>
                 <div>
                   <label style={labelStyle}>Subject</label>
-                  <select style={inputStyle}>
+                  <select name="subject" value={form.subject} onChange={handleChange} style={inputStyle}>
                     <option value="">Select a topic</option>
                     <option value="gear">Gear Question</option>
                     <option value="review">Product Review Request</option>
@@ -57,9 +93,16 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label style={labelStyle}>Message</label>
-                  <textarea rows={5} placeholder="Tell us what's on your mind..." style={{ ...inputStyle, resize: 'vertical', fontFamily: 'inherit' }} />
+                  <textarea name="message" value={form.message} onChange={handleChange} rows={5} placeholder="Tell us what's on your mind..." style={{ ...inputStyle, resize: 'vertical', fontFamily: 'inherit' }} required />
                 </div>
-                <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }}>Send Message</button>
+                <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }} disabled={status === 'sending'}>
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
+                </button>
+                {status !== 'idle' && (
+                  <p style={{ fontSize: '0.875rem', padding: '0.75rem', borderRadius: '6px', background: status === 'sent' ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)', color: status === 'sent' ? 'var(--success)' : 'var(--danger)' }}>
+                    {statusMsg}
+                  </p>
+                )}
               </form>
             </div>
 
