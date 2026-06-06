@@ -1,0 +1,72 @@
+[
+  {
+    "id": 100,
+    "name": "Audio Interfaces",
+    "slug": "shop-audio-interfaces",
+    "count": 2,
+    "wp_name": "Shop: Audio Interfaces"
+  },
+  {
+    "id": 104,
+    "name": "DJ Controllers",
+    "slug": "shop-dj-controllers",
+    "count": 2,
+    "wp_name": "Shop: DJ Controllers"
+  },
+  {
+    "id": 302,
+    "name": "Headphones and IEMs",
+    "slug": "shop-headphones-and-iems",
+    "count": 3,
+    "wp_name": "Shop: Headphones and IEMs"
+  },
+  {
+    "id": 304,
+    "name": "Keyboards and Synthesizers",
+    "slug": "shop-keyboards-and-synthesizers",
+    "count": 2,
+    "wp_name": "Shop: Keyboards and Synthesizers"
+  },
+  {
+    "id": 101,
+    "name": "Microphones",
+    "slug": "shop-microphones",
+    "count": 2,
+    "wp_name": "Shop: Microphones"
+  },
+  {
+    "id": 106,
+    "name": "MIDI Controllers",
+    "slug": "shop-midi-controllers",
+    "count": 2,
+    "wp_name": "Shop: MIDI Controllers"
+  },
+  {
+    "id": 105,
+    "name": "Mixers",
+    "slug": "shop-mixers",
+    "count": 2,
+    "wp_name": "Shop: Mixers"
+  },
+  {
+    "id": 107,
+    "name": "PA Systems",
+    "slug": "shop-pa-systems",
+    "count": 2,
+    "wp_name": "Shop: PA Systems"
+  },
+  {
+    "id": 102,
+    "name": "Studio Monitors",
+    "slug": "shop-studio-monitors",
+    "count": 4,
+    "wp_name": "Shop: Studio Monitors"
+  },
+  {
+    "id": 110,
+    "name": "Turntables",
+    "slug": "shop-turntables",
+    "count": 2,
+    "wp_name": "Shop: Turntables"
+  }
+]

@@ -1,122 +1,155 @@
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import posts from '@/data/posts.json';
 
-interface BlogPostPageProps {
+interface Props {
   params: { slug: string };
 }
 
-// Sample blog post content — in production this would come from WP REST API
-function getPost(slug: string) {
-  const posts: Record<string, { title: string; content: string; category: string; date: string }> = {
-    'best-guitar-amps-for-electric-guitars-tube-vs-solid-state-in-2026': {
-      title: 'Best Guitar Amps for Electric Guitars: Tube vs Solid State in 2026',
-      category: 'Topic: Guitar Amps',
-      date: '2026-06-04',
-      content: `
-        <h2>Best Guitar Amps: A Complete Guide to Choosing Your Sound</h2>
-        <p>Your amplifier is just as important as your guitar. A great amp can transform a cheap guitar into a tone machine, while a bad amp can make even the finest instrument sound lifeless. Whether you're a beginner looking for your first practice amp or an experienced player upgrading your rig, this guide covers everything you need to know about choosing the best guitar amp.</p>
+export default function BlogPostPage({ params }: Props) {
+  const post = posts.find(p => p.slug === params.slug);
+  if (!post) notFound();
 
-        <h2>Tube Amps vs Solid State vs Digital Modeling</h2>
+  // Get related posts (same category)
+  const related = posts
+    .filter(p => p.id !== post.id && p.categories.some(c => post.categories.includes(c)))
+    .slice(0, 3);
 
-        <h3>Tube Amps: The Gold Standard</h3>
-        <p>Tube amplifiers use vacuum tubes to amplify your signal, producing warm, natural overdrive that responds dynamically to your playing. They're the choice of most professional guitarists. The downsides: they're heavy, expensive, and require maintenance (tube replacement).</p>
-        <p><strong>Best for:</strong> Blues, classic rock, jazz, players who want natural amp overdrive</p>
-
-        <h3>Solid State Amps: Reliable & Affordable</h3>
-        <p>Solid state amps use transistors instead of tubes. They're lighter, cheaper, and maintenance-free. Modern solid state amps have improved dramatically — some are remarkably close to tube tone. Many include built-in effects.</p>
-        <p><strong>Best for:</strong> Beginners, gigging musicians, jazz, clean tones</p>
-
-        <h3>Digital Modeling Amps: Maximum Versatility</h3>
-        <p>Modeling amps use digital processing to emulate dozens of classic amplifiers, cabinets, and effects in one unit. Modern modelers like the Line 6 Helix and Fractal FM9 are incredibly realistic.</p>
-        <p><strong>Best for:</strong> Home recording, players who need multiple amp sounds, versatility</p>
-
-        <h2>Best Guitar Amps by Category</h2>
-
-        <h3>Best Beginner Amp: Fender Frontman 10G</h3>
-        <p>$59 — Simple, reliable, loud enough for practice. Clean and overdrive channels, 3-band EQ, headphone jack for silent practice. It's the universal recommendation for new guitarists.</p>
-        <a href="https://www.amazon.com/s?k=Fender+Frontman+10G&tag=superstarsoundz-20" class="btn btn-primary" target="_blank" rel="nofollow noopener">Check Price →</a>
-
-        <h3>Best Under $300: Boss Katana 50 MkII</h3>
-        <p>$259 — The Katana series is a phenomenon for good reason. Boss's Tube Logic modeling delivers remarkably authentic amp tones, plus 60+ Boss effects, USB recording access, and footswitch control. Extraordinary value.</p>
-        <a href="https://www.amazon.com/s?k=Boss+Katana+50+MkII&tag=superstarsoundz-20" class="btn btn-primary" target="_blank" rel="nofollow noopener">Check Price →</a>
-
-        <h3>Best Tube Amp Under $800: Fender Blues Junior IV</h3>
-        <p>$699 — This 15-watt tube combo is loud enough for small gigs while delivering beautiful Fender clean and overdrive tones. FAT switch adds beef, and the 12″ speaker fills a room. A genuine classic.</p>
-        <a href="https://www.amazon.com/s?k=Fender+Blues+Junior+IV&tag=superstarsoundz-20" class="btn btn-primary" target="_blank" rel="nofollow noopener">Check Price →</a>
-
-        <h3>Best High-End: Line 6 Helix Floor</h3>
-        <p>$1,599 — The Helix is the industry standard for guitar modeling. Dual DSP processors power hundreds of amp models and effects with stunning realism. Use it as a standalone amp, a pedalboard, or a recording interface. It's a complete rig in one unit.</p>
-        <a href="https://www.amazon.com/s?k=Line+6+Helix+Floor&tag=superstarsoundz-20" class="btn btn-primary" target="_blank" rel="nofollow noopener">Check Price →</a>
-
-        <h2>Choosing the Right Amp for Your Genre</h2>
-        <table>
-          <thead><tr><th>Genre</th><th>Best Amp Type</th><th>Recommended Amp</th></tr></thead>
-          <tbody>
-            <tr><td>Blues / Classic Rock</td><td>Small tube</td><td>Fender Blues Junior</td></tr>
-            <tr><td>Heavy Metal</td><td>High-gain tube or modeler</td><td>Line 6 Helix / 5150</td></tr>
-            <tr><td>Jazz</td><td>Clean tube / solid state</td><td>Roland JC-40</td></tr>
-            <tr><td>Home practice</td><td>Modeling / small solid state</td><td>Boss Katana 50</td></tr>
-            <tr><td>Gigging (all genres)</td><td>Modeling / large tube</td><td>Helix / Twin Reverb</td></tr>
-          </tbody>
-        </table>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Can I use a guitar amp for bass?</h3>
-        <p>It's not recommended. Bass frequencies can damage guitar speakers. Some players do it for a gritty, overdriven bass tone (Jack White, early Modest Mouse), but you're risking speaker damage at higher volumes.</p>
-
-        <h3>Do I need a headphone jack for silent practice?</h3>
-        <p>Headphone jacks are essential if you practice in apartments or late at night. The Boss Katana series includes a headphone/record out. Alternatively, a dedicated headphone amp like the Vox amPlug ($40) works with any amp.</p>
-
-        <h3>What's better — combo amp or head + cabinet?</h3>
-        <p>Combo amps (all-in-one) are more convenient for practice and small gigs. Separate heads and cabinets offer more flexibility and volume for serious gigging. Most guitarists start with a combo and upgrade later.</p>
-
-        <h2>The Bottom Line</h2>
-        <p>For beginners, the <strong>Boss Katana 50 MkII</strong> is the best all-around choice — versatile, great-sounding, and affordable. For blues and classic rock players who want real tube tone, the <strong>Fender Blues Junior IV</strong> is legendary. For players who need every amp sound imaginable, the <strong>Line 6 Helix Floor</strong> is the ultimate solution.</p>
-      `,
-    },
-  };
-  return posts[slug] || null;
-}
-
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getPost(params.slug);
-
-  if (!post) {
-    return (
-      <section className="py-20 text-center">
-        <div className="container">
-          <h1 className="text-3xl font-bold mb-4">Post Not Found</h1>
-          <p className="text-[#8888A0] mb-8">The blog post you're looking for doesn't exist.</p>
-          <Link href="/blog" className="btn btn-primary">← Back to Blog</Link>
-        </div>
-      </section>
-    );
+  // Extract headings from content for TOC
+  const headingRegex = /<h[2-3][^>]*>(.*?)<\/h[2-3]>/gi;
+  const headings: { level: number; text: string; id: string }[] = [];
+  let match;
+  while ((match = headingRegex.exec(post.content)) !== null) {
+    const level = parseInt(match[0][2]);
+    const text = match[1].replace(/<[^>]+>/g, '');
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    headings.push({ level, text, id });
   }
 
-  return (
-    <article>
-      {/* Hero */}
-      <section className="py-16 md:py-20 text-center" style={{ background: 'linear-gradient(180deg, rgba(212,168,67,0.05) 0%, transparent 100%)' }}>
-        <div className="container max-w-3xl">
-          <span className="section-label">{post.category}</span>
-          <h1 className="section-title mb-4">{post.title}</h1>
-          <p className="text-[#8888A0] text-sm">{post.date}</p>
-        </div>
-      </section>
+  // Add IDs to headings in content for TOC linking
+  let processedContent = post.content;
+  headings.forEach(h => {
+    const tag = `<h${h.level}`;
+    const newTag = `<h${h.level} id="${h.id}"`;
+    processedContent = processedContent.replace(
+      new RegExp(`<h${h.level}[^>]*>${h.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</h${h.level}>`, 'i'),
+      `<h${h.level} id="${h.id}">${h.text}</h${h.level}>`
+    );
+  });
 
-      {/* Content */}
-      <section className="pb-16">
-        <div className="container max-w-3xl">
-          <div
-            className="prose-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-          <hr className="divider my-12" />
-          <div className="text-center">
-            <Link href="/blog" className="btn btn-outline">← Back to All Guides</Link>
+  return (
+    <div className="section">
+      <div className="container">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '3rem' }}>
+          {/* Main Content */}
+          <div>
+            {/* Breadcrumb */}
+            <div style={{ marginBottom: '1.5rem', fontSize: '0.8125rem', color: '#555555' }}>
+              <Link href="/" style={{ color: '#555555' }}>Home</Link>
+              <span style={{ margin: '0 0.5rem' }}>/</span>
+              <Link href="/blog" style={{ color: '#555555' }}>Guides</Link>
+              <span style={{ margin: '0 0.5rem' }}>/</span>
+              <span style={{ color: '#e8e8e8' }}>{post.title.slice(0, 40)}...</span>
+            </div>
+
+            {/* Categories */}
+            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              {post.categories.map(cat => (
+                <span key={cat} className="badge">{cat.replace('Topic: ', '')}</span>
+              ))}
+            </div>
+
+            {/* Title */}
+            <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: '0.75rem' }}>
+              {post.title}
+            </h1>
+
+            {/* Date */}
+            <p style={{ fontSize: '0.8125rem', color: '#555555', marginBottom: '2rem' }}>
+              Published {post.date}
+            </p>
+
+            {/* TOC */}
+            {headings.length > 2 && (
+              <div className="toc">
+                <div className="toc-title">Table of Contents</div>
+                <ol>
+                  {headings.map((h, i) => (
+                    <li key={i} style={{ marginLeft: h.level === 3 ? '1rem' : 0 }}>
+                      <a href={`#${h.id}`}>{h.text}</a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
+            {/* Content */}
+            <div
+              className="prose"
+              dangerouslySetInnerHTML={{ __html: processedContent }}
+            />
+
+            {/* Affiliate Disclosure */}
+            <div style={{ marginTop: '2rem', padding: '1rem 1.25rem', background: '#161616', border: '1px solid #222222', borderRadius: '8px', fontSize: '0.8125rem', color: '#555555' }}>
+              <strong style={{ color: '#e8e8e8' }}>Disclosure:</strong> As an Amazon Associate, we earn from qualifying purchases. Links may earn us a commission at no extra cost to you.
+            </div>
           </div>
+
+          {/* Sidebar */}
+          <aside style={{ position: 'sticky', top: '80px', alignSelf: 'start' }}>
+            {/* Quick Nav */}
+            <div style={{ background: '#161616', border: '1px solid #222222', borderRadius: '8px', padding: '1.25rem', marginBottom: '1.5rem' }}>
+              <h3 style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#D4A843', marginBottom: '0.75rem' }}>
+                In This Guide
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
+                {headings.slice(0, 8).map((h, i) => (
+                  <a key={i} href={`#${h.id}`} style={{ fontSize: '0.8125rem', color: '#888888', paddingLeft: h.level === 3 ? '0.75rem' : 0 }}>
+                    {h.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Shop CTA */}
+            <div style={{ background: 'rgba(212, 168, 67, 0.1)', border: '1px solid #D4A843', borderRadius: '8px', padding: '1.25rem', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '0.875rem', fontWeight: 700, marginBottom: '0.5rem' }}>Ready to Buy?</h3>
+              <p style={{ fontSize: '0.75rem', color: '#888888', marginBottom: '1rem' }}>
+                Browse our curated selection of professional audio gear.
+              </p>
+              <Link href="/gear" className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '0.75rem' }}>
+                Shop All Gear
+              </Link>
+            </div>
+          </aside>
         </div>
-      </section>
-    </article>
+
+        {/* Related Posts */}
+        {related.length > 0 && (
+          <div style={{ marginTop: '4rem', borderTop: '1px solid #222222', paddingTop: '2rem' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem' }}>Related Guides</h2>
+            <div className="grid-3">
+              {related.map(rp => (
+                <Link key={rp.id} href={`/blog/${rp.slug}`} className="card" style={{ display: 'block' }}>
+                  <div style={{ padding: '1.25rem' }}>
+                    <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                      {rp.categories.map(cat => (
+                        <span key={cat} className="badge">{cat.replace('Topic: ', '')}</span>
+                      ))}
+                    </div>
+                    <h3 style={{ fontSize: '0.9375rem', fontWeight: 600, marginBottom: '0.5rem' }}>{rp.title}</h3>
+                    <span style={{ fontSize: '0.75rem', color: '#D4A843', fontWeight: 600 }}>Read More →</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
+}
+
+export function generateStaticParams() {
+  return posts.map(p => ({ slug: p.slug }));
 }

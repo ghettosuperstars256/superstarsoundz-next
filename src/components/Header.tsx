@@ -1,139 +1,178 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/gear', label: 'Gear', dropdown: [
-    { href: '/gear/microphones', label: 'Microphones' },
-    { href: '/gear/headphones', label: 'Headphones' },
-    { href: '/gear/studio-monitors', label: 'Studio Monitors' },
-    { href: '/gear/dj-controllers', label: 'DJ Controllers' },
-    { href: '/gear/audio-interfaces', label: 'Audio Interfaces' },
-    { href: '/gear/pa-systems', label: 'PA Systems' },
-    { href: '/gear/midi-controllers', label: 'MIDI Controllers' },
-    { href: '/gear/instruments', label: 'Instruments' },
-  ]},
-  { href: '/blog', label: 'Guides' },
-  { href: '/services', label: 'Services' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+const productCategories = [
+  { name: 'Microphones', slug: 'microphones', href: '/gear?cat=microphones' },
+  { name: 'Headphones', slug: 'headphones', href: '/gear?cat=headphones-and-iems' },
+  { name: 'Studio Monitors', slug: 'studio-monitors', href: '/gear?cat=studio-monitors' },
+  { name: 'Audio Interfaces', slug: 'audio-interfaces', href: '/gear?cat=audio-interfaces' },
+  { name: 'DJ Controllers', slug: 'dj-controllers', href: '/gear?cat=dj-controllers' },
+  { name: 'Mixers', slug: 'mixers', href: '/gear?cat=mixers' },
+  { name: 'MIDI Controllers', slug: 'midi-controllers', href: '/gear?cat=midi-controllers' },
+  { name: 'PA Systems', slug: 'pa-systems', href: '/gear?cat=pa-systems' },
+  { name: 'Keyboards & Synths', slug: 'keyboards-and-synthesizers', href: '/gear?cat=keyboards-and-synthesizers' },
+  { name: 'Turntables', slug: 'turntables', href: '/gear?cat=turntables' },
+];
+
+const guideCategories = [
+  { name: 'Studio Recording', slug: 'studio-recording', href: '/blog' },
+  { name: 'Music Production', slug: 'music-production', href: '/blog' },
+  { name: 'Live Sound', slug: 'live-sound', href: '/blog' },
+  { name: 'DJ Gear', slug: 'dj-gear', href: '/blog' },
+  { name: 'Guitars & Bass', slug: 'guitars-bass', href: '/blog' },
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const [gearDropdown, setGearDropdown] = useState(false);
+  const [guidesDropdown, setGuidesDropdown] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const gearRef = useRef<HTMLLIElement>(null);
+  const guidesRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (gearRef.current && !gearRef.current.contains(e.target as Node)) setGearDropdown(false);
+      if (guidesRef.current && !guidesRef.current.contains(e.target as Node)) setGuidesDropdown(false);
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/[0.06]" style={{ background: 'rgba(6,6,10,0.85)' }}>
-      <div className="container flex items-center justify-between h-[60px]">
+    <header
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+        background: scrolled ? 'rgba(10,10,10,0.95)' : '#0a0a0a',
+        borderBottom: '1px solid #222222',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        transition: 'all 0.2s',
+      }}
+    >
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
-            <rect x="2" y="2" width="36" height="36" rx="10" fill="#0e0e14" stroke="#D4A843" strokeWidth="2"/>
-            <path d="M13 28V16l7 12 7-12v12" stroke="#D4A843" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <circle cx="20" cy="12" r="3" fill="#D4A843"/>
-          </svg>
-          <span className="text-lg font-bold tracking-tight">
-            Super<span style={{ color: '#D4A843' }}>star</span> Soundz
-          </span>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.02em' }}>
+          <span style={{ color: '#D4A843' }}>S</span>
+          <span>S</span>
+          <span style={{ color: '#555555', fontWeight: 400, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Superstar Soundz</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <div
-              key={link.href}
-              className="relative"
-              onMouseEnter={() => link.dropdown && setDropdownOpen(link.label)}
-              onMouseLeave={() => setDropdownOpen(null)}
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }} className="desktop-nav">
+          <Link href="/" className={isActive('/') && pathname === '/' ? 'nav-link active' : 'nav-link'}>Home</Link>
+
+          <li ref={gearRef} style={{ position: 'relative', listStyle: 'none' }}>
+            <button
+              onClick={() => { setGearDropdown(!gearDropdown); setGuidesDropdown(false); }}
+              className={isActive('/gear') ? 'nav-link active' : 'nav-link'}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
             >
-              <Link
-                href={link.href}
-                className="flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium rounded-md transition-colors hover:bg-white/[0.06] text-[#C0C0CC] hover:text-white"
-              >
-                {link.label}
-                {link.dropdown && (
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-50">
-                    <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
-                )}
-              </Link>
-              {link.dropdown && dropdownOpen === link.label && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-[#1A1A28] border border-white/[0.1] rounded-lg py-2 min-w-[200px] shadow-xl">
-                  {link.dropdown.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block px-4 py-2 text-[13px] text-[#C0C0CC] hover:text-white hover:bg-white/[0.06] transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+              Gear
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ transform: gearDropdown ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            {gearDropdown && (
+              <div className="nav-dropdown">
+                {productCategories.map(cat => (
+                  <Link key={cat.slug} href={cat.href} onClick={() => setGearDropdown(false)}>{cat.name}</Link>
+                ))}
+              </div>
+            )}
+          </li>
+
+          <li ref={guidesRef} style={{ position: 'relative', listStyle: 'none' }}>
+            <button
+              onClick={() => { setGuidesDropdown(!guidesDropdown); setGearDropdown(false); }}
+              className={isActive('/blog') ? 'nav-link active' : 'nav-link'}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+            >
+              Guides
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ transform: guidesDropdown ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            {guidesDropdown && (
+              <div className="nav-dropdown">
+                {guideCategories.map(cat => (
+                  <Link key={cat.slug} href={cat.href} onClick={() => setGuidesDropdown(false)}>{cat.name}</Link>
+                ))}
+              </div>
+            )}
+          </li>
+
+          <Link href="/services" className={isActive('/services') ? 'nav-link active' : 'nav-link'}>Services</Link>
+          <Link href="/about" className={isActive('/about') ? 'nav-link active' : 'nav-link'}>About</Link>
+          <Link href="/contact" className={isActive('/contact') ? 'nav-link active' : 'nav-link'}>Contact</Link>
         </nav>
 
-        {/* Search + Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <form action="/gear" className="hidden md:flex items-center bg-[#1A1A28] border border-white/[0.06] rounded-lg px-3 h-[34px] focus-within:border-[rgba(212,168,67,0.4)] transition-colors">
-            <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" className="text-[#5A5A70]">
-              <path d="M8.5 2a6.5 6.5 0 104.2 11.2l3.6 3.6 1.4-1.4-3.6-3.6A6.5 6.5 0 008.5 2zm0 2a4.5 4.5 0 110 9 4.5 4.5 0 010-9z"/>
-            </svg>
-            <input
-              type="search"
-              name="s"
-              placeholder="Search gear…"
-              className="bg-transparent border-none text-[13px] text-white outline-none w-[140px] ml-2 placeholder:text-[#5A5A70]"
-            />
-          </form>
-
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            aria-label="Toggle menu"
-          >
-            <span className={`block w-5 h-0.5 bg-[#C0C0CC] transition-all ${mobileOpen ? 'rotate-45 translate-y-[4px]' : ''}`}/>
-            <span className={`block w-5 h-0.5 bg-[#C0C0CC] transition-all ${mobileOpen ? 'opacity-0' : ''}`}/>
-            <span className={`block w-5 h-0.5 bg-[#C0C0CC] transition-all ${mobileOpen ? '-rotate-45 -translate-y-[4px]' : ''}`}/>
-          </button>
-        </div>
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          style={{ display: 'none', background: 'none', border: 'none', color: '#e8e8e8', cursor: 'pointer', padding: '0.5rem' }}
+          className="mobile-toggle"
+        >
+          {mobileOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+          )}
+        </button>
       </div>
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav className="md:hidden bg-[#0C0C12] border-t border-white/[0.06] px-6 py-4">
-          {navLinks.map((link) => (
-            <div key={link.href}>
-              <Link
-                href={link.href}
-                className="block py-3 text-[15px] font-medium border-b border-white/[0.06] text-[#C0C0CC] hover:text-white"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-              {link.dropdown && (
-                <div className="pl-4 pb-2">
-                  {link.dropdown.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block py-2 text-[13px] text-[#8888A0] hover:text-[#D4A843]"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+        <div style={{ borderTop: '1px solid #222222', padding: '1rem 0', background: '#111111' }}>
+          <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <Link href="/" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/') ? '#D4A843' : '#e8e8e8' }}>Home</Link>
+            <div style={{ padding: '0.75rem 0' }}>
+              <div style={{ color: '#555555', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>Gear</div>
+              {productCategories.map(cat => (
+                <Link key={cat.slug} href={cat.href} onClick={() => setMobileOpen(false)} style={{ display: 'block', padding: '0.5rem 1rem', color: '#888888', fontSize: '0.875rem' }}>{cat.name}</Link>
+              ))}
             </div>
-          ))}
-        </nav>
+            <Link href="/blog" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/blog') ? '#D4A843' : '#e8e8e8' }}>Guides</Link>
+            <Link href="/services" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/services') ? '#D4A843' : '#e8e8e8' }}>Services</Link>
+            <Link href="/about" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/about') ? '#D4A843' : '#e8e8e8' }}>About</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} style={{ padding: '0.75rem', borderRadius: '6px', color: isActive('/contact') ? '#D4A843' : '#e8e8e8' }}>Contact</Link>
+          </div>
+        </div>
       )}
+
+      <style jsx>{`
+        .nav-link {
+          padding: 0.5rem 0.75rem;
+          font-size: 0.8125rem;
+          font-weight: 500;
+          color: #888888;
+          border-radius: 4px;
+          transition: all 0.15s;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        .nav-link:hover, .nav-link.active {
+          color: #D4A843;
+          background: rgba(212, 168, 67, 0.1);
+        }
+        @media (max-width: 1024px) {
+          .desktop-nav { display: none !important; }
+          .mobile-toggle { display: block !important; }
+        }
+      `}</style>
     </header>
   );
 }

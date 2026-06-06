@@ -1,29 +1,20 @@
-import type { Metadata } from 'next';
-import { Inter, DM_Sans } from 'next/font/google';
-import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' });
-
-export const metadata: Metadata = {
-  title: 'Superstar Soundz — Professional Audio Equipment, Reviews & Buying Guides',
-  description: 'Honest buying guides, expert reviews, and the best prices on studio monitors, headphones, DJ gear, and pro audio equipment.',
-  openGraph: {
-    title: 'Superstar Soundz — Professional Audio Equipment',
-    description: 'Honest buying guides, expert reviews, and the best prices on studio monitors, headphones, DJ gear, and pro audio equipment.',
-    type: 'website',
-    siteName: 'Superstar Soundz',
-  },
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSans.variable}`}>
+    <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Superstar Soundz — Professional Audio Equipment, Reviews & Buying Guides" />
+        <title>Superstar Soundz — Professional Audio Equipment, Reviews & Buying Guides</title>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body>
         <Header />
-        <main>{children}</main>
+        <main style={{ minHeight: 'calc(100vh - 64px)' }}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

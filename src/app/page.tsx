@@ -1,133 +1,134 @@
 import Link from 'next/link';
+import products from '@/data/products.json';
+import stats from '@/data/stats.json';
+import postCategories from '@/data/post-categories.json';
+import productCategories from '@/data/product-categories.json';
 
-const stats = [
-  { value: '23', label: 'Products' },
-  { value: '10', label: 'Categories' },
-  { value: '15', label: 'Brands' },
-  { value: '4', label: 'Continents' },
-];
-
-const categories = [
-  { name: 'Microphones', desc: 'Condenser, dynamic, ribbon', href: '/gear/microphones', emoji: '🎤' },
-  { name: 'Headphones', desc: 'Studio, DJ, audiophile', href: '/gear/headphones', emoji: '🎧' },
-  { name: 'Studio Monitors', desc: 'Hear every detail', href: '/gear/studio-monitors', emoji: '🔊' },
-  { name: 'DJ Controllers', desc: 'Mix and perform', href: '/gear/dj-controllers', emoji: '🎛️' },
-  { name: 'Audio Interfaces', desc: 'Record pristine audio', href: '/gear/audio-interfaces', emoji: '🎸' },
-  { name: 'PA Systems', desc: 'Powerful live sound', href: '/gear/pa-systems', emoji: '📢' },
-  { name: 'MIDI Controllers', desc: 'Keys, pads, and knobs', href: '/gear/midi-controllers', emoji: '🎹' },
-];
-
-const featuredProducts = [
-  { name: 'beyerdynamic DT 990 PRO', category: 'Headphones', price: '$199.99', href: '/gear/headphones', emoji: '🎧' },
-  { name: 'beyerdynamic DT 1770 PRO MKII', category: 'Headphones', price: '$649.99', href: '/gear/headphones', emoji: '🎧' },
-  { name: 'Behringer X32 Digital Mixer', category: 'Mixers', price: '$2,099', href: '/gear', emoji: '🎛️' },
-  { name: 'Focusrite Scarlett Solo 3rd Gen', category: 'Audio Interfaces', price: '$119.99', href: '/gear/audio-interfaces', emoji: '🎸' },
-  { name: 'Audio-Technica ATH-M50x', category: 'Headphones', price: '$179', href: '/gear/headphones', emoji: '🎧' },
-  { name: 'Pioneer DJ DDJ-FLX4', category: 'DJ Controllers', price: '$328.95', href: '/gear/dj-controllers', emoji: '🎛️' },
-];
+const categoryIcons: Record<string, string> = {
+  'Microphones': '🎤',
+  'Headphones and IEMs': '🎧',
+  'Studio Monitors': '🔊',
+  'Audio Interfaces': '🎸',
+  'DJ Controllers': '🎛️',
+  'Mixers': '🎚️',
+  'MIDI Controllers': '🎹',
+  'PA Systems': '📢',
+  'Keyboards and Synthesizers': '🎹',
+  'Turntables': '💿',
+};
 
 export default function HomePage() {
+  const featuredProducts = products.filter(p => p.featured).slice(0, 6);
+  const displayProducts = featuredProducts.length > 0 ? featuredProducts : products.slice(0, 6);
+
   return (
     <>
       {/* Hero */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
-        {/* Background glow */}
-        <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%)' }} />
-        <div className="container text-center relative">
-          <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[2.5px] uppercase text-[#D4A843] mb-5">
-            <span className="w-2 h-2 rounded-full bg-[#D4A843] animate-pulse" />
-            Trusted by Audio Professionals
-          </div>
-          <h1 className="font-bold mb-4 leading-[1.08]">
-            Professional Sound Gear<br />
-            <span className="gold-text">Curated For Pros</span>
-          </h1>
-          <p className="text-[#8888A0] text-lg max-w-[520px] mx-auto mb-8 leading-relaxed">
-            Honest buying guides, expert reviews, and the best prices on studio monitors, headphones, DJ gear, and pro audio equipment.
-          </p>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Link href="/gear" className="btn btn-primary btn-lg">
-              Shop All Gear
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </Link>
-            <Link href="/blog" className="btn btn-outline btn-lg">
-              Read Buying Guides
-            </Link>
+      <section className="hero">
+        <div className="container" style={{ position: 'relative', zIndex: 1, padding: '4rem 0' }}>
+          <div style={{ maxWidth: '700px' }}>
+            <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#D4A843', marginBottom: '1rem' }}>
+              Professional Audio Equipment
+            </p>
+            <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.25rem', letterSpacing: '-0.03em' }}>
+              Professional Sound Gear<br />
+              <span style={{ color: '#D4A843' }}>Curated For Pros</span>
+            </h1>
+            <p style={{ fontSize: '1.125rem', color: '#888888', marginBottom: '2rem', maxWidth: '500px', lineHeight: 1.6 }}>
+              Expert reviews, buying guides, and hand-picked audio equipment for musicians, DJs, producers, and audio engineers.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <Link href="/gear" className="btn-primary">Shop All Gear</Link>
+              <Link href="/blog" className="btn-secondary">Read Buying Guides</Link>
+            </div>
           </div>
         </div>
       </section>
-
-      <hr className="divider" />
 
       {/* Stats */}
-      <section className="py-12">
+      <section style={{ padding: '0' }}>
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <div className="text-3xl md:text-4xl font-bold text-[#D4A843] mb-1">{stat.value}</div>
-                <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-[#8888A0]">{stat.label}</div>
-              </div>
-            ))}
+          <div className="stats-bar">
+            <div className="stat-item">
+              <div className="stat-number">{stats.products}</div>
+              <div className="stat-label">Products</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">{stats.categories}</div>
+              <div className="stat-label">Categories</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">{stats.brands}</div>
+              <div className="stat-label">Brands</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">{stats.posts}</div>
+              <div className="stat-label">Buying Guides</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <hr className="divider" />
-
-      {/* Categories */}
-      <section className="section">
+      {/* Shop by Category */}
+      <section className="section" style={{ paddingTop: '4rem' }}>
         <div className="container">
-          <div className="section-header">
-            <span className="section-label">Browse</span>
-            <h2 className="section-title">Shop by Category</h2>
-            <p className="section-desc">Find the perfect gear for your setup — from studio to stage</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
+            <div>
+              <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#D4A843', marginBottom: '0.5rem' }}>Browse</p>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Shop by Category</h2>
+            </div>
+            <Link href="/gear" style={{ fontSize: '0.8125rem', color: '#D4A843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              View All →
+            </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {categories.map((cat) => (
-              <Link
-                key={cat.name}
-                href={cat.href}
-                className="card p-6 group"
-              >
-                <div className="text-3xl mb-3">{cat.emoji}</div>
-                <h3 className="text-lg font-bold mb-1 group-hover:text-[#D4A843] transition-colors">{cat.name}</h3>
-                <p className="text-[#8888A0] text-sm mb-3">{cat.desc}</p>
-                <span className="text-[#D4A843] text-sm font-semibold inline-flex items-center gap-1">
-                  Browse →
-                </span>
+          <div className="grid-4">
+            {productCategories.map(cat => (
+              <Link key={cat.slug} href={`/gear?cat=${cat.slug}`} className="card" style={{ padding: '1.5rem', display: 'block' }}>
+                <div style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>
+                  {categoryIcons[cat.name] || '🔊'}
+                </div>
+                <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.25rem' }}>{cat.name}</h3>
+                <p style={{ fontSize: '0.75rem', color: '#555555' }}>{cat.count} product{cat.count !== 1 ? 's' : ''}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <hr className="divider" />
-
       {/* Featured Gear */}
-      <section className="section">
+      <section className="section" style={{ background: '#111111' }}>
         <div className="container">
-          <div className="section-header">
-            <span className="section-label">Top Picks</span>
-            <h2 className="section-title">Featured Gear</h2>
-            <p className="section-desc">Hand-picked by our audio engineers — the best gear at every budget</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
+            <div>
+              <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#D4A843', marginBottom: '0.5rem' }}>Top Picks</p>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Featured Gear</h2>
+            </div>
+            <Link href="/gear" style={{ fontSize: '0.8125rem', color: '#D4A843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              View All →
+            </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProducts.map((product) => (
-              <Link
-                key={product.name}
-                href={product.href}
-                className="card group"
-              >
-                <div className="aspect-square bg-gradient-to-br from-[#12121C] to-[#0C0C12] flex items-center justify-center text-5xl">
-                  {product.emoji}
+          <div className="grid-3">
+            {displayProducts.map(product => (
+              <Link key={product.id} href={`/gear/${product.slug}`} className="card product-card">
+                <div className="product-card-image">
+                  {product.image ? (
+                    <img src={product.image} alt={product.short_name} loading="lazy" />
+                  ) : (
+                    <div style={{ color: '#555555', fontSize: '0.75rem' }}>No Image</div>
+                  )}
                 </div>
-                <div className="p-5">
-                  <span className="text-[10px] font-bold tracking-[1.5px] uppercase text-[#D4A843]">{product.category}</span>
-                  <h3 className="text-base font-bold mt-1 mb-2 group-hover:text-[#D4A843] transition-colors leading-tight">{product.name}</h3>
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-white">{product.price}</span>
-                    <span className="btn btn-primary text-xs py-2 px-4">View Deal</span>
+                <div style={{ padding: '1rem' }}>
+                  <p style={{ fontSize: '0.6875rem', color: '#D4A843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>
+                    {product.categories[0]?.replace('Shop: ', '') || 'Gear'}
+                  </p>
+                  <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {product.short_name}
+                  </h3>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontSize: '1rem', fontWeight: 700, color: '#D4A843' }}>${product.price}</span>
+                    <span style={{ fontSize: '0.6875rem', color: '#555555', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      View Deal →
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -136,20 +137,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      <hr className="divider" />
-
-      {/* CTA */}
+      {/* Buying Guides */}
       <section className="section">
         <div className="container">
-          <div className="text-center py-16 px-8 rounded-2xl border border-[rgba(212,168,67,0.15)]" style={{ background: 'linear-gradient(135deg, rgba(212,168,67,0.08), rgba(212,168,67,0.02))' }}>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Find Your Perfect Sound</h2>
-            <p className="text-[#8888A0] max-w-[480px] mx-auto mb-8 leading-relaxed">
-              Whether you&apos;re building a home studio or upgrading your live setup, we&apos;ve got the gear and guides to help you decide.
-            </p>
-            <div className="flex items-center justify-center gap-4 flex-wrap">
-              <Link href="/gear" className="btn btn-primary btn-lg">Shop All Gear</Link>
-              <Link href="/blog" className="btn btn-outline btn-lg">Read Guides</Link>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
+            <div>
+              <p style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#D4A843', marginBottom: '0.5rem' }}>Learn</p>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Buying Guides</h2>
             </div>
+            <Link href="/blog" style={{ fontSize: '0.8125rem', color: '#D4A843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              All Guides →
+            </Link>
+          </div>
+          <div className="grid-3">
+            {postCategories.filter(c => c.count > 0).slice(0, 6).map(cat => (
+              <Link key={cat.slug} href="/blog" className="card" style={{ padding: '1.5rem', display: 'block' }}>
+                <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.375rem' }}>{cat.name}</h3>
+                <p style={{ fontSize: '0.75rem', color: '#555555' }}>{cat.count} guide{cat.count !== 1 ? 's' : ''}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section" style={{ background: '#111111' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem' }}>Find Your Perfect Sound</h2>
+          <p style={{ color: '#888888', marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
+            Browse {stats.products}+ professional audio products across {stats.categories} categories, or read our expert buying guides.
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/gear" className="btn-primary">Shop All Gear</Link>
+            <Link href="/blog" className="btn-secondary">Read Guides</Link>
           </div>
         </div>
       </section>
