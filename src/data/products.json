@@ -366,5 +366,1189 @@
     "external_url": "https://www.amazon.com/dp/B00HVLUR86/",
     "in_stock": true,
     "featured": false
+  },
+  {
+    "id": 584,
+    "name": "Numark DJ2GO2 Touch Compact DJ Controller with 2 Decks, Mixer, Audio Interface and Serato Lite",
+    "short_name": "Numark DJ2GO2 Touch Compact DJ",
+    "slug": "b082l3xqgr",
+    "price": "89",
+    "image": "/images/products/B082L3XQGR.jpg",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Take your mix anywhere with the Numark DJ2GO2 Touch \u2013 a compact and portable DJ controller designed for mobile DJs, beginners, and performers in need of a reliable secondary setup. This 2-deck USB controller includes a built-in audio interface, to...",
+    "description": "Take your mix anywhere with the Numark DJ2GO2 Touch \u2013 a compact and portable DJ controller designed for mobile DJs, beginners, and performers in need of a reliable secondary setup. This 2-deck USB controller includes a built-in audio interface, to...",
+    "external_url": "https://www.amazon.com/dp/B082L3XQGR/?tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 585,
+    "name": "Yamaha HS5 Powered Studio Monitor",
+    "short_name": "Yamaha HS5",
+    "slug": "yamaha-hs5",
+    "price": "199.00",
+    "image": "",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Professional Yamaha HS5 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Yamaha%20HS5&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 586,
+    "name": "Yamaha HS8 Powered Studio Monitor",
+    "short_name": "Yamaha HS8",
+    "slug": "yamaha-hs8",
+    "price": "399.00",
+    "image": "",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Professional Yamaha HS8 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Yamaha%20HS8&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 587,
+    "name": "JBL 305P MkII Studio Monitor (Pair)",
+    "short_name": "JBL 305P MkII",
+    "slug": "jbl-305p-mkii",
+    "price": "239.00",
+    "image": "",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Professional JBL 305P MkII for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=JBL%20305P%20MkII&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 588,
+    "name": "JBL 308P MkII Studio Monitor (Pair)",
+    "short_name": "JBL 308P MkII",
+    "slug": "jbl-308p-mkii",
+    "price": "499.00",
+    "image": "",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Professional JBL 308P MkII for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=JBL%20308P%20MkII&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 589,
+    "name": "KRK Rokit 5 G4 Studio Monitor (Pair)",
+    "short_name": "KRK Rokit 5 G4",
+    "slug": "krk-rokit-5-g4",
+    "price": "299.00",
+    "image": "",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Professional KRK Rokit 5 G4 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=KRK%20Rokit%205%20G4&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 590,
+    "name": "Adam Audio T5V Studio Monitor (Pair)",
+    "short_name": "Adam Audio T5V",
+    "slug": "adam-audio-t5v",
+    "price": "349.00",
+    "image": "",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Professional Adam Audio T5V for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Adam%20Audio%20T5V&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 591,
+    "name": "PreSonus Eris E5 XT Studio Monitor (Pair)",
+    "short_name": "PreSonus Eris E5 XT",
+    "slug": "presonus-eris-e5-xt",
+    "price": "399.00",
+    "image": "",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Professional PreSonus Eris E5 XT for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=PreSonus%20Eris%20E5%20XT&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 592,
+    "name": "Genelec 8030C Studio Monitor (Pair)",
+    "short_name": "Genelec 8030C",
+    "slug": "genelec-8030c",
+    "price": "1199.00",
+    "image": "",
+    "categories": [
+      "Shop: Studio Monitors"
+    ],
+    "short_description": "Professional Genelec 8030C for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Genelec%208030C&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 593,
+    "name": "Focusrite Scarlett 2i2 4th Gen USB-C",
+    "short_name": "Scarlett 2i2 4th Gen",
+    "slug": "scarlett-2i2-4th-gen",
+    "price": "169.00",
+    "image": "",
+    "categories": [
+      "Shop: Audio Interfaces"
+    ],
+    "short_description": "Professional Scarlett 2i2 4th Gen for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Scarlett%202i2%204th%20Gen&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 594,
+    "name": "Focusrite Scarlett 4i4 4th Gen USB-C",
+    "short_name": "Scarlett 4i4 4th Gen",
+    "slug": "scarlett-4i4-4th-gen",
+    "price": "249.00",
+    "image": "",
+    "categories": [
+      "Shop: Audio Interfaces"
+    ],
+    "short_description": "Professional Scarlett 4i4 4th Gen for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Scarlett%204i4%204th%20Gen&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 595,
+    "name": "Focusrite Clarett+ 2Pre USB",
+    "short_name": "Clarett+ 2Pre",
+    "slug": "clarett-2pre",
+    "price": "499.00",
+    "image": "",
+    "categories": [
+      "Shop: Audio Interfaces"
+    ],
+    "short_description": "Professional Clarett+ 2Pre for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Clarett%2B%202Pre&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 596,
+    "name": "Universal Audio Volt 2 USB Interface",
+    "short_name": "UA Volt 2",
+    "slug": "ua-volt-2",
+    "price": "189.00",
+    "image": "",
+    "categories": [
+      "Shop: Audio Interfaces"
+    ],
+    "short_description": "Professional UA Volt 2 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=UA%20Volt%202&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 597,
+    "name": "Audient iD14 MkII USB-C Interface",
+    "short_name": "Audient iD14 MkII",
+    "slug": "audient-id14-mkii",
+    "price": "299.00",
+    "image": "",
+    "categories": [
+      "Shop: Audio Interfaces"
+    ],
+    "short_description": "Professional Audient iD14 MkII for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Audient%20iD14%20MkII&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 598,
+    "name": "MOTU M4 USB-C Audio Interface",
+    "short_name": "MOTU M4",
+    "slug": "motu-m4",
+    "price": "249.00",
+    "image": "",
+    "categories": [
+      "Shop: Audio Interfaces"
+    ],
+    "short_description": "Professional MOTU M4 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=MOTU%20M4&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 599,
+    "name": "SSL 2+ MkII USB Audio Interface",
+    "short_name": "SSL 2+ MkII",
+    "slug": "ssl-2-mkii",
+    "price": "279.00",
+    "image": "",
+    "categories": [
+      "Shop: Audio Interfaces"
+    ],
+    "short_description": "Professional SSL 2+ MkII for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=SSL%202%2B%20MkII&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 600,
+    "name": "RME Babyface Pro FS USB Interface",
+    "short_name": "RME Babyface Pro FS",
+    "slug": "rme-babyface-pro-fs",
+    "price": "899.00",
+    "image": "",
+    "categories": [
+      "Shop: Audio Interfaces"
+    ],
+    "short_description": "Professional RME Babyface Pro FS for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=RME%20Babyface%20Pro%20FS&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 601,
+    "name": "Sennheiser HD 600 Open-Back Headphones",
+    "short_name": "Sennheiser HD 600",
+    "slug": "sennheiser-hd-600",
+    "price": "399.00",
+    "image": "",
+    "categories": [
+      "Shop: Headphones"
+    ],
+    "short_description": "Professional Sennheiser HD 600 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Sennheiser%20HD%20600&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 602,
+    "name": "Sony MDR-7506 Studio Headphones",
+    "short_name": "Sony MDR-7506",
+    "slug": "sony-mdr-7506",
+    "price": "89.00",
+    "image": "",
+    "categories": [
+      "Shop: Headphones"
+    ],
+    "short_description": "Professional Sony MDR-7506 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Sony%20MDR-7506&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 603,
+    "name": "Sennheiser HD 25 Plus DJ Headphones",
+    "short_name": "Sennheiser HD 25 Plus",
+    "slug": "sennheiser-hd-25-plus",
+    "price": "149.00",
+    "image": "",
+    "categories": [
+      "Shop: Headphones"
+    ],
+    "short_description": "Professional Sennheiser HD 25 Plus for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Sennheiser%20HD%2025%20Plus&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 604,
+    "name": "Austrian Audio Hi-X55 Headphones",
+    "short_name": "Austrian Audio Hi-X55",
+    "slug": "austrian-audio-hi-x55",
+    "price": "149.00",
+    "image": "",
+    "categories": [
+      "Shop: Headphones"
+    ],
+    "short_description": "Professional Austrian Audio Hi-X55 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Austrian%20Audio%20Hi-X55&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 605,
+    "name": "Rode NTH-100 Professional Headphones",
+    "short_name": "Rode NTH-100",
+    "slug": "rode-nth-100",
+    "price": "149.00",
+    "image": "",
+    "categories": [
+      "Shop: Headphones"
+    ],
+    "short_description": "Professional Rode NTH-100 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Rode%20NTH-100&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 606,
+    "name": "Pioneer HDJ-X10 DJ Headphones",
+    "short_name": "Pioneer HDJ-X10",
+    "slug": "pioneer-hdj-x10",
+    "price": "299.00",
+    "image": "",
+    "categories": [
+      "Shop: Headphones"
+    ],
+    "short_description": "Professional Pioneer HDJ-X10 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Pioneer%20HDJ-X10&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 607,
+    "name": "Focal Bathys Wireless Headphones",
+    "short_name": "Focal Bathys",
+    "slug": "focal-bathys",
+    "price": "699.00",
+    "image": "",
+    "categories": [
+      "Shop: Headphones"
+    ],
+    "short_description": "Professional Focal Bathys for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Focal%20Bathys&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 608,
+    "name": "Shure SRH940 Professional Headphones",
+    "short_name": "Shure SRH940",
+    "slug": "shure-srh940",
+    "price": "299.00",
+    "image": "",
+    "categories": [
+      "Shop: Headphones"
+    ],
+    "short_description": "Professional Shure SRH940 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Shure%20SRH940&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 609,
+    "name": "Shure SM58 Dynamic Vocal Microphone",
+    "short_name": "Shure SM58",
+    "slug": "shure-sm58",
+    "price": "99.00",
+    "image": "",
+    "categories": [
+      "Shop: Microphones"
+    ],
+    "short_description": "Professional Shure SM58 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Shure%20SM58&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 610,
+    "name": "Shure SM7dB Dynamic Vocal Microphone",
+    "short_name": "Shure SM7dB",
+    "slug": "shure-sm7db",
+    "price": "399.00",
+    "image": "",
+    "categories": [
+      "Shop: Microphones"
+    ],
+    "short_description": "Professional Shure SM7dB for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Shure%20SM7dB&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 611,
+    "name": "Rode NT1 5th Generation Condenser Microphone",
+    "short_name": "Rode NT1 5th Gen",
+    "slug": "rode-nt1-5th-gen",
+    "price": "249.00",
+    "image": "",
+    "categories": [
+      "Shop: Microphones"
+    ],
+    "short_description": "Professional Rode NT1 5th Gen for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Rode%20NT1%205th%20Gen&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 612,
+    "name": "Rode NT2-A Large Diaphragm Condenser",
+    "short_name": "Rode NT2-A",
+    "slug": "rode-nt2-a",
+    "price": "399.00",
+    "image": "",
+    "categories": [
+      "Shop: Microphones"
+    ],
+    "short_description": "Professional Rode NT2-A for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Rode%20NT2-A&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 613,
+    "name": "Electro-Voice RE20 Broadcast Microphone",
+    "short_name": "EV RE20",
+    "slug": "ev-re20",
+    "price": "449.00",
+    "image": "",
+    "categories": [
+      "Shop: Microphones"
+    ],
+    "short_description": "Professional EV RE20 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=EV%20RE20&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 614,
+    "name": "Warm Audio WA-47 Tube Condenser Microphone",
+    "short_name": "Warm Audio WA-47",
+    "slug": "warm-audio-wa-47",
+    "price": "899.00",
+    "image": "",
+    "categories": [
+      "Shop: Microphones"
+    ],
+    "short_description": "Professional Warm Audio WA-47 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Warm%20Audio%20WA-47&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 615,
+    "name": "sE Electronics sE2200 Condenser Microphone",
+    "short_name": "sE2200",
+    "slug": "se2200",
+    "price": "299.00",
+    "image": "",
+    "categories": [
+      "Shop: Microphones"
+    ],
+    "short_description": "Professional sE2200 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=sE2200&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 616,
+    "name": "Blue Yeti X USB Microphone",
+    "short_name": "Blue Yeti X",
+    "slug": "blue-yeti-x",
+    "price": "149.00",
+    "image": "",
+    "categories": [
+      "Shop: Microphones"
+    ],
+    "short_description": "Professional Blue Yeti X for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Blue%20Yeti%20X&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 617,
+    "name": "Fender Blues Junior IV 1x12 Tube Combo",
+    "short_name": "Fender Blues Junior IV",
+    "slug": "fender-blues-junior-iv",
+    "price": "699.00",
+    "image": "",
+    "categories": [
+      "Shop: Guitar Amps"
+    ],
+    "short_description": "Professional Fender Blues Junior IV for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Fender%20Blues%20Junior%20IV&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 618,
+    "name": "Fender Mustang GTX100 1x12 Modeling Combo",
+    "short_name": "Fender Mustang GTX100",
+    "slug": "fender-mustang-gtx100",
+    "price": "249.00",
+    "image": "",
+    "categories": [
+      "Shop: Guitar Amps"
+    ],
+    "short_description": "Professional Fender Mustang GTX100 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Fender%20Mustang%20GTX100&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 619,
+    "name": "Boss Katana-100 MkII 1x12 Solid-State Combo",
+    "short_name": "Boss Katana-100 MkII",
+    "slug": "boss-katana-100-mkii",
+    "price": "249.00",
+    "image": "",
+    "categories": [
+      "Shop: Guitar Amps"
+    ],
+    "short_description": "Professional Boss Katana-100 MkII for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Boss%20Katana-100%20MkII&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 620,
+    "name": "Vox AC15C1 1x12 Tube Combo",
+    "short_name": "Vox AC15C1",
+    "slug": "vox-ac15c1",
+    "price": "899.00",
+    "image": "",
+    "categories": [
+      "Shop: Guitar Amps"
+    ],
+    "short_description": "Professional Vox AC15C1 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Vox%20AC15C1&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 621,
+    "name": "Marshall DSL40CR 1x12 Tube Combo",
+    "short_name": "Marshall DSL40CR",
+    "slug": "marshall-dsl40cr",
+    "price": "749.00",
+    "image": "",
+    "categories": [
+      "Shop: Guitar Amps"
+    ],
+    "short_description": "Professional Marshall DSL40CR for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Marshall%20DSL40CR&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 622,
+    "name": "Orange Rocker 15 1x10 Tube Combo",
+    "short_name": "Orange Rocker 15",
+    "slug": "orange-rocker-15",
+    "price": "799.00",
+    "image": "",
+    "categories": [
+      "Shop: Guitar Amps"
+    ],
+    "short_description": "Professional Orange Rocker 15 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Orange%20Rocker%2015&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 623,
+    "name": "Fender American Professional II Stratocaster",
+    "short_name": "Fender AmPro II Strat",
+    "slug": "fender-ampro-ii-strat",
+    "price": "1699.00",
+    "image": "",
+    "categories": [
+      "Shop: Electric Guitars"
+    ],
+    "short_description": "Professional Fender AmPro II Strat for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Fender%20AmPro%20II%20Strat&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 624,
+    "name": "Fender Player Stratocaster HSS",
+    "short_name": "Fender Player Strat HSS",
+    "slug": "fender-player-strat-hss",
+    "price": "849.00",
+    "image": "",
+    "categories": [
+      "Shop: Electric Guitars"
+    ],
+    "short_description": "Professional Fender Player Strat HSS for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Fender%20Player%20Strat%20HSS&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 625,
+    "name": "Gibson Les Paul Standard '50s",
+    "short_name": "Gibson Les Paul '50s",
+    "slug": "gibson-les-paul-50s",
+    "price": "2499.00",
+    "image": "",
+    "categories": [
+      "Shop: Electric Guitars"
+    ],
+    "short_description": "Professional Gibson Les Paul '50s for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Gibson%20Les%20Paul%20%2750s&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 626,
+    "name": "PRS SE Custom 24 Electric Guitar",
+    "short_name": "PRS SE Custom 24",
+    "slug": "prs-se-custom-24",
+    "price": "649.00",
+    "image": "",
+    "categories": [
+      "Shop: Electric Guitars"
+    ],
+    "short_description": "Professional PRS SE Custom 24 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=PRS%20SE%20Custom%2024&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 627,
+    "name": "Ibanez RG550 Electric Guitar",
+    "short_name": "Ibanez RG550",
+    "slug": "ibanez-rg550",
+    "price": "999.00",
+    "image": "",
+    "categories": [
+      "Shop: Electric Guitars"
+    ],
+    "short_description": "Professional Ibanez RG550 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Ibanez%20RG550&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 628,
+    "name": "Squier Classic Vibe '50s Telecaster",
+    "short_name": "Squier CV '50s Tele",
+    "slug": "squier-cv-50s-tele",
+    "price": "429.00",
+    "image": "",
+    "categories": [
+      "Shop: Electric Guitars"
+    ],
+    "short_description": "Professional Squier CV '50s Tele for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Squier%20CV%20%2750s%20Tele&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 629,
+    "name": "Fender American Professional II Precision Bass",
+    "short_name": "Fender AmPro II P-Bass",
+    "slug": "fender-ampro-ii-p-bass",
+    "price": "1699.00",
+    "image": "",
+    "categories": [
+      "Shop: Bass Guitars"
+    ],
+    "short_description": "Professional Fender AmPro II P-Bass for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Fender%20AmPro%20II%20P-Bass&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 630,
+    "name": "Squier Classic Vibe '70s Jazz Bass Active",
+    "short_name": "Squier CV '70s Jazz Bass",
+    "slug": "squier-cv-70s-jazz-bass",
+    "price": "449.00",
+    "image": "",
+    "categories": [
+      "Shop: Bass Guitars"
+    ],
+    "short_description": "Professional Squier CV '70s Jazz Bass for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Squier%20CV%20%2770s%20Jazz%20Bass&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 631,
+    "name": "Ibanez SR500E Bass Guitar",
+    "short_name": "Ibanez SR500E",
+    "slug": "ibanez-sr500e",
+    "price": "399.00",
+    "image": "",
+    "categories": [
+      "Shop: Bass Guitars"
+    ],
+    "short_description": "Professional Ibanez SR500E for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Ibanez%20SR500E&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 632,
+    "name": "Yamaha BB434 Bass Guitar",
+    "short_name": "Yamaha BB434",
+    "slug": "yamaha-bb434",
+    "price": "549.00",
+    "image": "",
+    "categories": [
+      "Shop: Bass Guitars"
+    ],
+    "short_description": "Professional Yamaha BB434 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Yamaha%20BB434&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 633,
+    "name": "Sire Marcus Miller V3P 4-String",
+    "short_name": "Sire Marcus Miller V3P",
+    "slug": "sire-marcus-miller-v3p",
+    "price": "499.00",
+    "image": "",
+    "categories": [
+      "Shop: Bass Guitars"
+    ],
+    "short_description": "Professional Sire Marcus Miller V3P for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Sire%20Marcus%20Miller%20V3P&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 634,
+    "name": "Rickenbacker 4003 Bass Guitar",
+    "short_name": "Rickenbacker 4003",
+    "slug": "rickenbacker-4003",
+    "price": "2199.00",
+    "image": "",
+    "categories": [
+      "Shop: Bass Guitars"
+    ],
+    "short_description": "Professional Rickenbacker 4003 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Rickenbacker%204003&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 635,
+    "name": "Martin D-28 Dreadnought Acoustic Guitar",
+    "short_name": "Martin D-28",
+    "slug": "martin-d-28",
+    "price": "2999.00",
+    "image": "",
+    "categories": [
+      "Shop: Acoustic Guitars"
+    ],
+    "short_description": "Professional Martin D-28 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Martin%20D-28&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 636,
+    "name": "Taylor 314ce Grand Auditorium Acoustic",
+    "short_name": "Taylor 314ce",
+    "slug": "taylor-314ce",
+    "price": "1099.00",
+    "image": "",
+    "categories": [
+      "Shop: Acoustic Guitars"
+    ],
+    "short_description": "Professional Taylor 314ce for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Taylor%20314ce&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 637,
+    "name": "Yamaha FG800 Dreadnought Acoustic",
+    "short_name": "Yamaha FG800",
+    "slug": "yamaha-fg800",
+    "price": "229.00",
+    "image": "",
+    "categories": [
+      "Shop: Acoustic Guitars"
+    ],
+    "short_description": "Professional Yamaha FG800 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Yamaha%20FG800&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 638,
+    "name": "Fender FA-115CE Dreadnought Acoustic",
+    "short_name": "Fender FA-115CE",
+    "slug": "fender-fa-115ce",
+    "price": "179.00",
+    "image": "",
+    "categories": [
+      "Shop: Acoustic Guitars"
+    ],
+    "short_description": "Professional Fender FA-115CE for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Fender%20FA-115CE&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 639,
+    "name": "Gibson J-45 Standard Acoustic",
+    "short_name": "Gibson J-45 Standard",
+    "slug": "gibson-j-45-standard",
+    "price": "2499.00",
+    "image": "",
+    "categories": [
+      "Shop: Acoustic Guitars"
+    ],
+    "short_description": "Professional Gibson J-45 Standard for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Gibson%20J-45%20Standard&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 640,
+    "name": "Seagull S6 Original Acoustic Guitar",
+    "short_name": "Seagull S6 Original",
+    "slug": "seagull-s6-original",
+    "price": "499.00",
+    "image": "",
+    "categories": [
+      "Shop: Acoustic Guitars"
+    ],
+    "short_description": "Professional Seagull S6 Original for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Seagull%20S6%20Original&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 641,
+    "name": "Pioneer DJM-900NXS2 DJ Mixer",
+    "short_name": "Pioneer DJM-900NXS2",
+    "slug": "pioneer-djm-900nxs2",
+    "price": "2199.00",
+    "image": "",
+    "categories": [
+      "Shop: DJ Mixers"
+    ],
+    "short_description": "Professional Pioneer DJM-900NXS2 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Pioneer%20DJM-900NXS2&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 642,
+    "name": "Pioneer DJM-750MK2 DJ Mixer",
+    "short_name": "Pioneer DJM-750MK2",
+    "slug": "pioneer-djm-750mk2",
+    "price": "1199.00",
+    "image": "",
+    "categories": [
+      "Shop: DJ Mixers"
+    ],
+    "short_description": "Professional Pioneer DJM-750MK2 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Pioneer%20DJM-750MK2&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 643,
+    "name": "Allen & Heath Xone:23 DJ Mixer",
+    "short_name": "Allen & Heath Xone:23",
+    "slug": "allen-heath-xone-23",
+    "price": "499.00",
+    "image": "",
+    "categories": [
+      "Shop: DJ Mixers"
+    ],
+    "short_description": "Professional Allen & Heath Xone:23 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Allen%20%26%20Heath%20Xone%3A23&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 644,
+    "name": "Pioneer DJM-250MK2 DJ Mixer",
+    "short_name": "Pioneer DJM-250MK2",
+    "slug": "pioneer-djm-250mk2",
+    "price": "699.00",
+    "image": "",
+    "categories": [
+      "Shop: DJ Mixers"
+    ],
+    "short_description": "Professional Pioneer DJM-250MK2 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Pioneer%20DJM-250MK2&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 645,
+    "name": "Rane Seventy DJ Mixer",
+    "short_name": "Rane Seventy",
+    "slug": "rane-seventy",
+    "price": "1499.00",
+    "image": "",
+    "categories": [
+      "Shop: DJ Mixers"
+    ],
+    "short_description": "Professional Rane Seventy for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Rane%20Seventy&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 646,
+    "name": "QSC K12.2 Active PA Speaker",
+    "short_name": "QSC K12.2",
+    "slug": "qsc-k12-2",
+    "price": "799.00",
+    "image": "",
+    "categories": [
+      "Shop: PA Systems"
+    ],
+    "short_description": "Professional QSC K12.2 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=QSC%20K12.2&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 647,
+    "name": "JBL EON715 Active PA Speaker",
+    "short_name": "JBL EON715",
+    "slug": "jbl-eon715",
+    "price": "499.00",
+    "image": "",
+    "categories": [
+      "Shop: PA Systems"
+    ],
+    "short_description": "Professional JBL EON715 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=JBL%20EON715&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 648,
+    "name": "Electro-Voice ZLX-15BT Active PA Speaker",
+    "short_name": "EV ZLX-15BT",
+    "slug": "ev-zlx-15bt",
+    "price": "449.00",
+    "image": "",
+    "categories": [
+      "Shop: PA Systems"
+    ],
+    "short_description": "Professional EV ZLX-15BT for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=EV%20ZLX-15BT&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 649,
+    "name": "Bose S1 Pro+ Portable PA System",
+    "short_name": "Bose S1 Pro+",
+    "slug": "bose-s1-pro",
+    "price": "599.00",
+    "image": "",
+    "categories": [
+      "Shop: PA Systems"
+    ],
+    "short_description": "Professional Bose S1 Pro+ for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Bose%20S1%20Pro%2B&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 650,
+    "name": "Yamaha DXR12mkII Powered PA Speaker",
+    "short_name": "Yamaha DXR12mkII",
+    "slug": "yamaha-dxr12mkii",
+    "price": "699.00",
+    "image": "",
+    "categories": [
+      "Shop: PA Systems"
+    ],
+    "short_description": "Professional Yamaha DXR12mkII for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Yamaha%20DXR12mkII&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 651,
+    "name": "RCF ART 935-A Active PA Speaker",
+    "short_name": "RCF ART 935-A",
+    "slug": "rcf-art-935-a",
+    "price": "899.00",
+    "image": "",
+    "categories": [
+      "Shop: PA Systems"
+    ],
+    "short_description": "Professional RCF ART 935-A for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=RCF%20ART%20935-A&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 652,
+    "name": "Moog Subsequent 37 Synthesizer",
+    "short_name": "Moog Subsequent 37",
+    "slug": "moog-subsequent-37",
+    "price": "1499.00",
+    "image": "",
+    "categories": [
+      "Shop: Synthesizers & Keyboards"
+    ],
+    "short_description": "Professional Moog Subsequent 37 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Moog%20Subsequent%2037&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 653,
+    "name": "Korg Minilogue XD Synthesizer",
+    "short_name": "Korg Minilogue XD",
+    "slug": "korg-minilogue-xd",
+    "price": "649.00",
+    "image": "",
+    "categories": [
+      "Shop: Synthesizers & Keyboards"
+    ],
+    "short_description": "Professional Korg Minilogue XD for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Korg%20Minilogue%20XD&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 654,
+    "name": "Sequential Prophet-6 Synthesizer",
+    "short_name": "Sequential Prophet-6",
+    "slug": "sequential-prophet-6",
+    "price": "2799.00",
+    "image": "",
+    "categories": [
+      "Shop: Synthesizers & Keyboards"
+    ],
+    "short_description": "Professional Sequential Prophet-6 for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Sequential%20Prophet-6&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 655,
+    "name": "Arturia MicroFreak Synthesizer",
+    "short_name": "Arturia MicroFreak",
+    "slug": "arturia-microfreak",
+    "price": "299.00",
+    "image": "",
+    "categories": [
+      "Shop: Synthesizers & Keyboards"
+    ],
+    "short_description": "Professional Arturia MicroFreak for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Arturia%20MicroFreak&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 656,
+    "name": "Novation Peak Synthesizer",
+    "short_name": "Novation Peak",
+    "slug": "novation-peak",
+    "price": "1299.00",
+    "image": "",
+    "categories": [
+      "Shop: Synthesizers & Keyboards"
+    ],
+    "short_description": "Professional Novation Peak for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=Novation%20Peak&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
+  },
+  {
+    "id": 657,
+    "name": "Teenage Engineering OP-1 Field",
+    "short_name": "TE OP-1 Field",
+    "slug": "te-op-1-field",
+    "price": "1999.00",
+    "image": "",
+    "categories": [
+      "Shop: Synthesizers & Keyboards"
+    ],
+    "short_description": "Professional TE OP-1 Field for studio and stage use.",
+    "description": "",
+    "external_url": "https://www.amazon.com/s?k=TE%20OP-1%20Field&tag=ghettosuper02-20",
+    "in_stock": true,
+    "featured": false
   }
 ]
