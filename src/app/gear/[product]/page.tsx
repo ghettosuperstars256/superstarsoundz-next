@@ -3,12 +3,12 @@ import Link from 'next/link';
 import products from '@/data/products.json';
 import type { Metadata } from 'next';
 
-interface Props { params: { slug: string } };
+interface Props { params: { product: string } };
 
 export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = products.find(p => p.slug === params.slug);
+  const product = products.find(p => p.slug === params.product);
   if (!product) return { title: 'Product Not Found' };
   return {
     title: `${product.short_name} — $${product.price} | Superstar Soundz`,
@@ -22,11 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return products.map(p => ({ slug: p.slug }));
+  return products.map(p => ({ product: p.slug }));
 }
 
 export default function ProductPage({ params }: Props) {
-  const product = products.find(p => p.slug === params.slug);
+  const product = products.find(p => p.slug === params.product);
   if (!product) notFound();
 
   const related = products.filter(p => p.id !== product.id && p.categories.some(c => product.categories.includes(c))).slice(0, 4);
