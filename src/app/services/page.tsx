@@ -3,8 +3,10 @@ import Link from 'next/link';
 const services = [
   {
     id: 'dj-services',
+    number: '01',
     title: 'Professional DJ Services',
     subtitle: 'The Right DJ Equipment for Every Event',
+    icon: '🎧',
     content: `
       <p>Whether you're planning an intimate birthday celebration or a massive outdoor festival, the right DJ setup makes all the difference. We review and recommend the gear that professional DJs rely on to deliver unforgettable performances.</p>
 
@@ -69,8 +71,10 @@ const services = [
   },
   {
     id: 'audio-services',
+    number: '02',
     title: 'Professional Audio Services',
     subtitle: 'Sound Systems & Audio Equipment Reviews',
+    icon: '🔊',
     content: `
       <p>Crystal-clear audio is the backbone of any successful event. We test and review the sound equipment that audio engineers and event organizers trust — from compact portable PA systems to full-scale concert rigs.</p>
 
@@ -130,8 +134,10 @@ const services = [
   },
   {
     id: 'lighting',
+    number: '03',
     title: 'Lighting & Visual Solutions',
     subtitle: 'Stage Lighting, Effects & Visual Equipment Reviews',
+    icon: '💡',
     content: `
       <p>Lighting transforms a good event into a spectacular one. We review the lighting and visual equipment that creates atmosphere, directs attention, and elevates the entire experience.</p>
 
@@ -158,8 +164,10 @@ const services = [
   },
   {
     id: 'event-planning',
+    number: '04',
     title: 'Creative Event Planning',
     subtitle: 'Event Planning Resources & Equipment Guides',
+    icon: '📋',
     content: `
       <p>Great events don't happen by accident — they're planned with precision. We provide the gear knowledge and technical insights that event planners need to execute flawlessly.</p>
 
@@ -175,8 +183,10 @@ const services = [
   },
   {
     id: 'mc-host',
+    number: '05',
     title: 'Professional MC & Entertainment Services',
     subtitle: 'MC Equipment & Performance Gear Reviews',
+    icon: '🎤',
     content: `
       <p>A great MC needs more than charisma — they need reliable gear. The MC is the voice of the event, and their equipment needs to be reliable, comfortable, and invisible to the audience.</p>
 
@@ -205,8 +215,10 @@ const services = [
   },
   {
     id: 'photography',
+    number: '06',
     title: 'Professional Photography Services',
     subtitle: 'Camera Gear & Photography Equipment Reviews',
+    icon: '📸',
     content: `
       <p>Capturing life's important moments demands the right camera equipment. We review the cameras, lenses, and lighting gear that professional photographers use across every specialty.</p>
 
@@ -248,8 +260,10 @@ const services = [
   },
   {
     id: 'dj-academy',
+    number: '07',
     title: 'DJ Academy & Music Production',
     subtitle: 'DJ Training Equipment & Music Production Gear',
+    icon: '🎓',
     content: `
       <p>Ready to start your DJ journey or take your skills to the next level? We review the equipment and software that DJs and producers use to learn, practice, and perform.</p>
 
@@ -323,47 +337,130 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ padding: '4rem 0 2rem' }}>
+      <section className="hero" style={{ minHeight: '420px', display: 'flex', alignItems: 'center' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1, padding: '4rem 0' }}>
+          <div style={{ maxWidth: '720px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.375rem 0.875rem', borderRadius: '100px', border: '1px solid var(--accent)', background: 'var(--accent-dim)', marginBottom: '1.5rem' }}>
+              <span className="pulse-dot" style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' }} />
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Event Production Resource</span>
+            </div>
+            <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: 800, lineHeight: 1.08, marginBottom: '1.25rem', letterSpacing: '-0.03em' }}>
+              Our Services<br />
+              <span className="text-accent">Gear Guides & Reviews</span>
+            </h1>
+            <p className="text-secondary" style={{ fontSize: '1.125rem', marginBottom: '2rem', maxWidth: '560px', lineHeight: 1.7 }}>
+              Expert equipment reviews, buying guides, and gear recommendations for DJs, audio engineers, photographers, and event professionals.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+              <Link href="/gear" className="btn-primary">Shop All Gear</Link>
+              <Link href="/blog" className="btn-secondary">Read Buying Guides</Link>
+            </div>
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.5 5 5.5.8-4 3.9.9 5.3L8 13.5 3.1 16l.9-5.3-4-3.9 5.5-.8z" fill="var(--accent)"/></svg>
+                <span className="text-muted" style={{ fontSize: '0.75rem' }}>7 Service Categories</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="var(--accent)" strokeWidth="1.5"/><path d="M8 5v3l2 1" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                <span className="text-muted" style={{ fontSize: '0.75rem' }}>Updated Regularly</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="10" rx="2" stroke="var(--accent)" strokeWidth="1.5"/><path d="M2 7h12" stroke="var(--accent)" strokeWidth="1.5"/></svg>
+                <span className="text-muted" style={{ fontSize: '0.75rem' }}>Amazon Associate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Decorative elements */}
+        <div style={{ position: 'absolute', right: '6%', top: '15%', width: '140px', height: '140px', borderRadius: '50%', border: '1px solid var(--accent-glow)', opacity: 0.25, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', right: '12%', bottom: '20%', width: '90px', height: '90px', borderRadius: '50%', background: 'var(--accent-glow)', opacity: 0.1, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', left: '3%', top: '30%', width: '60px', height: '60px', borderRadius: '50%', border: '1px solid var(--accent-glow)', opacity: 0.15, pointerEvents: 'none' }} />
+      </section>
+
+      {/* Stats */}
+      <section style={{ borderBottom: '1px solid var(--border)' }}>
         <div className="container">
-          <p className="label" style={{ marginBottom: '0.5rem' }}>What We Do</p>
-          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: '1rem' }}>Our Services</h1>
-          <p className="text-secondary" style={{ maxWidth: '600px', fontSize: '1.125rem', lineHeight: 1.6 }}>
-            From gear consulting to content creation, we help musicians, producers, and brands get the most out of their audio journey.
-          </p>
+          <div className="stats-bar" style={{ padding: '2rem 0' }}>
+            <div className="stat-item">
+              <div className="stat-number">7</div>
+              <div className="stat-label">Service Categories</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">50+</div>
+              <div className="stat-label">Brands Reviewed</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">200+</div>
+              <div className="stat-label">Products Compared</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">$300–$100K</div>
+              <div className="stat-label">Budget Coverage</div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Service Sections */}
       {services.map((service, i) => (
-        <section key={service.id} id={service.id} className={i % 2 === 1 ? 'bg-secondary' : ''} style={{ padding: '4rem 0' }}>
+        <section
+          key={service.id}
+          id={service.id}
+          className={i % 2 === 1 ? 'bg-secondary' : ''}
+          style={{ padding: '5rem 0', borderBottom: '1px solid var(--border)' }}
+        >
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '3rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '3rem' }}>
               {/* Sidebar */}
               <aside>
                 <div style={{ position: 'sticky', top: '80px' }}>
-                  <p className="text-accent" style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>
-                    Service {String(i + 1).padStart(2, '0')}
-                  </p>
-                  <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>{service.title}</h2>
-                  <p className="text-secondary" style={{ fontSize: '0.875rem', lineHeight: 1.6 }}>{service.subtitle}</p>
-                  <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
-                    {services.map((s) => (
-                      <a
-                        key={s.id}
-                        href={`#${s.id}`}
-                        className="text-secondary"
-                        style={{
-                          fontSize: '0.812rem',
-                          padding: '0.375rem 0.75rem',
-                          borderRadius: '4px',
-                          background: s.id === service.id ? 'var(--accent-dim)' : 'transparent',
-                          color: s.id === service.id ? 'var(--accent)' : undefined,
-                          fontWeight: s.id === service.id ? 600 : 400,
-                        }}
-                      >
-                        {s.title}
-                      </a>
-                    ))}
+                  {/* Service number + icon */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                    <div style={{
+                      width: '48px', height: '48px', borderRadius: '12px',
+                      background: 'var(--accent-dim)', border: '1px solid rgba(212,168,67,0.2)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '1.25rem',
+                    }}>
+                      {service.icon}
+                    </div>
+                    <span className="text-accent" style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em' }}>
+                      {service.number}
+                    </span>
+                  </div>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem', lineHeight: 1.2 }}>{service.title}</h2>
+                  <p className="text-secondary" style={{ fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '2rem' }}>{service.subtitle}</p>
+
+                  {/* Nav */}
+                  <div style={{ borderLeft: '2px solid var(--border)', paddingLeft: '0.25rem' }}>
+                    <p className="text-muted" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem', paddingLeft: '0.75rem' }}>
+                      All Services
+                    </p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
+                      {services.map((s) => (
+                        <a
+                          key={s.id}
+                          href={`#${s.id}`}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.625rem',
+                            fontSize: '0.8125rem',
+                            padding: '0.5rem 0.75rem',
+                            borderRadius: '6px',
+                            background: s.id === service.id ? 'var(--accent-dim)' : 'transparent',
+                            color: s.id === service.id ? 'var(--accent)' : 'var(--text-secondary)',
+                            fontWeight: s.id === service.id ? 600 : 400,
+                            transition: 'all 0.15s',
+                            borderLeft: s.id === service.id ? '2px solid var(--accent)' : '2px solid transparent',
+                            marginLeft: '-2px',
+                          }}
+                        >
+                          <span style={{ fontSize: '0.6875rem', opacity: 0.6, minWidth: '18px' }}>{s.number}</span>
+                          <span>{s.title}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </aside>
@@ -378,11 +475,17 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="section-sm bg-secondary">
         <div className="container" style={{ textAlign: 'center' }}>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '1rem' }}>Ready to Get Started?</h2>
-          <p className="text-secondary" style={{ marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
-            Let's talk about your project. Whether you need gear advice, studio design, or content creation.
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.375rem 0.875px', borderRadius: '100px', border: '1px solid var(--accent)', background: 'var(--accent-dim)', marginBottom: '1.5rem' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Get Started</span>
+          </div>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, marginBottom: '1rem' }}>Ready to Find Your Perfect Gear?</h2>
+          <p className="text-secondary" style={{ marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem', fontSize: '1.0625rem' }}>
+            Browse our curated selection of professional audio equipment, or reach out for personalized recommendations.
           </p>
-          <Link href="/contact" className="btn-primary">Contact Us</Link>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/gear" className="btn-primary">Shop All Gear</Link>
+            <Link href="/contact" className="btn-secondary">Contact Us</Link>
+          </div>
         </div>
       </section>
     </>
