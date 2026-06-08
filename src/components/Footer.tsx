@@ -9,12 +9,12 @@ export default function Footer() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
             <div style={{ flex: '1 1 300px' }}>
               <h3 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '0.375rem' }}>Get Gear Deals in Your Inbox</h3>
-              <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>New deals, buying guides, and product reviews. No spam.</p>
+              <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>New deals, blog posts, and product reviews. No spam.</p>
             </div>
-            <form style={{ display: 'flex', gap: '0.5rem', flex: '0 1 360px' }} onSubmit={e => e.preventDefault()}>
-              <input type="email" placeholder="your@email.com" style={{ flex: 1, padding: '0.625rem 1rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-card)', color: 'var(--text-primary)', fontSize: '0.875rem', outline: 'none' }} required />
-              <button type="submit" className="btn-primary" style={{ fontSize: '0.8125rem', padding: '0.625rem 1.25rem' }}>Subscribe</button>
-            </form>
+            <div style={{ display: 'flex', gap: '0.5rem', flex: '0 1 360px' }}>
+              <input type="email" placeholder="your@email.com" style={{ flex: 1, padding: '0.625rem 1rem', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-card)', color: 'var(--text-primary)', fontSize: '0.875rem', outline: 'none' }} />
+              <button type="button" className="btn-primary" style={{ fontSize: '0.8125rem', padding: '0.625rem 1.25rem' }}>Subscribe</button>
+            </div>
           </div>
         </div>
       </div>
@@ -25,8 +25,8 @@ export default function Footer() {
             <Link href="/" style={{ fontSize: '1.125rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.375rem', marginBottom: '0.75rem' }}>
               <span style={{ color: 'var(--accent)' }}>SS</span><span>Superstar Soundz</span>
             </Link>
-            <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-              Expert reviews, buying guides, and professional audio equipment. Trusted by musicians, DJs, and producers worldwide.
+              <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
+              Expert reviews, blog posts, and professional audio equipment. Trusted by musicians, DJs, and producers worldwide.
             </p>
           </div>
 

@@ -24,7 +24,7 @@ export default function HomePage() {
               <span className="text-accent">Curated For Pros</span>
             </h1>
             <p className="text-secondary" style={{ fontSize: '1.125rem', marginBottom: '2rem', maxWidth: '520px', lineHeight: 1.7 }}>
-              Expert reviews, buying guides, and hand-picked audio equipment for musicians, DJs, producers, and audio engineers.
+              Expert reviews, blog posts, and hand-picked audio equipment for musicians, DJs, producers, and audio engineers.
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
               <Link href="/gear" className="btn-primary">Shop All</Link>
@@ -222,7 +222,7 @@ export default function HomePage() {
           <div className="bg-accent-dim border-accent" style={{ borderRadius: '12px', padding: '3rem 2rem', maxWidth: '600px', margin: '0 auto' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.75rem' }}>Get Gear Deals in Your Inbox</h2>
             <p className="text-secondary" style={{ marginBottom: '1.5rem', fontSize: '0.9375rem' }}>
-              Join 2,000+ audio professionals. Weekly roundups of the best deals, new gear releases, and buying guides.
+              Join 2,000+ audio professionals. Weekly roundups of the best deals, new gear releases, and blog posts.
             </p>
             <Link href="/contact" className="btn-primary">Get Started →</Link>
           </div>
@@ -234,7 +234,7 @@ export default function HomePage() {
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem' }}>Find Your Perfect Sound</h2>
           <p className="text-secondary" style={{ marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
-            Browse {stats.products}+ professional audio products across {stats.categories} categories, or read our expert buying guides.
+            Browse {stats.products}+ professional audio products across {stats.categories} categories, or read our expert blog posts.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/gear" className="btn-primary">Shop All</Link>

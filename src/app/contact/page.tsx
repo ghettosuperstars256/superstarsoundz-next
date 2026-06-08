@@ -84,7 +84,7 @@ export default function ContactPage() {
                   <label style={labelStyle}>Subject</label>
                   <select name="subject" value={form.subject} onChange={handleChange} style={inputStyle}>
                     <option value="">Select a topic</option>
-                    <option value="gear">Gear Question</option>
+                    <option value="shop">Shop Question</option>
                     <option value="review">Product Review Request</option>
                     <option value="collab">Collaboration</option>
                     <option value="partnership">Partnership</option>
