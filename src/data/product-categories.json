@@ -4,69 +4,79 @@
     "name": "Audio Interfaces",
     "slug": "shop-audio-interfaces",
     "count": 2,
-    "wp_name": "Shop: Audio Interfaces"
+    "wp_name": "Shop: Audio Interfaces",
+    "description": "USB and Thunderbolt audio interfaces for home studios and professional recording. Compare preamps, I/O, and latency."
   },
   {
     "id": 104,
     "name": "DJ Controllers",
     "slug": "shop-dj-controllers",
     "count": 2,
-    "wp_name": "Shop: DJ Controllers"
+    "wp_name": "Shop: DJ Controllers",
+    "description": "DJ controllers for Rekordbox, Serato, and Traktor. From beginner to pro, find your perfect 2-deck or 4-deck setup."
   },
   {
     "id": 302,
     "name": "Headphones and IEMs",
     "slug": "shop-headphones-and-iems",
     "count": 3,
-    "wp_name": "Shop: Headphones and IEMs"
+    "wp_name": "Shop: Headphones and IEMs",
+    "description": "Studio headphones and in-ear monitors for mixing, mastering, and performing. Open-back, closed-back, and wireless options."
   },
   {
     "id": 304,
     "name": "Keyboards and Synthesizers",
     "slug": "shop-keyboards-and-synthesizers",
     "count": 2,
-    "wp_name": "Shop: Keyboards and Synthesizers"
+    "wp_name": "Shop: Keyboards and Synthesizers",
+    "description": "Synthesizers, workstations, and digital pianos for music production and live performance."
   },
   {
     "id": 101,
     "name": "Microphones",
     "slug": "shop-microphones",
     "count": 2,
-    "wp_name": "Shop: Microphones"
+    "wp_name": "Shop: Microphones",
+    "description": "Dynamic and condenser microphones for studio recording, podcasting, streaming, and live vocals."
   },
   {
     "id": 106,
     "name": "MIDI Controllers",
     "slug": "shop-midi-controllers",
     "count": 2,
-    "wp_name": "Shop: MIDI Controllers"
+    "wp_name": "Shop: MIDI Controllers",
+    "description": "MIDI keyboards, pad controllers, and fader controllers for DAW integration and hands-on production."
   },
   {
     "id": 105,
     "name": "Mixers",
     "slug": "shop-mixers",
     "count": 2,
-    "wp_name": "Shop: Mixers"
+    "wp_name": "Shop: Mixers",
+    "description": "Analog and digital mixing consoles for live sound, studio production, and broadcast."
   },
   {
     "id": 107,
     "name": "PA Systems",
     "slug": "shop-pa-systems",
     "count": 2,
-    "wp_name": "Shop: PA Systems"
+    "wp_name": "Shop: PA Systems",
+    "description": "Powered PA speakers and portable PA systems for live events, DJ setups, and venue sound."
   },
   {
     "id": 102,
     "name": "Studio Monitors",
     "slug": "shop-studio-monitors",
     "count": 4,
-    "wp_name": "Shop: Studio Monitors"
+    "wp_name": "Shop: Studio Monitors",
+    "description": "Active and passive studio monitors for accurate mixing and mastering. Compare nearfield, midfield, and subwoofers."
   },
   {
     "id": 110,
     "name": "Turntables",
     "slug": "shop-turntables",
     "count": 2,
-    "wp_name": "Shop: Turntables"
+    "wp_name": "Shop: Turntables",
+    "description": "Direct-drive and belt-drive turntables for DJing, scratching, and vinyl playback."
   }
 ]

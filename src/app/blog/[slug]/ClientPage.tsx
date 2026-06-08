@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import posts from '@/data/posts.json';
+import products from '@/data/products.json';
 
 interface Props { params: { slug: string }; }
 
@@ -138,11 +139,57 @@ export default function BlogPostPage({ params }: Props) {
                 </div>
               </div>
 
+              {/* Related Products Widget */}
+              {(() => {
+                const relatedProds = products
+                  .filter(p => post.categories.some(pc => p.categories.some(cat => cat.toLowerCase().includes(pc.replace('Topic: ', '').replace('Shop: ', '').toLowerCase()))))
+                  .slice(0, 3);
+                if (relatedProds.length === 0) return null;
+                return (
+                  <div className="card" style={{ padding: '1.25rem', marginBottom: '1.5rem' }}>
+                    <h3 className="text-accent" style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>
+                      Products Mentioned
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+                      {relatedProds.map(p => (
+                        <Link key={p.id} href={`/gear/${p.slug}`} style={{ display: 'flex', gap: '0.625rem', alignItems: 'center' }}>
+                          <div style={{
+                            width: '48px', height: '48px', borderRadius: '6px',
+                            background: 'var(--bg-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            flexShrink: 0, overflow: 'hidden',
+                          }}>
+                            {p.image ? (
+                              <img src={p.image} alt={p.short_name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '4px' }} />
+                            ) : (
+                              <span style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>—</span>
+                            )}
+                          </div>
+                          <div style={{ minWidth: 0, flex: 1 }}>
+                            <div style={{ fontSize: '0.75rem', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{p.short_name}</div>
+                            <div className="text-accent" style={{ fontSize: '0.8125rem', fontWeight: 700 }}>${p.price}</div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
+
               <div className="bg-accent-dim border-accent" style={{ borderRadius: '8px', padding: '1.25rem', textAlign: 'center' }}>
                 <h3 style={{ fontSize: '0.875rem', fontWeight: 700, marginBottom: '0.5rem' }}>Ready to Buy?</h3>
                 <p className="text-secondary" style={{ fontSize: '0.75rem', marginBottom: '1rem' }}>Browse our curated selection of professional audio gear.</p>
                 <Link href="/gear" className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '0.75rem' }}>Shop All Gear</Link>
               </div>
+
+              {/* Deals link */}
+              <Link href="/deals" style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+                marginTop: '1rem', padding: '0.75rem', borderRadius: '8px',
+                background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)',
+                color: '#ef4444', fontSize: '0.8125rem', fontWeight: 600, textAlign: 'center',
+              }}>
+                🔥 View All Deals
+              </Link>
             </aside>
           </div>
 

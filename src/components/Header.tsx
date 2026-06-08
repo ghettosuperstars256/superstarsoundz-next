@@ -139,6 +139,7 @@ export default function Header() {
             </li>
 
             <Link href="/services" className={`nav-link ${isActive('/services') ? 'active' : ''}`}>Services</Link>
+            <Link href="/deals" className={`nav-link ${isActive('/deals') ? 'active' : ''}`} style={{ color: '#ef4444' }}>🔥 Deals</Link>
             <Link href="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>About</Link>
             <Link href="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>Contact</Link>
 
@@ -185,7 +186,7 @@ export default function Header() {
 
         {/* Mobile Nav */}
         {mobileOpen && (
-          <div className="bg-secondary" style={{ borderTop: '1px solid var(--border)', padding: '1rem 0' }}>
+          <div className="bg-secondary mobile-drawer" style={{ borderTop: '1px solid var(--border)', padding: '1rem 0' }}>
             <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <Link href="/" onClick={() => setMobileOpen(false)} className={isActive('/') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>Home</Link>
               <div style={{ padding: '0.75rem 0' }}>
@@ -197,6 +198,7 @@ export default function Header() {
               </div>
               <Link href="/blog" onClick={() => setMobileOpen(false)} className={isActive('/blog') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>Guides</Link>
               <Link href="/services" onClick={() => setMobileOpen(false)} className={isActive('/services') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>Services</Link>
+              <Link href="/deals" onClick={() => setMobileOpen(false)} className={isActive('/deals') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>🔥 Deals</Link>
               <Link href="/about" onClick={() => setMobileOpen(false)} className={isActive('/about') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>About</Link>
               <Link href="/contact" onClick={() => setMobileOpen(false)} className={isActive('/contact') ? 'text-accent' : ''} style={{ padding: '0.75rem', borderRadius: '6px' }}>Contact</Link>
             </div>

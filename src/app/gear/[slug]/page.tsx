@@ -10,10 +10,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) return { title: 'Product Not Found' };
   return {
     title: `${product.short_name} — $${product.price} | Superstar Soundz`,
-    description: product.short_description.replace(/\\n/g, ' ').trim(),
+    description: product.short_description.replace(/\n/g, ' ').trim(),
     openGraph: {
       title: product.short_name,
-      description: product.short_description.replace(/\\n/g, ' ').trim(),
+      description: product.short_description.replace(/\n/g, ' ').trim(),
       type: 'website',
     },
   };
@@ -33,7 +33,7 @@ export default function ProductPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.short_name,
-    description: product.short_description.replace(/\\n/g, ' ').trim(),
+    description: product.short_description.replace(/\n/g, ' ').trim(),
     image: product.image ? `https://superstarsoundz.com${product.image}` : undefined,
     offers: {
       '@type': 'Offer',

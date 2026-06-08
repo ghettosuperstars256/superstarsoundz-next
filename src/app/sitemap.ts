@@ -12,6 +12,7 @@ export default function sitemap() {
     { url: `${baseUrl}/blog`, lastModified: now },
     { url: `${baseUrl}/about`, lastModified: now },
     { url: `${baseUrl}/services`, lastModified: now },
+    { url: `${baseUrl}/deals`, lastModified: now },
     { url: `${baseUrl}/contact`, lastModified: now },
   ];
 

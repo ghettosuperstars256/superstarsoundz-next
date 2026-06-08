@@ -13,7 +13,8 @@
     "description": "Wide Open Sound: Open-back studio headphones for critical listening and professional editing deliver astoundingly precise audio clarity with a wide, natural soundstage.\n",
     "external_url": "https://www.amazon.com/dp/B0006NL5SM/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Best Value"
   },
   {
     "id": 581,
@@ -29,7 +30,8 @@
     "description": "Unparalleled Sound Isolation: Ideal for precision in demanding professional environments, the closed-back design of the DT 1770 PRO MKII guarantees an immersive experience by minimizing external noise; perfect for studio professionals seeking distraction-free accuracy during mixing and mastering. Experience the pinnacle of audio isolation and let your creativity flow undisturbed, bringing every subtle element of your music to life.\n",
     "external_url": "https://www.amazon.com/dp/B08C5HSR78/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Best Value"
   },
   {
     "id": 579,
@@ -45,7 +47,8 @@
     "description": "INCLUDED &#8211; Behringer X32 Console, power cord, Adorama warranty, Gator padded bag (36x21x8&#8243;), and HA Elite Pro 50&#8242; XLR cables for a complete setup.\n",
     "external_url": "https://www.amazon.com/dp/B06XKR51RB/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Best Value"
   },
   {
     "id": 577,
@@ -61,7 +64,8 @@
     "description": "\u3010550W+550W High Power Output\u3011Built-in professional dual-channel amplifier with 550W per channel. 8 channel, Easily drives two 15-inch passive speakers, ideal for stage performances, bars, conference rooms, and more.\n",
     "external_url": "https://www.amazon.com/dp/B07YV1DGZW/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Best Value"
   },
   {
     "id": 575,
@@ -77,7 +81,8 @@
     "description": "[ Deep &amp; Powerful 8-Inch Bass ]: Experience 35Hz deep bass with the T5s powered subwoofer, which features an 8-inch long-throw woofer and a powerful 70W RMS output (driven by Class-D amplifier). Perfect for home audio and home theater.\n",
     "external_url": "https://www.amazon.com/dp/B0BXDYYYB4/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Editor's Choice"
   },
   {
     "id": 573,
@@ -93,7 +98,8 @@
     "description": "Dual Sonos-engineered drivers generate deep, dynamic bass\n",
     "external_url": "https://www.amazon.com/dp/B0C5XJZ8YH/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Editor's Choice"
   },
   {
     "id": 571,
@@ -109,7 +115,8 @@
     "description": "61 full-size MPE gesture-sensitive keys\n",
     "external_url": "https://www.amazon.com/dp/B0DWHCFZHS/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Editor's Choice"
   },
   {
     "id": 569,
@@ -125,7 +132,8 @@
     "description": "25 full size velocity sensitive keys with polyphonic aftertouch\n",
     "external_url": "https://www.amazon.com/dp/B07QKRC3RX/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Editor's Choice"
   },
   {
     "id": 567,
@@ -141,7 +149,8 @@
     "description": "REAL SOUND. REAL VALUE: The TT-5000 is a direct drive turntable built for the home vinyl enthusiast who wants accurate, warm playback without overpaying for it. Customers consistently point to the clean, true-to-source preamp as the standout \u2014 and you get it right out of the box, no extra gear required.\n",
     "external_url": "https://www.amazon.com/dp/B09F6WPR28/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Top Pick"
   },
   {
     "id": 565,
@@ -157,7 +166,8 @@
     "description": "Real Vinyl Sound \u2014 No Extra Equipment Needed: Experience the warmth of classic vinyl from built-in speakers tuned with a bass-reflex port for fuller, richer sound. Styled like a vintage hi-fi piece but built for today\u2019s homes, this compact all-in-one system brings authentic analog listening to any space \u2014 no amplifier or setup required just plug in and play\n",
     "external_url": "https://www.amazon.com/dp/B07QKZHGRJ/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": "Top Pick"
   },
   {
     "id": 563,
@@ -173,7 +183,8 @@
     "description": "What The Item Include: PRORECK DELTA 128 PA Speaker come with (1) 8-channel powered bluetooth mixer, (2) 12 inch passive speakers (2) Adjustable tripod speaker stands, (1) Wired microphone. (2)16.5ft speakon Cable for mixer to connect passive speakers, (1) power cable, (1) manual.\n",
     "external_url": "https://www.amazon.com/dp/B07YV1DGZW/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 561,
@@ -189,7 +200,8 @@
     "description": "Dual 8&#8243; high-powered spakers\n",
     "external_url": "https://www.amazon.com/dp/B07TQD6L8Y/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 559,
@@ -205,7 +217,8 @@
     "description": "Next-Gen Music Production and Beat Maker Essential &#8211; USB-powered MIDI keyboard controller with 25 mini velocity-sensitive keys, optimized for studio or beat production, piano-style performance, synth leads, sample triggering\n",
     "external_url": "https://www.amazon.com/dp/B0CCGJ6M18/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 557,
@@ -221,7 +234,8 @@
     "description": "Music Production and Beat Maker Essential -USB powered MIDI controller with 25 mini MIDI keyboard velocity-sensitive keys for studio production, virtual synthesizer control and beat production\n",
     "external_url": "https://www.amazon.com/dp/B00IJ1CFMK/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 555,
@@ -237,7 +251,8 @@
     "description": "EFFORTLESS SETUP: Connect to your phone, tablet, or computer and start DJing in minutes using supported DJ apps \u2014 no drivers or complex configuration required\n",
     "external_url": "https://www.amazon.com/dp/B0DK9RQ9T1/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 553,
@@ -253,7 +268,8 @@
     "description": "COMPATIBLE WITH A HOST OF DEVICES &#8211; The DDJ-FLX4 is compatible with a wide range of devices, including PC and Mac computers, iPhones and iPads, and Android phones and tablets. So no matter what device you&#8217;re using, you can always mix on the go.\n",
     "external_url": "https://www.amazon.com/dp/B0BSBYY4JK/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 551,
@@ -269,7 +285,8 @@
     "description": "The price/performance standard in side address studio condenser microphone technology\n",
     "external_url": "https://www.amazon.com/dp/B004QJREXM/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 549,
@@ -285,7 +302,8 @@
     "description": "PROFESSIONAL SOUND FOR CREATORS \u2013 The AKG C104 large diaphragm cardioid condenser microphone delivers pristine clarity and detailed sound capture for podcasting, streaming, music recording, broadcasting, and video production, backed by AKG\u2019s decades-long acoustic heritage.\n",
     "external_url": "https://www.amazon.com/dp/B09XDRQQHX/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 547,
@@ -301,7 +319,8 @@
     "description": "Podcast, Record, Live Stream, This Portable Audio Interface Covers it All &#8211; USB sound card for Mac or PC delivers 48kHz audio resolution for pristine recording every time\n",
     "external_url": "https://www.amazon.com/dp/B07QNPW1ZK/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 545,
@@ -317,7 +336,8 @@
     "description": "Pro performance with great pre-amps &#8211; Achieve a brighter recording thanks to the high performing mic pre-amps of the Scarlett 3rd Gen. A switchable Air mode will add extra clarity to your acoustic instruments when recording with your Solo 3rd Gen\n",
     "external_url": "https://www.amazon.com/dp/B07QR6Z1JB/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 543,
@@ -333,7 +353,8 @@
     "description": "HONEST. Eris 3.5 near field studio monitors deliver studio-quality, accurate sound perfect for music production, hi-fi audio listening, or multimedia reference.\n",
     "external_url": "https://www.amazon.com/dp/B077VX5HSL/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 541,
@@ -349,7 +370,8 @@
     "description": "PACKAGE INCLUDES: (2) 305P MkII 5 2-Way Powered Studio Reference Monitor Monitoring Speaker\n",
     "external_url": "https://www.amazon.com/dp/B07P7F2FRK/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 539,
@@ -365,7 +387,8 @@
     "description": "Critically acclaimed sonic performance praised by top audio engineers and pro audio reviewers\n",
     "external_url": "https://www.amazon.com/dp/B00HVLUR86/",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 584,
@@ -381,7 +404,8 @@
     "description": "Take your mix anywhere with the Numark DJ2GO2 Touch \u2013 a compact and portable DJ controller designed for mobile DJs, beginners, and performers in need of a reliable secondary setup. This 2-deck USB controller includes a built-in audio interface, to...",
     "external_url": "https://www.amazon.com/dp/B082L3XQGR/?tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 585,
@@ -397,7 +421,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Yamaha%20HS5&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 586,
@@ -413,7 +438,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Yamaha%20HS8&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 587,
@@ -429,7 +455,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=JBL%20305P%20MkII&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 588,
@@ -445,7 +472,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=JBL%20308P%20MkII&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 589,
@@ -461,7 +489,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=KRK%20Rokit%205%20G4&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 590,
@@ -477,7 +506,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Adam%20Audio%20T5V&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 591,
@@ -493,7 +523,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=PreSonus%20Eris%20E5%20XT&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 592,
@@ -509,7 +540,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Genelec%208030C&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 593,
@@ -525,7 +557,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Scarlett%202i2%204th%20Gen&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 594,
@@ -541,7 +574,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Scarlett%204i4%204th%20Gen&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 595,
@@ -557,7 +591,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Clarett%2B%202Pre&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 596,
@@ -573,7 +608,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=UA%20Volt%202&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 597,
@@ -589,7 +625,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Audient%20iD14%20MkII&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 598,
@@ -605,7 +642,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=MOTU%20M4&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 599,
@@ -621,7 +659,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=SSL%202%2B%20MkII&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 600,
@@ -637,7 +676,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=RME%20Babyface%20Pro%20FS&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 601,
@@ -653,7 +693,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Sennheiser%20HD%20600&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 602,
@@ -669,7 +710,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Sony%20MDR-7506&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 603,
@@ -685,7 +727,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Sennheiser%20HD%2025%20Plus&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 604,
@@ -701,7 +744,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Austrian%20Audio%20Hi-X55&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 605,
@@ -717,7 +761,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Rode%20NTH-100&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 606,
@@ -733,7 +778,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Pioneer%20HDJ-X10&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 607,
@@ -749,7 +795,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Focal%20Bathys&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 608,
@@ -765,7 +812,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Shure%20SRH940&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 609,
@@ -781,7 +829,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Shure%20SM58&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 610,
@@ -797,7 +846,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Shure%20SM7dB&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 611,
@@ -813,7 +863,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Rode%20NT1%205th%20Gen&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 612,
@@ -829,7 +880,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Rode%20NT2-A&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 613,
@@ -845,7 +897,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=EV%20RE20&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 614,
@@ -861,7 +914,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Warm%20Audio%20WA-47&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 615,
@@ -877,7 +931,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=sE2200&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 616,
@@ -893,7 +948,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Blue%20Yeti%20X&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 617,
@@ -909,7 +965,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Fender%20Blues%20Junior%20IV&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 618,
@@ -925,7 +982,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Fender%20Mustang%20GTX100&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 619,
@@ -941,7 +999,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Boss%20Katana-100%20MkII&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 620,
@@ -957,7 +1016,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Vox%20AC15C1&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 621,
@@ -973,7 +1033,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Marshall%20DSL40CR&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 622,
@@ -989,7 +1050,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Orange%20Rocker%2015&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 623,
@@ -1005,7 +1067,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Fender%20AmPro%20II%20Strat&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 624,
@@ -1021,7 +1084,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Fender%20Player%20Strat%20HSS&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 625,
@@ -1037,7 +1101,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Gibson%20Les%20Paul%20%2750s&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 626,
@@ -1053,7 +1118,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=PRS%20SE%20Custom%2024&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 627,
@@ -1069,7 +1135,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Ibanez%20RG550&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 628,
@@ -1085,7 +1152,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Squier%20CV%20%2750s%20Tele&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 629,
@@ -1101,7 +1169,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Fender%20AmPro%20II%20P-Bass&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 630,
@@ -1117,7 +1186,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Squier%20CV%20%2770s%20Jazz%20Bass&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 631,
@@ -1133,7 +1203,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Ibanez%20SR500E&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 632,
@@ -1149,7 +1220,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Yamaha%20BB434&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 633,
@@ -1165,7 +1237,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Sire%20Marcus%20Miller%20V3P&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 634,
@@ -1181,7 +1254,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Rickenbacker%204003&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 635,
@@ -1197,7 +1271,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Martin%20D-28&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 636,
@@ -1213,7 +1288,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Taylor%20314ce&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 637,
@@ -1229,7 +1305,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Yamaha%20FG800&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 638,
@@ -1245,7 +1322,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Fender%20FA-115CE&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 639,
@@ -1261,7 +1339,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Gibson%20J-45%20Standard&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 640,
@@ -1277,7 +1356,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Seagull%20S6%20Original&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 641,
@@ -1293,7 +1373,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Pioneer%20DJM-900NXS2&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 642,
@@ -1309,7 +1390,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Pioneer%20DJM-750MK2&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 643,
@@ -1325,7 +1407,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Allen%20%26%20Heath%20Xone%3A23&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 644,
@@ -1341,7 +1424,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Pioneer%20DJM-250MK2&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 645,
@@ -1357,7 +1441,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Rane%20Seventy&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 646,
@@ -1373,7 +1458,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=QSC%20K12.2&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 647,
@@ -1389,7 +1475,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=JBL%20EON715&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 648,
@@ -1405,7 +1492,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=EV%20ZLX-15BT&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 649,
@@ -1421,7 +1509,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Bose%20S1%20Pro%2B&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 650,
@@ -1437,7 +1526,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Yamaha%20DXR12mkII&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 651,
@@ -1453,7 +1543,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=RCF%20ART%20935-A&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 652,
@@ -1469,7 +1560,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Moog%20Subsequent%2037&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 653,
@@ -1485,7 +1577,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Korg%20Minilogue%20XD&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 654,
@@ -1501,7 +1594,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Sequential%20Prophet-6&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 655,
@@ -1517,7 +1611,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Arturia%20MicroFreak&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 656,
@@ -1533,7 +1628,8 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=Novation%20Peak&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   },
   {
     "id": 657,
@@ -1549,6 +1645,7 @@
     "description": "",
     "external_url": "https://www.amazon.com/s?k=TE%20OP-1%20Field&tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false
+    "featured": false,
+    "badge": null
   }
 ]

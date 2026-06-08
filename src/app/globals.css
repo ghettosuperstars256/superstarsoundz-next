@@ -435,3 +435,35 @@ a {
     font-size: 2rem !important;
   }
 }
+
+/* Pulse dot animation */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Mobile slide-in menu */
+.mobile-drawer {
+  animation: slideIn 0.25s ease-out;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Badge ribbon */
+.badge-ribbon {
+  position: absolute;
+  top: -8px;
+  right: 1rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 4px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}

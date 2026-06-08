@@ -11,27 +11,45 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero — enhanced with animated gradient */}
-      <section className="hero" style={{ minHeight: '550px' }}>
-        <div className="container" style={{ position: 'relative', zIndex: 1, padding: '5rem 0' }}>
-          <div style={{ maxWidth: '700px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.375rem 0.75rem', borderRadius: '100px', border: '1px solid var(--accent)', background: 'var(--accent-dim)', marginBottom: '1.5rem' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />
-              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.05em' }}>TRUSTED BY AUDIO PROFESSIONALS</span>
+      {/* Hero — enhanced with animated gradient + trust badges */}
+      <section className="hero" style={{ minHeight: '580px' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1, padding: '5.5rem 0' }}>
+          <div style={{ maxWidth: '720px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.375rem 0.875rem', borderRadius: '100px', border: '1px solid var(--accent)', background: 'var(--accent-dim)', marginBottom: '1.5rem' }}>
+              <span className="pulse-dot" style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' }} />
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Trusted by Audio Professionals</span>
             </div>
-            <h1 style={{ fontSize: 'clamp(2.25rem, 6vw, 3.75rem)', fontWeight: 800, lineHeight: 1.05, marginBottom: '1.25rem', letterSpacing: '-0.03em' }}>
+            <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 800, lineHeight: 1.05, marginBottom: '1.25rem', letterSpacing: '-0.03em' }}>
               Professional Sound Gear<br />
               <span className="text-accent">Curated For Pros</span>
             </h1>
-            <p className="text-secondary" style={{ fontSize: '1.125rem', marginBottom: '2rem', maxWidth: '500px', lineHeight: 1.7 }}>
+            <p className="text-secondary" style={{ fontSize: '1.125rem', marginBottom: '2rem', maxWidth: '520px', lineHeight: 1.7 }}>
               Expert reviews, buying guides, and hand-picked audio equipment for musicians, DJs, producers, and audio engineers.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
               <Link href="/gear" className="btn-primary">Shop All Gear</Link>
               <Link href="/blog" className="btn-secondary">Read Buying Guides</Link>
             </div>
+            {/* Trust badges */}
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.5 5 5.5.8-4 3.9.9 5.3L8 13.5 3.1 16l.9-5.3-4-3.9 5.5-.8z" fill="var(--accent)"/></svg>
+                <span className="text-muted" style={{ fontSize: '0.75rem' }}>4.8★ Average Rating</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="var(--accent)" strokeWidth="1.5"/><path d="M8 5v3l2 1" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                <span className="text-muted" style={{ fontSize: '0.75rem' }}>Updated Weekly</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="10" rx="2" stroke="var(--accent)" strokeWidth="1.5"/><path d="M2 7h12" stroke="var(--accent)" strokeWidth="1.5"/></svg>
+                <span className="text-muted" style={{ fontSize: '0.75rem' }}>Amazon Associate</span>
+              </div>
+            </div>
           </div>
         </div>
+        {/* Floating decorative elements */}
+        <div style={{ position: 'absolute', right: '8%', top: '20%', width: '120px', height: '120px', borderRadius: '50%', border: '1px solid var(--accent-glow)', opacity: 0.3, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', right: '15%', bottom: '25%', width: '80px', height: '80px', borderRadius: '50%', background: 'var(--accent-glow)', opacity: 0.15, pointerEvents: 'none' }} />
       </section>
 
       {/* Stats */}
@@ -96,8 +114,19 @@ export default function HomePage() {
           </div>
           <div className="grid-3">
             {displayProducts.map(product => (
-              <Link key={product.id} href={`/gear/${product.slug}`} className="card product-card">
-                <div className="product-card-image">
+              <Link key={product.id} href={`/gear/${product.slug}`} className="card product-card" style={{ position: 'relative', overflow: 'visible' }}>
+                {product.badge && (
+                  <div style={{
+                    position: 'absolute', top: '-8px', right: '1rem', zIndex: 2,
+                    padding: '0.25rem 0.625rem', borderRadius: '4px',
+                    background: product.badge === 'Best Value' ? 'rgba(34,197,94,0.15)' : product.badge === "Editor's Choice" ? 'rgba(212,168,67,0.15)' : 'rgba(168,85,247,0.15)',
+                    color: product.badge === 'Best Value' ? '#22c55e' : product.badge === "Editor's Choice" ? '#D4A843' : '#a855f7',
+                    fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
+                  }}>
+                    {product.badge}
+                  </div>
+                )}
+                <div className="product-card-image" style={{ borderRadius: '8px 8px 0 0' }}>
                   {product.image ? (
                     <img src={product.image} alt={product.short_name} loading="lazy" />
                   ) : (
