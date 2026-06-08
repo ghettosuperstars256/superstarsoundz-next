@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 
 interface Props { params: { slug: string } };
 
+export const dynamic = 'force-static';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = products.find(p => p.slug === params.slug);
   if (!product) return { title: 'Product Not Found' };
