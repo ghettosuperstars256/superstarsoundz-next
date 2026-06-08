@@ -342,3 +342,96 @@ a {
   background: var(--border);
   margin: 2rem 0;
 }
+
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50% { box-shadow: 0 0 20px 4px var(--accent-glow); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Category card hover */
+.category-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+
+.category-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--border) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Improved product card */
+.product-card {
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 99;
+  transition: width 0.1s ease-out;
+}
+
+/* Star rating */
+.star-rating {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.star-rating svg {
+  flex-shrink: 0;
+}
+
+/* TOC active state */
+.toc a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Responsive grid improvements */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 400px !important;
+  }
+  .hero h1 {
+    font-size: 2rem !important;
+  }
+}

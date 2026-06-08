@@ -2,6 +2,12 @@ import Link from 'next/link';
 import posts from '@/data/posts.json';
 import postCategories from '@/data/post-categories.json';
 
+function getReadTime(content: string): number {
+  const text = content.replace(/<[^>]+>/g, '');
+  const words = text.split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
 export default function BlogPage() {
   const sortedPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date));
   const activeCats = postCategories.filter(c => c.count > 0);
@@ -22,7 +28,7 @@ export default function BlogPage() {
         </div>
 
         <div className="grid-2">
-          {sortedPosts.map(post => (
+          {sortedPosts.map((post, index) => (
             <Link key={post.id} href={`/blog/${post.slug}`} className="card" style={{ display: 'block', overflow: 'hidden' }}>
               <div style={{ padding: '1.5rem' }}>
                 <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
@@ -37,7 +43,14 @@ export default function BlogPage() {
                   {post.excerpt}
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span className="text-muted" style={{ fontSize: '0.75rem' }}>{post.date}</span>
+                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                    <span className="text-muted" style={{ fontSize: '0.75rem' }}>{post.date}</span>
+                    <span className="text-muted" style={{ fontSize: '0.6875rem' }}>·</span>
+                    <span className="text-muted" style={{ fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.2"/><path d="M7 4V7L9 8.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/></svg>
+                      {getReadTime(post.content)} min read
+                    </span>
+                  </div>
                   <span className="text-accent" style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     Read More →
                   </span>

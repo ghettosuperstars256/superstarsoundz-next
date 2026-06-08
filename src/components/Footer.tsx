@@ -20,11 +20,11 @@ export default function Footer() {
           <div>
             <h4 style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent)', marginBottom: '0.75rem' }}>Gear</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
-              <Link href="/gear?cat=microphones" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Microphones</Link>
-              <Link href="/gear?cat=headphones-and-iems" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Headphones</Link>
-              <Link href="/gear?cat=studio-monitors" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Studio Monitors</Link>
-              <Link href="/gear?cat=audio-interfaces" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Audio Interfaces</Link>
-              <Link href="/gear?cat=dj-controllers" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>DJ Controllers</Link>
+              <Link href="/category/shop-microphones" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Microphones</Link>
+              <Link href="/category/shop-headphones-and-iems" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Headphones</Link>
+              <Link href="/category/shop-studio-monitors" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Studio Monitors</Link>
+              <Link href="/category/shop-audio-interfaces" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Audio Interfaces</Link>
+              <Link href="/category/shop-dj-controllers" style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>DJ Controllers</Link>
             </div>
           </div>
 

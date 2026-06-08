@@ -43,9 +43,14 @@ function GearContent() {
       <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
           <button onClick={() => setActiveCat('all')} style={btnStyle(activeCat === 'all')}>All</button>
-          {productCategories.map(cat => (
-            <button key={cat.slug} onClick={() => setActiveCat(cat.slug)} style={btnStyle(activeCat === cat.slug)}>{cat.name}</button>
-          ))}
+          {productCategories.map(cat => {
+            const catKeyword = cat.name.toLowerCase();
+            return (
+              <button key={cat.slug} onClick={() => setActiveCat(catKeyword)} style={btnStyle(activeCat === catKeyword)}>
+                {cat.name}
+              </button>
+            );
+          })}
         </div>
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} style={{ padding: '0.5rem 1rem', borderRadius: '4px', border: '1px solid var(--border)', background: 'var(--bg-card)', color: 'var(--text-primary)', fontSize: '0.8125rem', cursor: 'pointer', marginLeft: 'auto' }}>
           <option value="default">Sort by</option>
@@ -53,6 +58,10 @@ function GearContent() {
           <option value="price-high">Price: High to Low</option>
           <option value="name">Name</option>
         </select>
+      </div>
+
+      <div style={{ marginBottom: '1rem' }}>
+        <p className="text-muted" style={{ fontSize: '0.8125rem' }}>{filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}</p>
       </div>
 
       <div className="grid-3">
@@ -76,7 +85,7 @@ function GearContent() {
 
       {filteredProducts.length === 0 && (
         <div className="text-muted" style={{ textAlign: 'center', padding: '4rem 0' }}>
-          <p>No products found in this category.</p>
+          <p>No products found in this category. <Link href="/gear" className="text-accent">View all gear →</Link></p>
         </div>
       )}
     </>
@@ -90,9 +99,22 @@ export default function GearPage() {
         <div style={{ marginBottom: '2rem' }}>
           <p className="label" style={{ marginBottom: '0.5rem' }}>Shop</p>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.5rem' }}>All Gear</h1>
-          <p className="text-secondary">23 products</p>
+          <p className="text-secondary">Professional audio equipment for every budget</p>
         </div>
-        <Suspense fallback={<div className="text-muted" style={{ padding: '2rem', textAlign: 'center' }}>Loading...</div>}>
+        <Suspense fallback={
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="card">
+                <div style={{ aspectRatio: '1', background: 'var(--bg-secondary)', borderRadius: '8px 8px 0 0' }} />
+                <div style={{ padding: '1rem' }}>
+                  <div style={{ height: '12px', width: '60px', background: 'var(--border)', borderRadius: '4px', marginBottom: '0.5rem' }} />
+                  <div style={{ height: '14px', width: '80%', background: 'var(--border)', borderRadius: '4px', marginBottom: '0.5rem' }} />
+                  <div style={{ height: '16px', width: '40px', background: 'var(--accent-dim)', borderRadius: '4px' }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        }>
           <GearContent />
         </Suspense>
       </div>

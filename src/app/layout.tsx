@@ -20,11 +20,22 @@ export const metadata: Metadata = {
     siteName: 'Superstar Soundz',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Superstar Soundz — Professional Audio Equipment',
+    description: 'Expert reviews and curated gear for audio professionals',
+  },
+  alternates: {
+    canonical: 'https://superstarsoundz.com',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body>
         <Header />
         <main style={{ minHeight: 'calc(100vh - 64px)' }}>
