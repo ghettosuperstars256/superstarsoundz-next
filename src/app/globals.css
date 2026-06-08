@@ -467,3 +467,102 @@ a {
   letter-spacing: 0.05em;
   z-index: 2;
 }
+
+/* ===== ENHANCED MOBILE STYLES ===== */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0 !important;
+  }
+  .section-sm {
+    padding: 2rem 0 !important;
+  }
+  .hero {
+    min-height: 380px !important;
+  }
+  .hero h1 {
+    font-size: 1.875rem !important;
+  }
+  /* Stack grid-2 on mobile */
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  /* Product cards: 2 columns on mobile */
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  /* Tables: horizontal scroll on mobile */
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Sidebar stacks on mobile */
+  aside {
+    order: -1;
+  }
+  aside > div[style*="sticky"] {
+    position: static !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-3, .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* ===== FOCUS STATES ===== */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* ===== SMOOTH PAGE TRANSITIONS ===== */
+main {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* ===== TOUCH-FRIENDLY ===== */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+  }
+  .product-card:hover {
+    transform: none;
+  }
+}

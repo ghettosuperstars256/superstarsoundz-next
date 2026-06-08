@@ -38,7 +38,7 @@ export default function SearchModal({ onClose }: { onClose: () => void }) {
       .map(p => ({
         type: 'product',
         title: p.short_name,
-        subtitle: `$${p.price} · ${p.categories[0]?.replace('Shop: ', '') || 'Gear'}`,
+        subtitle: `$${p.price} · ${p.categories[0]?.replace('Shop: ', '') || 'Shop'}`,
         href: `/gear/${p.slug}`,
         image: p.image,
       }));

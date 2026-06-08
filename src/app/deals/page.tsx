@@ -71,7 +71,7 @@ export default function DealsPage() {
                     </div>
                     <div style={{ padding: '1rem' }}>
                       <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>
-                        {product.categories[0]?.replace('Shop: ', '') || 'Gear'}
+                        {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
                       </p>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginBottom: '0.375rem' }}>
                         {[...Array(5)].map((_, i) => (
@@ -104,8 +104,8 @@ export default function DealsPage() {
           <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Can't Find What You Need?</h2>
           <p className="text-secondary" style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>Browse our full catalog or read our buying guides.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/gear" className="btn-primary">All Gear</Link>
-            <Link href="/blog" className="btn-secondary">Buying Guides</Link>
+            <Link href="/gear" className="btn-primary">All Shop</Link>
+            <Link href="/blog" className="btn-secondary">Blog Posts</Link>
           </div>
         </div>
       </div>

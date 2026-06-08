@@ -27,8 +27,8 @@ export default function HomePage() {
               Expert reviews, buying guides, and hand-picked audio equipment for musicians, DJs, producers, and audio engineers.
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
-              <Link href="/gear" className="btn-primary">Shop All Gear</Link>
-              <Link href="/blog" className="btn-secondary">Read Buying Guides</Link>
+              <Link href="/gear" className="btn-primary">Shop All</Link>
+              <Link href="/blog" className="btn-secondary">Read Blog</Link>
             </div>
             {/* Trust badges */}
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
@@ -70,7 +70,7 @@ export default function HomePage() {
             </div>
             <div className="stat-item">
               <div className="stat-number">{stats.posts}</div>
-              <div className="stat-label">Buying Guides</div>
+              <div className="stat-label">Blog Posts</div>
             </div>
           </div>
         </div>
@@ -100,13 +100,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Gear */}
+      {/* Featured Products */}
       <section className="section bg-secondary">
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
             <div>
               <p className="label" style={{ marginBottom: '0.5rem' }}>Top Picks</p>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Featured Gear</h2>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Featured Products</h2>
             </div>
             <Link href="/gear" className="text-accent" style={{ fontSize: '0.8125rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               View All →
@@ -135,7 +135,7 @@ export default function HomePage() {
                 </div>
                 <div style={{ padding: '1rem' }}>
                   <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>
-                    {product.categories[0]?.replace('Shop: ', '') || 'Gear'}
+                    {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginBottom: '0.375rem' }}>
                     {[...Array(5)].map((_, i) => (
@@ -161,13 +161,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Buying Guides */}
+      {/* Blog Posts */}
       <section className="section">
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
             <div>
               <p className="label" style={{ marginBottom: '0.5rem' }}>Learn</p>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Buying Guides</h2>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Blog Posts</h2>
             </div>
             <Link href="/blog" className="text-accent" style={{ fontSize: '0.8125rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               All Guides →
@@ -237,8 +237,8 @@ export default function HomePage() {
             Browse {stats.products}+ professional audio products across {stats.categories} categories, or read our expert buying guides.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/gear" className="btn-primary">Shop All Gear</Link>
-            <Link href="/blog" className="btn-secondary">Read Guides</Link>
+            <Link href="/gear" className="btn-primary">Shop All</Link>
+            <Link href="/blog" className="btn-secondary">Read Blog</Link>
           </div>
         </div>
       </section>

@@ -6,10 +6,10 @@ import BackToTop from '@/components/BackToTop';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Superstar Soundz — Professional Audio Equipment, Reviews & Buying Guides',
+    default: 'Superstar Soundz — Professional Audio Equipment, Reviews & Blog',
     template: '%s | Superstar Soundz',
   },
-  description: 'Expert reviews, buying guides, and hand-picked audio gear for musicians, DJs, producers, and audio engineers. Find the best microphones, headphones, studio monitors, and more.',
+  description: 'Expert reviews, blog posts, and hand-picked audio gear for musicians, DJs, producers, and audio engineers. Find the best microphones, headphones, studio monitors, and more.',
   keywords: ['audio equipment', 'studio gear', 'microphones', 'headphones', 'DJ controllers', 'studio monitors', 'buying guides', 'music production'],
   icons: {
     icon: '/favicon.svg',

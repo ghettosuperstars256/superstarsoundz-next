@@ -352,8 +352,8 @@ export default function ServicesPage() {
               Expert equipment reviews, buying guides, and gear recommendations for DJs, audio engineers, photographers, and event professionals.
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
-              <Link href="/gear" className="btn-primary">Shop All Gear</Link>
-              <Link href="/blog" className="btn-secondary">Read Buying Guides</Link>
+              <Link href="/gear" className="btn-primary">Shop All</Link>
+              <Link href="/blog" className="btn-secondary">Read Blog</Link>
             </div>
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
@@ -483,7 +483,7 @@ export default function ServicesPage() {
             Browse our curated selection of professional audio equipment, or reach out for personalized recommendations.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/gear" className="btn-primary">Shop All Gear</Link>
+            <Link href="/gear" className="btn-primary">Shop All</Link>
             <Link href="/contact" className="btn-secondary">Contact Us</Link>
           </div>
         </div>

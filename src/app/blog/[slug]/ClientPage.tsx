@@ -83,7 +83,7 @@ export default function BlogPostPage({ params }: Props) {
               <div className="text-muted" style={{ marginBottom: '1.5rem', fontSize: '0.8125rem' }}>
                 <Link href="/" className="text-muted">Home</Link>
                 <span style={{ margin: '0 0.5rem' }}>/</span>
-                <Link href="/blog" className="text-muted">Guides</Link>
+                <Link href="/blog" className="text-muted">Blog</Link>
                 <span style={{ margin: '0 0.5rem' }}>/</span>
                 <span className="text-primary">{post.title.length > 40 ? post.title.slice(0, 40) + '...' : post.title}</span>
               </div>
@@ -178,7 +178,7 @@ export default function BlogPostPage({ params }: Props) {
               <div className="bg-accent-dim border-accent" style={{ borderRadius: '8px', padding: '1.25rem', textAlign: 'center' }}>
                 <h3 style={{ fontSize: '0.875rem', fontWeight: 700, marginBottom: '0.5rem' }}>Ready to Buy?</h3>
                 <p className="text-secondary" style={{ fontSize: '0.75rem', marginBottom: '1rem' }}>Browse our curated selection of professional audio gear.</p>
-                <Link href="/gear" className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '0.75rem' }}>Shop All Gear</Link>
+                <Link href="/gear" className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '0.75rem' }}>Shop All</Link>
               </div>
 
               {/* Deals link */}
@@ -196,7 +196,7 @@ export default function BlogPostPage({ params }: Props) {
           {/* Related */}
           {related.length > 0 && (
             <div style={{ marginTop: '4rem', borderTop: '1px solid var(--border)', paddingTop: '2rem' }}>
-              <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem' }}>Related Guides</h2>
+              <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem' }}>Related Posts</h2>
               <div className="grid-3">
                 {related.map(rp => (
                   <Link key={rp.id} href={`/blog/${rp.slug}`} className="card" style={{ display: 'block' }}>

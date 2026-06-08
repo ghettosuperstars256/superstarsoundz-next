@@ -71,7 +71,7 @@ function GearContent() {
               {product.image ? <img src={product.image} alt={product.short_name} loading="lazy" /> : <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>}
             </div>
             <div style={{ padding: '1rem' }}>
-              <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>{product.categories[0]?.replace('Shop: ', '') || 'Gear'}</p>
+              <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>{product.categories[0]?.replace('Shop: ', '') || 'Shop'}</p>
               <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.short_name}</h3>
               <p className="text-muted" style={{ fontSize: '0.75rem', marginBottom: '0.75rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.short_description}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -98,7 +98,7 @@ export default function GearPage() {
       <div className="container">
         <div style={{ marginBottom: '2rem' }}>
           <p className="label" style={{ marginBottom: '0.5rem' }}>Shop</p>
-          <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.5rem' }}>All Gear</h1>
+          <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.5rem' }}>All Shop</h1>
           <p className="text-secondary">Professional audio equipment for every budget</p>
         </div>
         <Suspense fallback={

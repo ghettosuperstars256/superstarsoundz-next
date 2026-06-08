@@ -33,7 +33,7 @@ export default function AboutPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
                   { title: 'Expert Reviews', desc: 'In-depth analysis of professional audio equipment' },
-                  { title: 'Buying Guides', desc: 'Category-specific guides to help you choose' },
+                  { title: 'Blog Posts', desc: 'Category-specific guides to help you choose' },
                   { title: 'Gear Curation', desc: 'Hand-picked products across all price ranges' },
                   { title: 'Industry Insights', desc: 'News and trends in professional audio' },
                 ].map((item, i) => (
@@ -59,7 +59,7 @@ export default function AboutPage() {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contact" className="btn-primary">Contact Us</Link>
-            <Link href="/blog" className="btn-secondary">Read Our Guides</Link>
+            <Link href="/blog" className="btn-secondary">Read Blog</Link>
           </div>
         </div>
       </section>

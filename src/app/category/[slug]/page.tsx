@@ -71,7 +71,7 @@ export default function CategoryPage({ params }: Props) {
           <div className="text-muted" style={{ marginBottom: '0.75rem', fontSize: '0.8125rem' }}>
             <Link href="/" className="text-muted">Home</Link>
             <span style={{ margin: '0 0.5rem' }}>/</span>
-            <Link href="/gear" className="text-muted">Gear</Link>
+            <Link href="/gear" className="text-muted">Shop</Link>
             <span style={{ margin: '0 0.5rem' }}>/</span>
             <span className="text-primary">{cat.name}</span>
           </div>
@@ -92,7 +92,7 @@ export default function CategoryPage({ params }: Props) {
       <div style={{ borderBottom: '1px solid var(--border)', background: 'var(--bg-primary)' }}>
         <div className="container" style={{ padding: '1rem 1.5rem' }}>
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', overflowX: 'auto' }}>
-            <Link href="/gear" className="badge" style={{ textDecoration: 'none', opacity: 0.7, whiteSpace: 'nowrap' }}>All Gear</Link>
+            <Link href="/gear" className="badge" style={{ textDecoration: 'none', opacity: 0.7, whiteSpace: 'nowrap' }}>All Shop</Link>
             <Link href="/deals" className="badge" style={{ textDecoration: 'none', opacity: 0.7, whiteSpace: 'nowrap', background: 'rgba(239,68,68,0.1)', color: '#ef4444' }}>🔥 Deals</Link>
             {productCategories.filter(c => c.slug !== params.slug).map(c => (
               <Link key={c.slug} href={`/category/${c.slug}`} className="badge" style={{ textDecoration: 'none', opacity: 0.7, whiteSpace: 'nowrap' }}>{c.name}</Link>
@@ -123,7 +123,7 @@ export default function CategoryPage({ params }: Props) {
                 </div>
                 <div style={{ padding: '1rem' }}>
                   <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>
-                    {product.categories[0]?.replace('Shop: ', '') || 'Gear'}
+                    {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginBottom: '0.375rem' }}>
                     {[...Array(5)].map((_, i) => (
