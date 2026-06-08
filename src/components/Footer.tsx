@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
             <div style={{ flex: '1 1 300px' }}>
-              <h3 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '0.375rem' }}>Get Gear Deals in Your Inbox</h3>
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '0.375rem' }}>Get Deals in Your Inbox</h3>
               <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>New deals, blog posts, and product reviews. No spam.</p>
             </div>
             <div style={{ display: 'flex', gap: '0.5rem', flex: '0 1 360px' }}>

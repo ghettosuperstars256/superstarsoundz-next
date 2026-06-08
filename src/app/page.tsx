@@ -20,7 +20,7 @@ export default function HomePage() {
               <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Trusted by Audio Professionals</span>
             </div>
             <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 800, lineHeight: 1.05, marginBottom: '1.25rem', letterSpacing: '-0.03em' }}>
-              Professional Sound Gear<br />
+              Professional Audio Gear<br />
               <span className="text-accent">Curated For Pros</span>
             </h1>
             <p className="text-secondary" style={{ fontSize: '1.125rem', marginBottom: '2rem', maxWidth: '520px', lineHeight: 1.7 }}>
@@ -170,14 +170,14 @@ export default function HomePage() {
               <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Blog Posts</h2>
             </div>
             <Link href="/blog" className="text-accent" style={{ fontSize: '0.8125rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              All Guides →
+              All Posts →
             </Link>
           </div>
           <div className="grid-3">
             {activePostCats.map(cat => (
               <Link key={cat.slug} href="/blog" className="card" style={{ padding: '1.5rem', display: 'block' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.375rem' }}>{cat.name}</h3>
-                <p className="text-muted" style={{ fontSize: '0.75rem' }}>{cat.count} guide{cat.count !== 1 ? 's' : ''}</p>
+                <p className="text-muted" style={{ fontSize: '0.75rem' }}>{cat.count} post{cat.count !== 1 ? 's' : ''}</p>
               </Link>
             ))}
           </div>
@@ -220,7 +220,7 @@ export default function HomePage() {
       <section className="section">
         <div className="container" style={{ textAlign: 'center' }}>
           <div className="bg-accent-dim border-accent" style={{ borderRadius: '12px', padding: '3rem 2rem', maxWidth: '600px', margin: '0 auto' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.75rem' }}>Get Gear Deals in Your Inbox</h2>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.75rem' }}>Get Deals in Your Inbox</h2>
             <p className="text-secondary" style={{ marginBottom: '1.5rem', fontSize: '0.9375rem' }}>
               Join 2,000+ audio professionals. Weekly roundups of the best deals, new gear releases, and blog posts.
             </p>
