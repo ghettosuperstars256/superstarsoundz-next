@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    prerenderEarlyExit: false,
+  output: "export",
+  images: {
+    unoptimized: true,
   },
 };
 
