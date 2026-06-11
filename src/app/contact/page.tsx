@@ -38,10 +38,10 @@ export default function ContactPage() {
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.75rem 1rem',
-    background: 'var(--bg-card)',
-    border: '1px solid var(--border)',
+    background: '#121216',
+    border: '1px solid #1e1e26',
     borderRadius: '6px',
-    color: 'var(--text-primary)',
+    color: '#f0f0f2',
     fontSize: '0.9375rem',
     outline: 'none',
   };
@@ -51,8 +51,6 @@ export default function ContactPage() {
     fontSize: '0.8125rem',
     fontWeight: 600,
     marginBottom: '0.375rem',
-    textTransform: 'uppercase',
-    letterSpacing: '0.05em',
   };
 
   return (
@@ -99,7 +97,7 @@ export default function ContactPage() {
                   {status === 'sending' ? 'Sending...' : 'Send Message'}
                 </button>
                 {status !== 'idle' && (
-                  <p style={{ fontSize: '0.875rem', padding: '0.75rem', borderRadius: '6px', background: status === 'sent' ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)', color: status === 'sent' ? 'var(--success)' : 'var(--danger)' }}>
+                  <p style={{ fontSize: '0.875rem', padding: '0.75rem', borderRadius: '6px', background: status === 'sent' ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)', color: status === 'sent' ? '#22c55e' : '#ef4444' }}>
                     {statusMsg}
                   </p>
                 )}
@@ -111,16 +109,16 @@ export default function ContactPage() {
                 <h3 className="text-accent" style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1.25rem' }}>Contact Info</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <div>
-                    <div className="text-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Email</div>
-                    <a href="mailto:info@superstarsoundz.com" style={{ color: 'var(--text-primary)', fontSize: '0.9375rem' }}>info@superstarsoundz.com</a>
+                    <div className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 600, marginBottom: '0.25rem' }}>Email</div>
+                    <a href="mailto:info@superstarsoundz.com" style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>info@superstarsoundz.com</a>
                   </div>
                   <div>
-                    <div className="text-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Location</div>
-                    <div style={{ color: 'var(--text-primary)', fontSize: '0.9375rem' }}>Worldwide — Remote First</div>
+                    <div className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 600, marginBottom: '0.25rem' }}>Location</div>
+                    <div style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>Worldwide — Remote First</div>
                   </div>
                   <div>
-                    <div className="text-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Response Time</div>
-                    <div style={{ color: 'var(--text-primary)', fontSize: '0.9375rem' }}>Within 24-48 hours</div>
+                    <div className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 600, marginBottom: '0.25rem' }}>Response Time</div>
+                    <div style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>Within 24-48 hours</div>
                   </div>
                 </div>
               </div>

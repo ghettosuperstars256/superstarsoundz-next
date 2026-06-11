@@ -1,7 +1,7 @@
 import pagesData from '@/data/pages.json';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 interface PageData {
@@ -13,8 +13,9 @@ interface PageData {
 
 const pages: Record<string, PageData> = pagesData as unknown as Record<string, PageData>;
 
-export default function LegalPage({ params }: Props) {
-  const page = pages[params.slug];
+export default async function LegalPage({ params }: Props) {
+  const { slug } = await params;
+  const page = pages[slug];
   if (!page) {
     return (
       <div className="section">
@@ -31,7 +32,7 @@ export default function LegalPage({ params }: Props) {
         <div style={{ marginBottom: '2rem' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.5rem' }}>{page.title}</h1>
         </div>
-        <div className="prose" dangerouslySetInnerHTML={{ __html: page.content }} />
+        <div className="prose" dangerouslySetInnerHTML={{ __html: page.content.replace(/<h1[^>]*>.*?<\/h1>/gi, '') }} />
       </div>
     </div>
   );

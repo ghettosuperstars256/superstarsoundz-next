@@ -90,13 +90,13 @@ export default function SearchModal({ onClose }: { onClose: () => void }) {
       <div
         style={{
           width: '100%', maxWidth: '600px', margin: '0 1rem',
-          background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+          background: '#0e0e12', border: '1px solid #1e1e26',
           borderRadius: '12px', overflow: 'hidden',
           boxShadow: '0 25px 60px rgba(0,0,0,0.5)',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', borderBottom: '1px solid var(--border)' }}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ color: 'var(--accent)', flexShrink: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', borderBottom: '1px solid #1e1e26' }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ color: '#D4A843', flexShrink: 0 }}>
             <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" strokeWidth="1.5"/>
             <path d="M12.5 12.5L18 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
@@ -109,13 +109,13 @@ export default function SearchModal({ onClose }: { onClose: () => void }) {
             placeholder="Search products, guides..."
             style={{
               flex: 1, background: 'none', border: 'none', outline: 'none',
-              color: 'var(--text-primary)', fontSize: '1rem',
+              color: '#f0f0f2', fontSize: '1rem',
             }}
           />
           <kbd style={{
             padding: '0.125rem 0.375rem', borderRadius: '4px',
-            background: 'var(--bg-card)', border: '1px solid var(--border)',
-            fontSize: '0.6875rem', color: 'var(--text-muted)', fontFamily: 'monospace',
+            background: '#121216', border: '1px solid #1e1e26',
+            fontSize: '0.6875rem', color: '#5a5a6a', fontFamily: 'monospace',
           }}>ESC</kbd>
         </div>
         {results.length > 0 && (
@@ -128,38 +128,38 @@ export default function SearchModal({ onClose }: { onClose: () => void }) {
                 style={{
                   display: 'flex', alignItems: 'center', gap: '0.75rem',
                   padding: '0.75rem 1.25rem',
-                  background: i === selectedIndex ? 'var(--accent-dim)' : 'transparent',
-                  borderBottom: '1px solid var(--border)',
+                  background: i === selectedIndex ? 'rgba(212, 168, 67, 0.08)' : 'transparent',
+                  borderBottom: '1px solid #1e1e26',
                   transition: 'background 0.1s',
                 }}
               >
                 {r.image ? (
-                  <img src={r.image} alt="" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '4px', background: 'var(--bg-card)', flexShrink: 0 }} />
+                  <img src={r.image} alt={r.title} style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '4px', background: '#121216', flexShrink: 0 }} />
                 ) : (
                   <div style={{
                     width: '40px', height: '40px', borderRadius: '4px',
-                    background: r.type === 'post' ? 'var(--accent-dim)' : 'var(--bg-card)',
+                    background: r.type === 'post' ? 'rgba(212, 168, 67, 0.08)' : '#121216',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    flexShrink: 0, fontSize: '0.625rem', fontWeight: 700, color: 'var(--accent)',
+                    flexShrink: 0, fontSize: '0.625rem', fontWeight: 700, color: '#D4A843',
                   }}>
                     {r.type === 'post' ? 'GUIDE' : r.type === 'category' ? 'CAT' : 'GEAR'}
                   </div>
                 )}
                 <div style={{ minWidth: 0 }}>
                   <div style={{ fontSize: '0.875rem', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.title}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.subtitle}</div>
+                  <div style={{ fontSize: '0.75rem', color: '#5a5a6a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.subtitle}</div>
                 </div>
               </Link>
             ))}
           </div>
         )}
         {query.trim() && results.length === 0 && (
-          <div style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
+          <div style={{ padding: '2rem', textAlign: 'center', color: '#5a5a6a', fontSize: '0.875rem' }}>
             No results for "{query}"
           </div>
         )}
         {!query.trim() && (
-          <div style={{ padding: '1.5rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.8125rem' }}>
+          <div style={{ padding: '1.5rem', textAlign: 'center', color: '#5a5a6a', fontSize: '0.8125rem' }}>
             Type to search products and buying guides...
           </div>
         )}

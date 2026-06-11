@@ -1,0 +1,121 @@
+[
+  {
+    "id": 350,
+    "name": "DJ Software",
+    "slug": "dj-software",
+    "count": 2,
+    "wp_name": "DJ Software"
+  },
+  {
+    "id": 353,
+    "name": "Music Production",
+    "slug": "music-production",
+    "count": 3,
+    "wp_name": "Music Production"
+  },
+  {
+    "id": 364,
+    "name": "Acoustic Guitars",
+    "slug": "shop-acoustic-guitars",
+    "count": 1,
+    "wp_name": "Shop: Acoustic Guitars"
+  },
+  {
+    "id": 365,
+    "name": "Bass Guitars",
+    "slug": "shop-bass-guitars",
+    "count": 2,
+    "wp_name": "Shop: Bass Guitars"
+  },
+  {
+    "id": 363,
+    "name": "Electric Guitars",
+    "slug": "shop-electric-guitars",
+    "count": 1,
+    "wp_name": "Shop: Electric Guitars"
+  },
+  {
+    "id": 351,
+    "name": "Studio Recording",
+    "slug": "studio-recording",
+    "count": 1,
+    "wp_name": "Studio Recording"
+  },
+  {
+    "id": 61,
+    "name": "Audio Interfaces",
+    "slug": "topic-audio-interfaces",
+    "count": 1,
+    "wp_name": "Topic: Audio Interfaces"
+  },
+  {
+    "id": 62,
+    "name": "DJ Controllers",
+    "slug": "topic-dj-controllers",
+    "count": 2,
+    "wp_name": "Topic: DJ Controllers"
+  },
+  {
+    "id": 357,
+    "name": "DJ Mixers",
+    "slug": "topic-dj-mixers",
+    "count": 1,
+    "wp_name": "Topic: DJ Mixers"
+  },
+  {
+    "id": 377,
+    "name": "Guitar Amps",
+    "slug": "topic-guitar-amps",
+    "count": 1,
+    "wp_name": "Topic: Guitar Amps"
+  },
+  {
+    "id": 348,
+    "name": "Headphones",
+    "slug": "topic-headphones",
+    "count": 1,
+    "wp_name": "Topic: Headphones"
+  },
+  {
+    "id": 63,
+    "name": "Microphones",
+    "slug": "topic-microphones",
+    "count": 1,
+    "wp_name": "Topic: Microphones"
+  },
+  {
+    "id": 349,
+    "name": "MIDI Controllers",
+    "slug": "topic-midi-controllers",
+    "count": 1,
+    "wp_name": "Topic: MIDI Controllers"
+  },
+  {
+    "id": 68,
+    "name": "PA Systems",
+    "slug": "topic-pa-systems",
+    "count": 1,
+    "wp_name": "Topic: PA Systems"
+  },
+  {
+    "id": 64,
+    "name": "Studio Monitors",
+    "slug": "topic-studio-monitors",
+    "count": 1,
+    "wp_name": "Topic: Studio Monitors"
+  },
+  {
+    "id": 358,
+    "name": "Studio Subwoofers",
+    "slug": "topic-studio-subwoofers",
+    "count": 1,
+    "wp_name": "Topic: Studio Subwoofers"
+  },
+  {
+    "id": 355,
+    "name": "Turntables &amp; Vinyl",
+    "slug": "topic-turntables-amp-vinyl",
+    "count": 1,
+    "wp_name": "Topic: Turntables &amp; Vinyl"
+  }
+]

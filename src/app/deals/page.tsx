@@ -43,12 +43,8 @@ export default function DealsPage() {
                   display: 'inline-flex', alignItems: 'center', gap: '0.375rem',
                   padding: '0.375rem 0.875rem', borderRadius: '100px',
                   background: colors.bg, color: colors.text,
-                  fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
+                  fontSize: '0.75rem', fontWeight: 700,
                 }}>
-                  {badge === 'Best Value' && '★ '}
-                  {badge === "Editor's Choice" && '♦ '}
-                  {badge === 'Top Pick' && '⚡ '}
-                  {badge === 'Limited Deal' && '🔥 '}
                   {badge}
                 </span>
                 <span className="text-muted" style={{ fontSize: '0.8125rem' }}>{items.length} item{items.length !== 1 ? 's' : ''}</span>
@@ -61,7 +57,7 @@ export default function DealsPage() {
                       position: 'absolute', top: '-8px', right: '1rem', zIndex: 2,
                       padding: '0.25rem 0.625rem', borderRadius: '4px',
                       background: colors.bg, color: colors.text,
-                      fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
+                      fontSize: '0.625rem', fontWeight: 700,
                       boxShadow: `0 2px 8px ${colors.bg}`,
                     }}>
                       {badge}
@@ -70,20 +66,13 @@ export default function DealsPage() {
                       {product.image ? <img src={product.image} alt={product.short_name} loading="lazy" /> : <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>}
                     </div>
                     <div style={{ padding: '1rem' }}>
-                      <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>
+                      <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.375rem' }}>
                         {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
                       </p>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginBottom: '0.375rem' }}>
-                        {[...Array(5)].map((_, i) => (
-                          <svg key={i} width="12" height="12" viewBox="0 0 12 12" fill="none">
-                            <path d="M6 1l1.5 3 3.5.5-2.5 2.5.5 3.5L6 9l-3 1.5.5-3.5L1 4.5 4.5 4z" fill={i < 4 ? 'var(--accent)' : 'var(--border)'} />
-                          </svg>
-                        ))}
-                      </div>
                       <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.short_name}</h3>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
-                        <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>View Deal →</span>
+                        <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View Details</span>
                       </div>
                     </div>
                   </Link>

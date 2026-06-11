@@ -19,7 +19,7 @@ export default function BackToTop() {
       style={{
         position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 90,
         width: '44px', height: '44px', borderRadius: '50%',
-        background: 'var(--accent)', color: '#000', border: 'none',
+        background: '#D4A843', color: '#000', border: 'none',
         cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
         boxShadow: '0 4px 20px rgba(212,168,67,0.3)',
         transition: 'all 0.2s',

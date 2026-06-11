@@ -17,8 +17,8 @@ function GearContent() {
       ? products
       : products.filter(p => p.categories.some(c => c.toLowerCase().includes(activeCat.toLowerCase().replace(/-/g, ' '))));
     switch (sortBy) {
-      case 'price-low': return [...filtered].sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-      case 'price-high': return [...filtered].sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      case 'price-low': return [...filtered].sort((a, b) => (a.price || 0) - (b.price || 0));
+      case 'price-high': return [...filtered].sort((a, b) => (b.price || 0) - (a.price || 0));
       case 'name': return [...filtered].sort((a, b) => a.short_name.localeCompare(b.short_name));
       default: return filtered;
     }
@@ -28,13 +28,11 @@ function GearContent() {
     padding: '0.5rem 1rem',
     borderRadius: '4px',
     border: '1px solid',
-    borderColor: active ? 'var(--accent)' : 'var(--border)',
-    background: active ? 'var(--accent-dim)' : 'transparent',
-    color: active ? 'var(--accent)' : 'var(--text-secondary)',
+    borderColor: active ? '#D4A843' : '#1e1e26',
+    background: active ? 'rgba(212, 168, 67, 0.08)' : 'transparent',
+    color: active ? '#D4A843' : '#9090a0',
     fontSize: '0.75rem',
     fontWeight: 600,
-    textTransform: 'uppercase' as const,
-    letterSpacing: '0.05em',
     cursor: 'pointer',
   });
 
@@ -52,7 +50,7 @@ function GearContent() {
             );
           })}
         </div>
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} style={{ padding: '0.5rem 1rem', borderRadius: '4px', border: '1px solid var(--border)', background: 'var(--bg-card)', color: 'var(--text-primary)', fontSize: '0.8125rem', cursor: 'pointer', marginLeft: 'auto' }}>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} style={{ padding: '0.5rem 1rem', borderRadius: '4px', border: '1px solid #1e1e26', background: '#121216', color: '#f0f0f2', fontSize: '0.8125rem', cursor: 'pointer', marginLeft: 'auto' }}>
           <option value="default">Sort by</option>
           <option value="price-low">Price: Low to High</option>
           <option value="price-high">Price: High to Low</option>
@@ -71,12 +69,12 @@ function GearContent() {
               {product.image ? <img src={product.image} alt={product.short_name} loading="lazy" /> : <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>}
             </div>
             <div style={{ padding: '1rem' }}>
-              <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.375rem' }}>{product.categories[0]?.replace('Shop: ', '') || 'Shop'}</p>
+              <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.375rem' }}>{product.categories[0]?.replace('Shop: ', '') || 'Shop'}</p>
               <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.short_name}</h3>
               <p className="text-muted" style={{ fontSize: '0.75rem', marginBottom: '0.75rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.short_description}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
-                <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>View Deal →</span>
+                <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View Details</span>
               </div>
             </div>
           </Link>
@@ -105,11 +103,11 @@ export default function GearPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
             {[...Array(6)].map((_, i) => (
               <div key={i} className="card">
-                <div style={{ aspectRatio: '1', background: 'var(--bg-secondary)', borderRadius: '8px 8px 0 0' }} />
+                <div style={{ aspectRatio: '1', background: '#0e0e12', borderRadius: '8px 8px 0 0' }} />
                 <div style={{ padding: '1rem' }}>
-                  <div style={{ height: '12px', width: '60px', background: 'var(--border)', borderRadius: '4px', marginBottom: '0.5rem' }} />
-                  <div style={{ height: '14px', width: '80%', background: 'var(--border)', borderRadius: '4px', marginBottom: '0.5rem' }} />
-                  <div style={{ height: '16px', width: '40px', background: 'var(--accent-dim)', borderRadius: '4px' }} />
+                  <div style={{ height: '12px', width: '60px', background: '#1e1e26', borderRadius: '4px', marginBottom: '0.5rem' }} />
+                  <div style={{ height: '14px', width: '80%', background: '#1e1e26', borderRadius: '4px', marginBottom: '0.5rem' }} />
+                  <div style={{ height: '16px', width: '40px', background: 'rgba(212, 168, 67, 0.08)', borderRadius: '4px' }} />
                 </div>
               </div>
             ))}
