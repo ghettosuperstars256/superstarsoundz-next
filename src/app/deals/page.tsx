@@ -1,103 +1,216 @@
 import Link from 'next/link';
 import products from '@/data/products.json';
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Best Audio Gear Deals — Sales, Discounts & Top Picks | Superstar Soundz',
-  description: 'Find the best deals on professional audio equipment. Curated discounts on microphones, headphones, DJ controllers, studio monitors, and more.',
+export const metadata = {
+  title: 'Deals & Discounts',
+  description: 'Find the best deals on professional audio equipment — DJ controllers, microphones, studio monitors, headphones, and more at discounted prices.',
 };
-
-const badgeColors: Record<string, { bg: string; text: string }> = {
-  'Best Value': { bg: 'rgba(34,197,94,0.15)', text: '#22c55e' },
-  "Editor's Choice": { bg: 'rgba(212,168,67,0.15)', text: '#D4A843' },
-  'Top Pick': { bg: 'rgba(168,85,247,0.15)', text: '#a855f7' },
-  'Limited Deal': { bg: 'rgba(239,68,68,0.15)', text: '#ef4444' },
-};
-
-const badgeOrder = ['Best Value', "Editor's Choice", 'Top Pick', 'Limited Deal'];
-
-const dealProducts = products
-  .filter(p => p.badge && badgeOrder.includes(p.badge))
-  .sort((a, b) => badgeOrder.indexOf(a.badge!) - badgeOrder.indexOf(b.badge!));
 
 export default function DealsPage() {
-  return (
-    <div className="section">
-      <div className="container">
-        <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
-          <p className="label" style={{ marginBottom: '0.5rem' }}>Save Money</p>
-          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: '0.75rem' }}>Best Audio Gear Deals</h1>
-          <p className="text-secondary" style={{ maxWidth: '550px', margin: '0 auto' }}>
-            Hand-picked deals on professional audio equipment. Updated regularly with the best prices across all categories.
-          </p>
-        </div>
+  // Show products with "Best Value" badge as deals, plus any under $200
+  const dealProducts = products.filter(p =>
+    p.badge === 'Best Value' || p.price < 200
+  ).sort((a, b) => a.price - b.price);
 
-        {badgeOrder.map(badge => {
-          const items = dealProducts.filter(p => p.badge === badge);
-          if (items.length === 0) return null;
-          const colors = badgeColors[badge];
-          return (
-            <div key={badge} style={{ marginBottom: '3rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                <span style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '0.375rem',
-                  padding: '0.375rem 0.875rem', borderRadius: '100px',
-                  background: colors.bg, color: colors.text,
-                  fontSize: '0.75rem', fontWeight: 700,
-                }}>
-                  {badge}
-                </span>
-                <span className="text-muted" style={{ fontSize: '0.8125rem' }}>{items.length} item{items.length !== 1 ? 's' : ''}</span>
+  const budgetPicks = products.filter(p => p.price < 100);
+  const midRange = products.filter(p => p.price >= 100 && p.price < 500);
+  const premium = products.filter(p => p.price >= 500);
+
+  return (
+    <>
+      {/* Hero */}
+      <section style={{ padding: '4.5rem 0 3.5rem', background: 'linear-gradient(135deg, #0e0e12 0%, #08080a 100%)', borderBottom: '1px solid #1e1e26' }}>
+        <div className="container">
+          <div style={{ maxWidth: '750px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.375rem 0.875rem', borderRadius: '100px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', marginBottom: '1.25rem' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ef4444' }} />
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#ef4444', letterSpacing: '0.04em' }}>Best Prices on Professional Gear</span>
+            </div>
+            <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.25rem' }}>
+              Deals & Discounts
+            </h1>
+            <p className="text-secondary" style={{ fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '1rem' }}>
+              Hand-picked audio equipment at prices that make sense. Every product here offers genuine value — whether you're on a tight budget or investing in professional-grade gear.
+            </p>
+            <p className="text-secondary" style={{ fontSize: '1rem', lineHeight: 1.7 }}>
+              Prices sourced from Amazon. Last updated regularly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Budget Picks */}
+      <section className="section" style={{ paddingBottom: '4rem' }}>
+        <div className="container">
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <span style={{ fontSize: '1.25rem' }}>💰</span>
+              <h2 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800 }}>Budget-Friendly Picks</h2>
+            </div>
+            <p className="text-secondary" style={{ maxWidth: '600px', lineHeight: 1.7 }}>
+              Professional-quality gear under $100. Perfect for beginners, home studios, and anyone starting out.
+            </p>
+          </div>
+          <div className="grid-3">
+            {budgetPicks.map(product => (
+              <Link key={product.id} href={`/gear/${product.slug}`} className="card product-card" style={{ position: 'relative', overflow: 'visible' }}>
+                {product.badge && (
+                  <div style={{
+                    position: 'absolute', top: '-8px', right: '1rem', zIndex: 2,
+                    padding: '0.25rem 0.625rem', borderRadius: '4px',
+                    background: product.badge === 'Best Value' ? 'rgba(34,197,94,0.15)' : 'rgba(212,168,67,0.15)',
+                    color: product.badge === 'Best Value' ? '#22c55e' : '#D4A843',
+                    fontSize: '0.625rem', fontWeight: 700,
+                  }}>
+                    {product.badge}
+                  </div>
+                )}
+                <div className="product-card-image" style={{ borderRadius: '8px 8px 0 0' }}>
+                  {product.image ? (
+                    <img src={product.image} alt={product.short_name} loading="lazy" />
+                  ) : (
+                    <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>
+                  )}
+                </div>
+                <div style={{ padding: '1rem' }}>
+                  <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
+                    {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
+                  </p>
+                  <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {product.short_name}
+                  </h3>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
+                    <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mid-Range */}
+      <section className="section bg-secondary" style={{ paddingBottom: '4rem' }}>
+        <div className="container">
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <span style={{ fontSize: '1.25rem' }}>⭐</span>
+              <h2 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800 }}>Mid-Range Value</h2>
+            </div>
+            <p className="text-secondary" style={{ maxWidth: '600px', lineHeight: 1.7 }}>
+              The sweet spot for serious producers and working professionals — $100 to $500.
+            </p>
+          </div>
+          <div className="grid-3">
+            {midRange.map(product => (
+              <Link key={product.id} href={`/gear/${product.slug}`} className="card product-card" style={{ position: 'relative', overflow: 'visible' }}>
+                {product.badge && (
+                  <div style={{
+                    position: 'absolute', top: '-8px', right: '1rem', zIndex: 2,
+                    padding: '0.25rem 0.625rem', borderRadius: '4px',
+                    background: product.badge === 'Best Value' ? 'rgba(34,197,94,0.15)' : 'rgba(212,168,67,0.15)',
+                    color: product.badge === 'Best Value' ? '#22c55e' : '#D4A843',
+                    fontSize: '0.625rem', fontWeight: 700,
+                  }}>
+                    {product.badge}
+                  </div>
+                )}
+                <div className="product-card-image" style={{ borderRadius: '8px 8px 0 0' }}>
+                  {product.image ? (
+                    <img src={product.image} alt={product.short_name} loading="lazy" />
+                  ) : (
+                    <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>
+                  )}
+                </div>
+                <div style={{ padding: '1rem' }}>
+                  <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
+                    {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
+                  </p>
+                  <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {product.short_name}
+                  </h3>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
+                    <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Premium */}
+      {premium.length > 0 && (
+        <section className="section" style={{ paddingBottom: '4rem' }}>
+          <div className="container">
+            <div style={{ marginBottom: '2rem' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <span style={{ fontSize: '1.25rem' }}>🏆</span>
+                <h2 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800 }}>Premium Picks</h2>
               </div>
-              <div className="grid-3">
-                {items.map(product => (
-                  <Link key={product.id} href={`/gear/${product.slug}`} className="card product-card" style={{ position: 'relative', overflow: 'visible' }}>
-                    {/* Badge ribbon */}
+              <p className="text-secondary" style={{ maxWidth: '600px', lineHeight: 1.7 }}>
+                Professional-grade gear for those who demand the best — $500 and above.
+              </p>
+            </div>
+            <div className="grid-3">
+              {premium.map(product => (
+                <Link key={product.id} href={`/gear/${product.slug}`} className="card product-card" style={{ position: 'relative', overflow: 'visible' }}>
+                  {product.badge && (
                     <div style={{
                       position: 'absolute', top: '-8px', right: '1rem', zIndex: 2,
                       padding: '0.25rem 0.625rem', borderRadius: '4px',
-                      background: colors.bg, color: colors.text,
+                      background: product.badge === "Editor's Choice" ? 'rgba(212,168,67,0.15)' : 'rgba(212,168,67,0.15)',
+                      color: '#D4A843',
                       fontSize: '0.625rem', fontWeight: 700,
-                      boxShadow: `0 2px 8px ${colors.bg}`,
                     }}>
-                      {badge}
+                      {product.badge}
                     </div>
-                    <div className="product-card-image" style={{ borderRadius: '8px 8px 0 0' }}>
-                      {product.image ? <img src={product.image} alt={product.short_name} loading="lazy" /> : <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>}
+                  )}
+                  <div className="product-card-image" style={{ borderRadius: '8px 8px 0 0' }}>
+                    {product.image ? (
+                      <img src={product.image} alt={product.short_name} loading="lazy" />
+                    ) : (
+                      <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>
+                    )}
+                  </div>
+                  <div style={{ padding: '1rem' }}>
+                    <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
+                      {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
+                    </p>
+                    <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {product.short_name}
+                    </h3>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
+                      <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
                     </div>
-                    <div style={{ padding: '1rem' }}>
-                      <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.375rem' }}>
-                        {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
-                      </p>
-                      <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.short_name}</h3>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
-                        <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View Details</span>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+                  </div>
+                </Link>
+              ))}
             </div>
-          );
-        })}
-
-        {dealProducts.length === 0 && (
-          <div className="text-muted" style={{ textAlign: 'center', padding: '4rem 0' }}>
-            <p>No deals available right now. Check back soon!</p>
           </div>
-        )}
+        </section>
+      )}
 
-        {/* CTA */}
-        <div className="bg-accent-dim border-accent" style={{ borderRadius: '12px', padding: '2rem', textAlign: 'center', marginTop: '2rem' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Can't Find What You Need?</h2>
-          <p className="text-secondary" style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>Browse our full catalog or read our buying guides.</p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/gear" className="btn-primary">All Shop</Link>
-            <Link href="/blog" className="btn-secondary">Blog Posts</Link>
+      {/* CTA */}
+      <section className="section">
+        <div className="container" style={{ textAlign: 'center' }}>
+          <div className="bg-accent-dim border-accent" style={{ borderRadius: '12px', padding: '3rem 2rem', maxWidth: '700px', margin: '0 auto' }}>
+            <h2 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 800, marginBottom: '1rem' }}>
+              Need Help Choosing?
+            </h2>
+            <p className="text-secondary" style={{ marginBottom: '1.5rem', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 1.5rem', lineHeight: 1.7 }}>
+              Tell us about your event or project — we'll recommend the right gear and handle the production.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/contact" className="btn-primary">Contact Us</Link>
+              <Link href="/blog" className="btn-secondary">Read Our Guides</Link>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

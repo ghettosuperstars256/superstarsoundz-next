@@ -9,13 +9,13 @@ export default function ServicesPage() {
           <div style={{ maxWidth: '750px' }}>
             <p className="label" style={{ marginBottom: '0.75rem' }}>What We Offer</p>
             <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.25rem' }}>
-              Gear Reviews & Production Services
+              Production Services & Equipment
             </h1>
             <p className="text-secondary" style={{ fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '1rem' }}>
-              Superstar Soundz helps you find the best audio equipment — and when you need professional production, we deliver that too. Two sides of the same expertise.
+              Superstar Soundz is Kampala's trusted partner for professional audio production, AV services, and equipment supply — from intimate events to large-scale concerts and festivals.
             </p>
             <p className="text-secondary" style={{ fontSize: '1rem', lineHeight: 1.7 }}>
-              We're musicians, audio engineers, and producers. We review gear because we use it. We provide production services because we've spent years doing it at the highest level.
+              We're musicians, audio engineers, and producers based in Uganda. We review gear because we use it. We provide production because we've spent years doing it at every scale.
             </p>
           </div>
         </div>

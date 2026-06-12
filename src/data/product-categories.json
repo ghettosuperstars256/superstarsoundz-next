@@ -11,7 +11,7 @@
     "id": 104,
     "name": "DJ Controllers",
     "slug": "dj-controllers",
-    "count": 2,
+    "count": 3,
     "wp_name": "Shop: DJ Controllers",
     "description": "DJ controllers for Rekordbox, Serato, and Traktor. From beginner to pro, find your perfect 2-deck or 4-deck setup."
   },
@@ -70,6 +70,14 @@
     "count": 4,
     "wp_name": "Shop: Studio Monitors",
     "description": "Active and passive studio monitors for accurate mixing and mastering. Compare nearfield, midfield, and subwoofers."
+  },
+  {
+    "id": 111,
+    "name": "Subwoofers",
+    "slug": "subwoofers",
+    "count": 2,
+    "wp_name": "Shop: Subwoofers",
+    "description": "Powered and passive subwoofers for extending low-frequency response in studios, home theaters, and live sound."
   },
   {
     "id": 110,

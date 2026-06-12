@@ -13,8 +13,8 @@
     "description": "<p>The beyerdynamic DT 990 PRO 250 Ohm open-back headphones are built for audio professionals who demand precision during mixing, mastering, and critical listening. The open-back design produces a wide, natural soundstage that reveals every detail in a mix, making these headphones a reliable tool for studio engineers, producers, and sound designers who need accurate spatial reproduction. The 250 Ohm impedance delivers optimal performance when paired with dedicated headphone amplifiers or professional audio interfaces.</p><ul><li>Open-back design provides a spacious, natural soundstage ideal for mixing and mastering</li><li>250 Ohm impedance ensures detailed audio reproduction with professional-grade equipment</li><li>Velour ear pads offer extended comfort during long studio sessions</li><li>3-meter coiled cable provides freedom of movement while maintaining signal integrity</li><li>Robust German-engineered construction built for daily professional use</li></ul><p>At Superstar Soundz, we stock the DT 990 PRO because it consistently delivers reference-grade accuracy at a price point that makes professional monitoring accessible. Whether you are tightening a mix, editing dialogue, or simply evaluating a final master, these headphones serve as a dependable reference in any signal chain.</p>",
     "external_url": "https://www.amazon.com/dp/B0006NL5SM/",
     "in_stock": true,
-    "featured": false,
-    "badge": "Best Value"
+    "featured": true,
+    "badge": "Editor's Choice"
   },
   {
     "id": 581,
@@ -30,13 +30,13 @@
     "description": "<p>The beyerdynamic DT 1770 PRO MKII closed-back headphones are purpose-built for recording engineers and monitoring professionals who need reliable sound isolation without sacrificing audio fidelity. The closed-back design provides excellent passive noise isolation, making these headphones ideal for tracking sessions, broadcast work, and any environment where bleed and external noise are concerns. Handmade in Germany with 30 Ohm impedance, the DT 1770 PRO MKII connects easily to a wide range of studio equipment without requiring a dedicated headphone amplifier.</p><ul><li>Closed-back design delivers superior isolation for tracking and monitoring in untreated spaces</li><li>30 Ohm impedance works directly with audio interfaces, mixers, and portable recorders</li><li>Two detachable cables (straight and coiled) provide flexibility for different workflows</li><li>Includes both velour and leatherette ear pads for long-wearing comfort and optimal seal</li><li>Handmade in Germany with premium materials for lasting durability</li></ul><p>Superstar Soundz recommends the DT 1770 PRO MKII for professionals who need a closed-back reference headphone that can handle the demands of daily studio use. The combination of isolation, comfort, and beyerdynamic's proven transducer technology makes these headphones a dependable choice for any recording environment.</p>",
     "external_url": "https://www.amazon.com/dp/B08C5HSR78/",
     "in_stock": true,
-    "featured": false,
-    "badge": "Best Value"
+    "featured": true,
+    "badge": "Editor's Choice"
   },
   {
     "id": 579,
     "name": "Behringer X32 32-Channel 16-Bus Total Recall Digital Mixing Console V4.0 Bundle with Padded Nylon Carry Bag, 2x H&A 50' XLR M to XLR F Cable",
-    "short_name": "Behringer X32 32-Channel 16-Bus Total",
+    "short_name": "Behringer X32 Digital Mixer",
     "slug": "behringer-x32-digital-mixer",
     "price": 2099.0,
     "image": "/images/products/B09ZPCC859.jpg",
@@ -47,13 +47,13 @@
     "description": "<p>The Behringer X32 digital mixing console has become one of the most widely adopted 32-channel digital mixers in professional audio, trusted by live sound engineers, houses of worship, and studio operators for its combination of deep feature set and accessible price point. With 32 recallable preamps, 16 mix buses, and a fully routable architecture, the X32 handles everything from front-of-house mixing at midsize venues to complex studio routing. The inclusion of a padded carry bag and XLR cables in this bundle means you have a complete setup ready for deployment straight out of the box.</p><ul><li>32 MIDAS-designed microphone preamps with recallable gain for fast scene changes</li><li>16 fully configurable mix buses for aux sends, subgroups, and matrix outputs</li><li>Motorized 100mm faders with total recall for seamless scene management</li><li>Built-in effects engines including EQ, compression, gates, and reverbs on every channel</li><li>Ethernet and USB connectivity for multi-track recording and remote control via tablet or computer</li></ul><p>At Superstar Soundz, we consider the X32 the benchmark for affordable professional digital mixing. The bundled accessories and comprehensive I/O make it a practical centerpiece for any audio workflow that demands flexibility without compromise.</p>",
     "external_url": "https://www.amazon.com/dp/B06XKR51RB/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": "Best Value"
   },
   {
     "id": 577,
     "name": "RX-8D 550W+550W Powered Audio Mixer, 19-inch Rack Mount 8 Channel DJ Console, Amplifier, Reverb, Bluetooth, USB, 48V Phantom Power, For Stage, Conference & Studio Users",
-    "short_name": "RX-8D 550W+550W Powered Audio Mixer",
+    "short_name": "RX-8D Powered Audio Mixer",
     "slug": "rx-8d-550w-dj-mixer",
     "price": 199.98,
     "image": "/images/products/RX-8D_550W550W_Powered_Audio_.jpg",
@@ -64,13 +64,13 @@
     "description": "<p>The RX-8D powered audio mixer consolidates mixing, amplification, and effects into a single 19-inch rack-mountable unit, delivering 550 watts per channel to drive passive speakers without the need for a separate amplifier. This makes it a practical and affordable solution for small-to-midsize venues, conference rooms, houses of worship, and mobile DJ setups. Built-in Bluetooth and USB playback add convenience for background music and presentation audio, while 48V phantom power ensures compatibility with condenser microphones.</p><ul><li>Integrated dual-channel amplifier delivers 550W per channel to passive speakers</li><li>8 input channels with individual EQ control for flexible source management</li><li>Built-in reverb effect adds depth to vocals and instruments</li><li>Bluetooth wireless streaming and USB media player for playback without additional devices</li><li>48V phantom power supports condenser microphones for professional vocal capture</li><li>19-inch rack-mountable form factor simplifies installation and transport</li></ul><p>Superstar Soundz stocks the RX-8D for customers who need capable amplification and mixing in a compact, budget-friendly package. It eliminates the need for separate components, reducing setup time and cost while still delivering the power and connectivity that live and installed sound applications require.</p>",
     "external_url": "https://www.amazon.com/dp/B07YV1DGZW/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": "Best Value"
   },
   {
     "id": 575,
     "name": "Edifier T5s Powered Active Subwoofer with 70W RMS, 8\" Long-Throw Woofer, Deep Bass (35Hz) Speaker, Built-in Amp, Low Distortion, Phase Selector & Energy-Efficient for Home & Studio Audio, Black",
-    "short_name": "Edifier T5s Powered Active Subwoofer",
+    "short_name": "Edifier T5s Active Subwoofer",
     "slug": "edifier-t5s-subwoofer",
     "price": 199.99,
     "image": "/images/products/Edifier_T5s_Powered_Active_Sub.jpg",
@@ -81,30 +81,30 @@
     "description": "<p>The Edifier T5s powered subwoofer adds the low-frequency depth that bookshelf and near-field monitors often lack, reaching down to 35 Hz with its 8-inch long-throw woofer driven by a 70W RMS Class-D amplifier. For home studio producers mixing music, sound designers working on film audio, or simply listeners who want a fuller hi-fi experience, the T5s fills the gap between your main monitors and the sub-bass content that smaller drivers cannot reproduce accurately. The phase selector and adjustable crossover allow seamless integration with any speaker setup.</p><ul><li>8-inch long-throw woofer delivers bass response down to 35 Hz for accurate low-end monitoring</li><li>70W RMS Class-D amplifier provides efficient, low-distortion power</li><li>Phase selector switch ensures proper alignment with main monitors</li><li>Adjustable crossover frequency for integration with different speaker sizes</li><li>Compact, black-finished enclosure fits neatly into studio and living room environments</li><li>Auto-standby mode conserves energy during periods of inactivity</li></ul><p>We carry the Edifier T5s at Superstar Soundz because it brings genuine sub-bass extension to compact monitoring setups without the bulk and expense of largerunits. It is a practical upgrade for any listener or producer who wants to hear their audio as it truly sounds from top to bottom.</p>",
     "external_url": "https://www.amazon.com/dp/B0BXDYYYB4/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": "Editor's Choice"
   },
   {
     "id": 573,
     "name": "Sonos Sub 4 - Wireless Subwoofer - Black",
-    "short_name": "Sonos Sub 4 - Wireless",
+    "short_name": "Sonos Sub 4",
     "slug": "sonos-sub-4-wireless",
     "price": 759.0,
     "image": "/images/products/Sonos_Sub_4_-_Wireless_Subwoof.jpg",
     "categories": [
-      "Shop: Studio Monitors"
+      "Shop: Subwoofers"
     ],
     "short_description": "A wireless subwoofer with dual force-canceling drivers, designed to deliver deep, balanced bass for Sonos home audio systems and home theater setups.",
     "description": "<p>The Sonos Sub 4 wireless subwoofer brings refined low-frequency performance to Sonos multi-room audio systems, adding dimension and impact to music, movies, and gaming audio. Its dual force-canceling drivers are engineered to eliminate cabinet vibration, producing clean, articulate bass that enhances rather than overwhelms the listening experience. Wireless connectivity and automatic EQ tuning through the Sonos app make setup straightforward, allowing the Sub 4 to integrate into existing Sonos ecosystems without complicated speaker runs or calibration procedures.</p><ul><li>Dual force-canceling drivers deliver deep bass without cabinet rattle or distortion</li><li>Wireless connection to Sonos systems for flexible placement without cable runs</li><li>Automatic room EQ tuning via the Sonos app optimizes output for your listening space</li><li>Sleek, modern design with a polycarbonate enclosure that resists resonance</li><li>Compatible with the full range of Sonos speakers and soundbars</li></ul><p>Superstar Soundz offers the Sonos Sub 4 for customers looking to elevate their home audio system with impactful and well-controlled low end. It represents the most straightforward path to adding serious bass depth to a Sonos setup, with minimal configuration and reliable wireless performance.</p>",
     "external_url": "https://www.amazon.com/dp/B0C5XJZ8YH/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": "Editor's Choice"
   },
   {
     "id": 571,
     "name": "EXPRESSIVE E Osmose 61-Key Synthesizer and MPE Controller Bundle with Auray KSCL-2X Double-X Keyboard Stand, Auray PBS-17 X-Style Piano Bench, Auray FP-P1L Sustain Pedal and Kaces KKC-MD Dust Cover",
-    "short_name": "EXPRESSIVE E Osmose 61-Key Synthesizer",
+    "short_name": "Expressive E Osmose Synthesizer",
     "slug": "expressive-e-osmose-61",
     "price": 1999.0,
     "image": "/images/products/B0G65WX7BW.jpg",
@@ -115,13 +115,13 @@
     "description": "<p>The Expressive E Osmose synthesizer reimagines keyboard performance by giving each of its 61 full-size keys independent control over pitch, timbre, and dynamics through multidimensional polyphonic expression (MPE). Rather than relying on aftertouch strips and modulation wheels, Osmose allows players to shape each note with subtle finger movements including lateral slides, pressure, and lift velocity. This makes it an exceptionally expressive instrument for film composers, electronic musicians, and sound designers who want a playing experience closer to that of acoustic instruments. This bundle includes a keyboard stand, bench, sustain pedal, and dust cover, providing everything needed for a professional workstation.</p><ul><li>61 full-size keys with per-note MPE control for independent pitch, timbre, and dynamic shaping</li><li>Keybowl keybed design supports lateral, vertical, and pressure gestures on every note</li><li>Deep synthesis engine with hundreds of preset sounds and extensive sound design capabilities</li><li>MIDI and USB connectivity ensures compatibility with all major digital audio workstations</li><li>Included bundle accessories provide a complete, ready-to-play workstation setup</li></ul><p>We selected the Osmose for the Superstar Soundz catalog because it represents the frontier of expressive synthesis. For keyboardists who feel limited by traditional MIDI controllers, Osmose offers a genuinely new way to connect physical gesture to sound.</p>",
     "external_url": "https://www.amazon.com/dp/B0DWHCFZHS/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": "Editor's Choice"
   },
   {
     "id": 569,
     "name": "ESI Xsynth Ultra-Thin 25-Key Synthesizer with Integrated Master Keyboard and Audio/MIDI Interface",
-    "short_name": "ESI Xsynth Ultra-Thin 25-Key Synthesizer",
+    "short_name": "ESI Xsynth 25-Key Synthesizer",
     "slug": "esi-xsynth-25-key",
     "price": 429.0,
     "image": "/images/products/B0F7RT6FP3.jpg",
@@ -132,13 +132,13 @@
     "description": "<p>The ESI Xsynth is an all-in-one solution for mobile producers and keyboardists who need a synthesizer, MIDI controller, and audio interface in a single ultra-thin enclosure. Its 25 full-size keys offer velocity sensitivity and polyphonic aftertouch, giving performers genuine dynamic and timbral control over software and hardware synthesizers. The integrated audio and MIDI interface eliminates the need for a separate capture device, making it possible to record, produce, and perform from virtually any location with just a laptop and the Xsynth. Its thin profile fits easily into a laptop bag or backpack.</p><ul><li>25 full-size velocity-sensitive keys with polyphonic aftertouch for expressive performance</li><li>Integrated audio and MIDI interface reduces the need for additional hardware</li><li>Ultra-thin, portable design travels easily between studio, stage, and mobile workstations</li><li>Onboard synthesizer engine generates sound independently of a computer</li><li>Compatible with all major DAWs via class-compliant USB connectivity</li></ul><p>Superstar Soundz recommends the ESI Xsynth for musicians who need maximum functionality in a minimal footprint. It consolidates multiple pieces of gear into one device, making it an efficient choice for producers who work across multiple locations or stages.</p>",
     "external_url": "https://www.amazon.com/dp/B07QKRC3RX/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": "Editor's Choice"
   },
   {
     "id": 567,
     "name": "Gemini Direct Drive Turntable with USB and Built-in Preamp | 33 45 78 RPM | Vinyl Record Player for Home with Digital Recording (TT-5000)",
-    "short_name": "Gemini Direct Drive Turntable with",
+    "short_name": "Gemini TT-5000 Turntable",
     "slug": "gemini-tt-5000-turntable",
     "price": 269.96,
     "image": "/images/products/B0D88XZ8RK.jpg",
@@ -149,13 +149,13 @@
     "description": "<p>The Gemini TT-5000 direct-drive turntable serves vinyl collectors and home audio enthusiasts who want reliable analog playback with the convenience of digital archiving. Its direct-drive motor provides stable, accurate rotation at all three standard speeds (33, 45, and 78 RPM), while the built-in phono preamp and USB output allow users to connect directly to powered speakers, receivers, or a computer for digitizing records. This eliminates the need for external preamps or audio interfaces when transferring vinyl to digital formats, making the TT-5000 a practical all-in-one solution for preserving and enjoying a record collection.</p><ul><li>Direct-drive motor ensures stable speed accuracy across 33, 45, and 78 RPM records</li><li>Built-in phono preamp enables direct connection to line-level inputs and powered speakers</li><li>USB output allows straight-to-computer digitizing of vinyl without additional hardware</li><li>StraightTone tonearm design provides reliable tracking and reduced distortion</li><li>Robust construction with a classic aesthetic suitable for any home audio setup</li></ul><p>At Superstar Soundz, the TT-5000 fills an important role for music lovers who want authentic vinyl playback with a simple path to digital conversion. It offers dependable performance without requiring a rack full of additional components.</p>",
     "external_url": "https://www.amazon.com/dp/B09F6WPR28/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": "Top Pick"
   },
   {
     "id": 565,
     "name": "Philips Record Player, All-in-One Bluetooth Turntable with Built-in Speakers, 3-Speed Belt-Drive Vinyl Record Player, Audio-Technica Stylus, Wireless Streaming in & Out, RCA/AUX/Headphone, Auto-Stop",
-    "short_name": "Philips Record Player",
+    "short_name": "Philips Bluetooth Turntable",
     "slug": "philips-bluetooth-turntable",
     "price": 199.98,
     "image": "/images/products/Philips_Record_Player_All-in-.jpg",
@@ -166,13 +166,13 @@
     "description": "<p>The Philips all-in-one Bluetooth turntable is designed for listeners who want an accessible entry point into vinyl playback without investing in amplifiers, speakers, and separate components. Its built-in stereo speakers and belt-drive mechanism provide authentic analog sound right out of the box, while Bluetooth connectivity allows wireless streaming from smartphones and the ability to send turntable audio to external Bluetooth speakers or headphones. An Audio-Technica stylus ensures quality groove tracking, and RCA outputs offer the option to connect to a larger hi-fi system as needs evolve.</p><ul><li>Built-in stereo speakers deliver instant playback without external amplifiers or speaker connections</li><li>Three-speed belt-drive mechanism supports 33, 45, and 78 RPM vinyl records</li><li>Bluetooth input and output for wireless streaming from mobile devices and to external speakers</li><li>Audio-Technica stylus provides reliable tracking and detailed audio reproduction</li><li>Auto-stop function protects records and stylus at the end of playback</li><li>RCA line output allows connection to external amplifiers and powered speakers</li></ul><p>Superstar Soundz includes this Philips turntable for customers seeking a straightforward, stylish way to start enjoying vinyl. It removes the complexity of component-based systems and offers a genuine analog listening experience in a single, self-contained unit.</p>",
     "external_url": "https://www.amazon.com/dp/B07QKZHGRJ/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": "Top Pick"
   },
   {
     "id": 563,
     "name": "PRORECK Delta 128 2400W Bluetooth PA Speaker System with 8-Channel Powered Mixer, 2 12-Inch Passive Speakers, Stands, Reverb Effects, 15V Phantom Power. Perfect for DJs, Bands, Karaoke, Live Events 12\"+8 channel mixer",
-    "short_name": "PRORECK Delta 128 2400W Bluetooth",
+    "short_name": "PRORECK Delta 128 PA System",
     "slug": "proreck-delta-128-pa-system",
     "price": 399.99,
     "image": "/images/products/B0DYN95SZL.jpg",
@@ -183,13 +183,13 @@
     "description": "<p>The PRORECK Delta 128 is a complete PA system designed for users who need a turnkey solution for live sound reinforcement without sourcing components individually. The package includes an 8-channel powered mixer with Bluetooth and reverb, two 12-inch passive speakers, adjustable tripod stands, a wired microphone, and all necessary cables. With 2400 watts of peak power, the system delivers sufficient volume for rehearsals, small-to-midsize live events, karaoke nights, and mobile DJ setups. The inclusion of all accessories means the system is performance-ready from the moment it arrives.</p><ul><li>8-channel powered mixer with built-in Bluetooth streaming and reverb effects</li><li>Dual 12-inch passive speakers deliver 2400W peak output for live sound coverage</li><li>Adjustable tripod speaker stands included for optimal speaker placement</li><li>Wired microphone and speakon cables provided in the box for immediate use</li><li>15V phantom power supports select condenser microphones</li><li>Compact, road-ready design suited for mobile DJs, bands, and event organizers</li></ul><p>We stock the PRORECK Delta 128 at Superstar Soundz because it delivers a complete PA solution at a price that makes professional-sounding live audio accessible to bands, DJs, and event hosts who do not have the budget or expertise for piecemeal system design.</p>",
     "external_url": "https://www.amazon.com/dp/B07YV1DGZW/",
     "in_stock": true,
-    "featured": false,
-    "badge": null
+    "featured": true,
+    "badge": "Best Value"
   },
   {
     "id": 561,
     "name": "Pyle Active + Passive PA Systems - Dual 8inch 700 Watt Max Power Output Speaker with Microphone, Bluetooth Wireless Streaming, MP3/USB/SD/AUX Readers, Speaker Stands- Pyle PPHP849KT 8 in",
-    "short_name": "Pyle Active + Passive PA",
+    "short_name": "Pyle Dual 8-inch PA System",
     "slug": "pyle-dual-8in-pa-system",
     "price": 179.0,
     "image": "/images/products/B01LX4M421.jpg",
@@ -200,13 +200,13 @@
     "description": "<p>The Pyle Dual 8-inch active and passive PA speaker system offers an affordable entry into portable sound reinforcement for presenters, small venue performers, and event organizers. One powered speaker amplifies both units using the built-in amplifier, while the passive speaker extends coverage to fill the room. Bluetooth wireless streaming, USB and SD card playback, and AUX input provide multiple source options without additional equipment. The included microphone and speaker stands complete a package that is ready for immediate deployment at fitness classes, outdoor gatherings, community events, and small venue performances.</p><ul><li>Active speaker with built-in amplifier powers both the active and passive 8-inch speakers</li><li>Bluetooth streaming, USB/SD media playback, and 3.5mm AUX input for versatile source connectivity</li><li>Included wired microphone and speaker stands for a ready-to-use setup</li><li>700 watts maximum power output suitable for small-to-midsize indoor and outdoor spaces</li><li>RCA inputs support connection to mixers and other professional audio sources</li><li>Lightweight, portable design simplifies transport and setup</li></ul><p>Superstar Soundz offers this Pyle system for customers who need functional PA coverage on a limited budget. It provides surprisingly capable sound reinforcement for its price point and includes the essentials needed to get started without additional purchases.</p>",
     "external_url": "https://www.amazon.com/dp/B07TQD6L8Y/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": null
   },
   {
     "id": 559,
     "name": "Akai Professional MPK Mini IV USB-C MIDI Keyboard Controller for Beginners and Producers - MPC Drum Pads, 360\u00b0 Knobs, Pitch and Mod Wheels, Production Software, Native Instruments Sound Package, Black MPK Mini MK4 Black",
-    "short_name": "Akai Professional MPK Mini IV",
+    "short_name": "Akai MPK Mini IV",
     "slug": "akai-mpk-mini-4",
     "price": 99.0,
     "image": "/images/products/B0886KWVYR.jpg",
@@ -217,13 +217,13 @@
     "description": "<p>The Akai Professional MPK Mini IV is the latest iteration of one of the most popular compact MIDI controllers ever made, and it continues to set the standard for portable music production. Its 25 velocity-sensitive mini keys, 8 backlit MPC drum pads, and 8 assignable knobs provide hands-on control over virtual instruments, drum racks, and DAW parameters without consuming valuable desk space. The addition of USB-C connectivity improves compatibility with modern laptops and reduces cable clutter. Bundled production software and Native Instruments sound packages give new producers everything needed to begin creating immediately.</p><ul><li>25 velocity-sensitive mini keys with updated keybed for improved playability</li><li>8 backlit MPC drum pads support finger drumming and sample triggering</li><li>8 assignable knobs provide hands-on control of mixer, instrument, and effects parameters</li><li>Pitch bend and modulation wheels add expressive control for synth leads and melodic parts</li><li>USB-C connection ensures reliable compatibility with current laptops and tablets</li><li>Included production software bundle and Native Instruments sounds offer immediate creative tools</li></ul><p>Superstar Soundz considers the MPK Mini IV an essential piece of gear for any producer, regardless of experience level. Its combination of compact design, bundled software, and Akai's proven MPC workflow makes it one of the best values in music production hardware.</p>",
     "external_url": "https://www.amazon.com/dp/B0CCGJ6M18/",
     "in_stock": true,
-    "featured": false,
-    "badge": null
+    "featured": true,
+    "badge": "Best Value"
   },
   {
     "id": 557,
     "name": "Akai Professional MPK Mini MK3-25 Key USB MIDI Keyboard Controller with 8 Backlit Drum Pads, 8 Knobs, Music Production Software and Native Instruments Sound Package (NKS Integration) MPK Mini MK3 Standard",
-    "short_name": "Akai Professional MPK Mini MK3-25",
+    "short_name": "Akai MPK Mini MK3",
     "slug": "akai-mpk-mini-mk3",
     "price": 99.0,
     "image": "/images/products/Akai_Professional_MPK_Mini_MK3.jpg",
@@ -234,13 +234,13 @@
     "description": "<p>The Akai Professional MPK Mini MK3 has earned its reputation as the go-to compact MIDI controller for producers who need reliable hands-on control in an ultra-portable package. This proven 25-key design features 8 velocity-sensitive MPC drum pads and 8 assignable rotary knobs, giving beat makers and producers tactile command over drums, virtual instruments, and DAW functions. The bundled production software and Native Instruments sound package provide a rich creative starting point, while NKS integration ensures seamless compatibility with Native Instruments plugins. For producers who prefer USB-A connectivity or simply want a battle-tested controller at a competitive price, the MK3 remains a strong standalone choice.</p><ul><li>25 velocity-sensitive mini keys for melodic input and chord progressions</li><li>8 backlit MPC-grade drum pads optimized for finger drumming and sample triggering</li><li>8 assignable control knobs for mixing, synthesis, and effects manipulation</li><li>Pitch and modulation wheels for expressive synth leads and dynamic control</li><li>USB-A plug-and-play connectivity with Mac and Windows computers</li><li>Includes production software bundle and Native Instruments sounds with NKS support</li></ul><p>At Superstar Soundz, the MPK Mini MK3 continues to be a trusted recommendation for producers entering the craft or needing a reliable secondary controller. Its established track record and proven workflow make it a safe investment in any production setup.</p>",
     "external_url": "https://www.amazon.com/dp/B00IJ1CFMK/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": null
   },
   {
     "id": 555,
     "name": "AlphaTheta DDJ-FLX2 Compact 2-Channel DJ Controller - Streaming-Ready, Smart Fader & Smart CFX - Works with rekordbox, djay & Serato DJ Lite - Phone, Tablet & PC/Mac - Free Course Included",
-    "short_name": "AlphaTheta DDJ-FLX2 Compact 2-Channel DJ",
+    "short_name": "AlphaTheta DDJ-FLX2 DJ Controller",
     "slug": "alphatheta-ddj-flx2",
     "price": 188.95,
     "image": "/images/products/B0DLCC47FG.jpg",
@@ -251,13 +251,13 @@
     "description": "<p>The AlphaTheta DDJ-FLX2 is designed for aspiring DJs and content creators who want a compact, intuitive controller that connects seamlessly to phones, tablets, and computers. Its Smart Fader feature simplifies smooth transitions between tracks by automatically adjusting volume, BPM, and EQ, while Smart CFX provides one-touch professional effects. The controller supports rekordbox, djay by Algoriddim, and Serato DJ Lite, giving DJs the flexibility to choose their preferred software. A free introductory DJ course is included to help new users build foundational skills right away.</p><ul><li>Smart Fader automatically manages volume, tempo, and EQ for smooth transitions between tracks</li><li>Smart CFX delivers one-button professional DJ effects for creative mixes</li><li>Compatible with rekordbox, djay, and Serato DJ Lite across Windows, macOS, iOS, and Android</li><li>Compact, lightweight design fits in a backpack for practice and small performances anywhere</li><li>USB bus-powered operation requires no external power supply</li><li>Includes a free DJ course to help beginners develop core mixing skills</li></ul><p>We carry the DDJ-FLX2 at Superstar Soundz as one of the most beginner-friendly DJ controllers available. Its guided features and platform versatility lower the barriers to entry, making it an ideal first controller for anyone learning to mix.</p>",
     "external_url": "https://www.amazon.com/dp/B0DK9RQ9T1/",
     "in_stock": true,
-    "featured": false,
-    "badge": null
+    "featured": true,
+    "badge": "Best Value"
   },
   {
     "id": 553,
     "name": "Pioneer DJ DDJ-FLX4 2-deck Rekordbox and Serato DJ Controller - Graphite",
-    "short_name": "Pioneer DJ DDJ-FLX4 2-deck Rekordbox",
+    "short_name": "Pioneer DJ DDJ-FLX4",
     "slug": "pioneer-dj-ddj-flx4",
     "price": 329.0,
     "image": "/images/products/B0BK25SY9G.jpg",
@@ -268,13 +268,13 @@
     "description": "<p>The Pioneer DJ DDJ-FLX4 is the entry point into the Pioneer DJ ecosystem and offers genuine professional features in an accessible package. Compatible natively with both rekordbox and Serato DJ, the DDJ-FLX4 gives new and developing DJs access to the same software platforms used in clubs worldwide. Its built-in audio interface eliminates the need for a separate sound card, and multi-device compatibility means DJs can practice and perform from a laptop, tablet, or smartphone. The mixer layout mirrors Pioneer's professional CDJ-DJM workflow, helping beginners develop transferable skills that directly carry over to club-standard equipment.</p><ul><li>Native plug-and-play support for both rekordbox and Serato DJ software</li><li>Built-in audio interface removes the need for external sound cards</li><li>Compatible with PC, Mac, iPhone, iPad, and Android devices via USB-C</li><li>Mixer layout follows the Pioneer CDJ-DJM paradigm familiar in club environments</li><li>Track Separation feature (rekordbox) allows real-time isolation of vocals, drums, and instruments</li><li>USB-C bus-powered design for a clean, portable setup</li></ul><p>Superstar Soundz recommends the DDJ-FLX4 for DJs who want to train on the industry's standard software and workflow from day one. It bridges the gap between beginner hardware and club-standard gear, providing a learning environment that directly prepares users for professional DJ booths.</p>",
     "external_url": "https://www.amazon.com/dp/B0BSBYY4JK/",
     "in_stock": true,
-    "featured": false,
-    "badge": null
+    "featured": true,
+    "badge": "Editor's Choice"
   },
   {
     "id": 551,
     "name": "Audio-Technica AT2020 Cardioid Condenser Studio XLR Microphone, Ideal for Project/Home Studio Applications, Black AT2020 Microphone Black",
-    "short_name": "Audio-Technica AT2020 Cardioid Condenser Studio",
+    "short_name": "Audio-Technica AT2020",
     "slug": "audio-technica-at2020",
     "price": 119.0,
     "image": "/images/products/B0006H92QK.jpg",
@@ -285,13 +285,13 @@
     "description": "<p>The Audio-Technica AT2020 has become one of the most widely recommended condenser microphones for home studios, and its reputation is well earned. This side-address cardioid condenser delivers clear, detailed capture of vocals, acoustic instruments, and spoken word at a price that makes professional recording accessible to podcasters, singer-songwriters, and producers working outside commercial studios. The cardioid polar pattern rejects off-axis sound, helping to minimize room reflections in untreated recording spaces. With low self-noise and a wide dynamic range, the AT2020 captures nuance without introducing unwanted artifacts.</p><ul><li>Cardioid polar pattern focuses on the sound source while rejecting off-axis noise</li><li>Custom-engineered low-mass diaphragm provides extended frequency response and transient detail</li><li>Low self-noise ensures clean recordings in home studio environments</li><li>Side-address design allows natural positioning for vocal and instrument recording</li><li>XLR output compatible with all standard audio interfaces and mixing consoles</li><li>Pivoting, threaded stand mount provides secure and adjustable positioning</li></ul><p>The AT2020 remains a cornerstone recommendation at Superstar Soundz for anyone building a home studio or starting a podcast. It consistently outperforms microphones at higher price points and delivers the transparent, detailed capture that professional recordings demand.</p>",
     "external_url": "https://www.amazon.com/dp/B004QJREXM/",
     "in_stock": true,
-    "featured": false,
-    "badge": null
+    "featured": true,
+    "badge": "Best Value"
   },
   {
     "id": 549,
     "name": "AKG C104 Professional Large Diaphragm Cardioid Condenser Microphone \u2013 XLR Studio Mic for Podcasting, Streaming, Broadcasting & Music Recording, Low Noise, High SPL, Sustainable Design",
-    "short_name": "AKG C104 Professional Large Diaphragm",
+    "short_name": "AKG C104 Condenser Mic",
     "slug": "akg-c104-condenser",
     "price": 129.0,
     "image": "/images/products/B0G53JQ9N9.jpg",
@@ -302,13 +302,13 @@
     "description": "<p>The AKG C104 large diaphragm cardioid condenser microphone brings AKG's decades of studio microphone expertise to a modern, sustainably designed package aimed at content creators, musicians, and broadcast professionals. Its large diaphragm capsule captures vocals and instruments with clarity and warmth, while the cardioid polar pattern keeps the focus on the intended source and reduces background pickup. High SPL handling and low self-noise ensure clean recordings even when capturing loud sources such as guitar amplifiers or dynamic vocal performances. The C104 works with any standard audio interface or mixer via XLR connectivity.</p><ul><li>Large diaphragm cardioid capsule delivers detailed, warm vocal and instrument capture</li><li>High SPL handling accommodates loud sources without distortion</li><li>Low self-noise floor keeps recordings clean in untreated or project studio environments</li><li>Cardioid polar pattern minimizes off-axis pickup and room reflections</li><li>XLR output for universal compatibility with audio interfaces, mixers, and recorders</li><li>Sustainable design and packaging reflecting AKG's environmental commitments</li></ul><p>Superstar Soundz stocks the AKG C104 for creators who need a reliable, low-noise condenser microphone backed by serious acoustic engineering. It is an excellent fit for podcast studios, home recording setups, and broadcast booths that require consistent, professional-quality audio capture.</p>",
     "external_url": "https://www.amazon.com/dp/B09XDRQQHX/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": null
   },
   {
     "id": 547,
     "name": "M-AUDIO M-Track Solo USB Audio Interface for Recording, Streaming and Podcasting with XLR, Line and DI Inputs, Plus a Software Suite Included Interface only",
-    "short_name": "M-AUDIO M-Track Solo USB Audio",
+    "short_name": "M-Audio M-Track Solo",
     "slug": "m-audio-m-track-solo",
     "price": 53.88,
     "image": "/images/products/B08Q1NJSBQ.jpg",
@@ -319,8 +319,8 @@
     "description": "<p>The M-Audio M-Track Solo is one of the most affordable pathways into computer-based audio recording, offering surprisingly capable conversion and a straightforward connection layout for microphones, instruments, and line-level sources. Its XLR input with 48V phantom power supports condenser microphones, while the 1/4-inch input accommodates guitars, basses, and keyboards via DI. With a 48kHz sample rate and USB bus-powered operation, the M-Track Solo works with any Mac or laptop without external power. The bundled software suite gives podcasters, vocalists, and musicians immediate access to recording tools and virtual instruments.</p><ul><li>XLR microphone input with +48V phantom power for condenser microphones</li><li>1/4-inch instrument/line input for guitars, basses, keyboards, and other sources</li><li>48kHz, 24-bit audio conversion for clear, detailed digital capture</li><li>USB bus-powered operation from Mac or PC with no external power needed</li><li>Direct monitoring switch for zero-latency headphone listening while recording</li><li>Included production software bundle provides immediate access to recording tools and virtual instruments</li></ul><p>At Superstar Soundz, we recommend the M-Track Solo as the most practical first audio interface for anyone starting to record or stream. It delivers essential functionality at a price that removes financial barriers to creating quality audio content.</p>",
     "external_url": "https://www.amazon.com/dp/B07QNPW1ZK/",
     "in_stock": true,
-    "featured": false,
-    "badge": null
+    "featured": true,
+    "badge": "Best Value"
   },
   {
     "id": 545,
@@ -336,13 +336,13 @@
     "description": "<p>The Focusrite Scarlett Solo 3rd Gen remains the most widely recommended single-channel audio interface for a reason. Its microphone preamp delivers clean, transparent gain with enough headroom for dynamic and condenser microphones alike, while the instrument input handles guitars and basses with low noise and accurate reproduction. The switchable Air mode emulates Focusrite's classic ISA transformer sound, adding a subtle high-frequency presence that brings out detail in vocals and acoustic instruments. This 3rd generation model includes an expanded software bundle with plugins, loops, and a DAW, providing a comprehensive recording toolkit right out of the box.</p><ul><li>Focusrite's 3rd generation mic preamp delivers clean, detailed gain with low noise</li><li>Air mode adds high-frequency presence inspired by the classic Focusrite ISA transformer</li><li>Dedicated instrument input for direct recording of guitars and basses</li><li>24-bit, 192kHz conversion for professional-grade digital audio quality</li><li>USB-C connectivity and bus-powered operation for simple laptop-based recording</li><li>Extensive bundled software suite including Ableton Live Lite, plugins, and loop libraries</li></ul><p>Superstar Soundz considers the Scarlett Solo 3rd Gen the gold standard for single-channel interfaces. Its combination of reliable preamps, Air mode versatility, and generous software bundle makes it the most well-rounded choice for singers, guitarists, podcasters, and producers who need one high-quality input.</p>",
     "external_url": "https://www.amazon.com/dp/B07QR6Z1JB/",
     "in_stock": true,
-    "featured": false,
-    "badge": null
+    "featured": true,
+    "badge": "Editor's Choice"
   },
   {
     "id": 543,
     "name": "PreSonus Eris 3.5 Studio Monitors, Pair \u2014 Powered, Active Monitor Speakers for Near Field Music Production, Desktop Computer, Hi-Fi Audio 3.5\" Monitor Gen 2 Black",
-    "short_name": "PreSonus Eris 3.5 Studio Monitors",
+    "short_name": "PreSonus Eris 3.5 Monitors",
     "slug": "presonus-eris-35-monitors",
     "price": 114.99,
     "image": "/images/products/PreSonus_Eris_3.5_Studio_Monit.jpg",
@@ -353,13 +353,13 @@
     "description": "<p>The PreSonus Eris 3.5 studio monitors bring honest, uncolored monitoring to desktop setups where space is limited but accurate sound reproduction matters. Their 3.5-inch woofers and 1-inch silk dome tweeters deliver a balanced frequency response that reveals detail in mixes without the bass exaggeration common in consumer speakers. Acoustic tuning controls on the rear panel allow adjustment of low and high frequencies to suit different room placements, including compensation for positioning near walls. For music producers editing mixes at a desk, podcasters monitoring recordings, or anyone who wants truthful audio from a compact setup, the Eris 3.5 provides a reliable reference point.</p><ul><li>3.5-inch woven composite woofer and 1-inch silk dome tweeter for balanced frequency reproduction</li><li>Accurate, uncolored sound signature suitable for mixing, editing, and critical listening</li><li>Rear-panel acoustic tuning controls adjust low-end and high-end response for different room placements</li><li>RCA and 1/4-inch TRS inputs provide flexible connectivity to audio interfaces, computers, and other sources</li><li>Compact form factor fits neatly on desks and in confined production spaces</li><li>Sold as a stereo pair for true left-right monitoring</li></ul><p>We recommend the PreSonus Eris 3.5 at Superstar Soundz for anyone who needs honest monitoring in a compact footprint. They serve as an accurate reference for producers who work primarily at a desk and need to trust what they are hearing.</p>",
     "external_url": "https://www.amazon.com/dp/B077VX5HSL/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": null
   },
   {
     "id": 541,
     "name": "(2) JBL 305P MkII 5\" 2-Way Active Powered Studio Reference Monitors Speakers 305P pair",
-    "short_name": "JBL JBL 305P MkII 5\"",
+    "short_name": "JBL 305P MkII Monitors",
     "slug": "jbl-305p-mkii-pair",
     "price": 239.0,
     "image": "/images/products/B088VSBV65.jpg",
@@ -370,13 +370,13 @@
     "description": "<p>The JBL 305P MkII powered studio monitors offer an effective combination of detailed imaging, reliable frequency response, and compact size that makes them a frequent recommendation for home studio producers and audio engineers. The 5-inch woofer and 1-inch dome tweeter are enhanced by JBL's proprietary Image Control waveguide, which widens the sweet spot and improves stereo imaging for more accurate mixing decisions. Boundary EQ controls allow the monitors to be placed near walls or on a desk without excessive bass buildup. For anyone building an affordable home studio that needs reference-quality monitoring for mixing, editing, and music production, the 305P MkII delivers performance that punches well above its size and price.</p><ul><li>5-inch long-throw woofer and 1-inch soft dome tweeter provide detailed midrange and high-frequency reproduction</li><li>JBL Image Control waveguide widens the listening sweet spot for reliable stereo imaging</li><li>Boundary EQ controls compensate for bass buildup when placed near walls or on desks</li><li>Balanced XLR and 1/4-inch TRS inputs for flexible connection to audio interfaces and mixers</li><li>Compact, magnetically shielded design suitable for desktop and\u5899\u9762-adjacent placement</li><li>Sold as a matched stereo pair for professional monitoring</li></ul><p>Superstar Soundz considers the JBL 305P MkII one of the best values in powered studio monitoring. Their waveguide technology and honest frequency response make them a trusted reference for producers who need to make confident mixing decisions in home and project studio environments.</p>",
     "external_url": "https://www.amazon.com/dp/B07P7F2FRK/",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": null
   },
   {
     "id": 539,
     "name": "Audio-Technica ATH-M50x Professional Studio Monitor Headphones, Bronze Wrap",
-    "short_name": "Audio-Technica ATH-M50x Professional Studio Mon...",
+    "short_name": "Audio-Technica ATH-M50x",
     "slug": "audio-technica-ath-m50x",
     "price": 179.0,
     "image": "/images/products/Audio-Technica_ATH-M50x_Profes.jpg",
@@ -387,24 +387,24 @@
     "description": "<p>The Audio-Technica ATH-M50x has earned its place as one of the most widely used studio headphones in professional audio, trusted by recording engineers, mix engineers, DJs, and content creators around the world. Its 45-millimeter large-aperture drivers deliver accurate, extended frequency response with strong bass definition, while the circumaural ear cups provide substantial isolation in tracking and monitoring scenarios. The swiveling earcup design supports single-ear monitoring and the detachable cables (straight, coiled, and short straight) offer flexibility across studio, stage, and mobile workflows. The ATH-M50x remains one of the first headphones recommended to any audio professional building their toolkit.</p><ul><li>45mm large-aperture drivers with rare earth magnets for accurate, detailed audio reproduction</li><li>Circumaural design provides effective passive isolation for tracking and monitoring</li><li>Swiveling earcups allow convenient single-ear monitoring during recording and DJ performance</li><li>Three detachable cables included (straight, coiled, and short straight) for different use cases</li><li>Robust construction with professional-grade materials for long-term durability</li><li>Collapsed earcup profile enables compact storage in equipment bags and cases</li></ul><p>Superstar Soundz stocks the ATH-M50x because it is one of the most versatile and consistently reliable headphones on the market. Its proven performance across tracking, mixing, referencing, and live applications makes it a foundational piece of audio equipment that serves professionals at every level.</p>",
     "external_url": "https://www.amazon.com/dp/B00HVLUR86/",
     "in_stock": true,
-    "featured": false,
-    "badge": null
+    "featured": true,
+    "badge": "Editor's Choice"
   },
   {
     "id": 584,
     "name": "Numark DJ2GO2 Touch Compact DJ Controller with 2 Decks, Mixer, Audio Interface and Serato Lite",
-    "short_name": "Numark DJ2GO2 Touch Compact DJ",
+    "short_name": "Numark DJ2GO2 Touch DJ Controller",
     "slug": "b082l3xqgr",
     "price": 89.0,
     "image": "/images/products/B082L3XQGR.jpg",
     "categories": [
-      "Shop: Studio Monitors"
+      "Shop: DJ Controllers"
     ],
     "short_description": "An ultra-compact 2-deck DJ controller with built-in audio interface and touch-sensitive jog wheels, designed for mobile DJs and beginners who need a portable mixing solution.",
     "description": "<p>The Numark DJ2GO2 Touch is one of the most portable DJ controllers available, packing a full 2-deck mixer layout with scratch-capable touch jog wheels, EQ controls, and a crossfader into a form factor barely larger than a laptop trackpad. Its built-in audio interface eliminates the need for an external sound card, and Serato DJ Lite compatibility provides professional-grade software at no additional cost. For beginners learning the fundamentals of beatmatching and mixing, or for experienced DJs needing a reliable backup or travel controller, the DJ2GO2 Touch delivers essential DJ features in a package that fits in any bag. The USB bus-powered design means there is no external power supply to carry.</p><ul><li>Touch-sensitive jog wheels support scratching and pitch bending for expressive mixing control</li><li>Built-in audio interface eliminates the need for a separate USB sound card</li><li>Full 2-deck layout with EQ, crossfader, and transport controls in an ultra-compact enclosure</li><li>Includes Serato DJ Lite software for professional-grade mixing with compatible Serato expansions</li><li>USB bus-powered from any laptop or compatible device with no external power required</li><li>Backlit controls provide visibility in low-light performance environments</li></ul><p>We offer the Numark DJ2GO2 Touch at Superstar Soundz as the most portable serious DJ controller on the market. It serves as an excellent learning tool for beginners and an ultra-compact travel controller for experienced DJs who need full mixing capability in the smallest possible package.</p>",
     "external_url": "https://www.amazon.com/dp/B082L3XQGR/?tag=ghettosuper02-20",
     "in_stock": true,
-    "featured": false,
+    "featured": true,
     "badge": null
   }
 ]

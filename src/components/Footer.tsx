@@ -52,7 +52,7 @@ export default function Footer() {
             <div style={{ flex: '1 1 250px' }}>
               <h3 style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', fontWeight: 700, marginBottom: '0.5rem' }}>Stay in the Loop</h3>
               <p style={{ fontSize: 'clamp(0.8125rem, 2vw, 0.875rem)', color: '#9090a0', lineHeight: 1.6 }}>
-                Get the latest deals, buying guides, and product reviews delivered to your inbox. No spam, ever.
+                Get the latest deals, gear guides, and production tips from our Kampala team. No spam.
               </p>
             </div>
             <form onSubmit={handleSubscribe} style={{ display: 'flex', gap: '0.5rem', flex: '1 1 300px', maxWidth: '420px' }}>
@@ -92,21 +92,36 @@ export default function Footer() {
           <div>
             <Logo variant="dark" height={28} />
             <p style={{ fontSize: '0.875rem', color: '#9090a0', lineHeight: 1.7, marginTop: '1rem', maxWidth: '280px' }}>
-              Expert reviews, buying guides, and curated audio equipment for musicians, DJs, and producers worldwide.
+              Kampala's premier audio equipment and production company — supplying gear, running events, and sharing expert knowledge.
             </p>
+          </div>
+
+          <div>
+            <h4 style={{ fontSize: '0.75rem', fontWeight: 700, color: '#D4A843', marginBottom: '1rem', letterSpacing: '0.08em' }}>Services</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              {[
+                { href: '/services', label: 'AV Production' },
+                { href: '/services', label: 'Equipment Rental' },
+                { href: '/services', label: 'Event Sound' },
+                { href: '/contact', label: 'Request a Quote' },
+              ].map(link => (
+                <Link key={link.label} href={link.href} className="footer-link">{link.label}</Link>
+              ))}
+            </div>
           </div>
 
           <div>
             <h4 style={{ fontSize: '0.75rem', fontWeight: 700, color: '#D4A843', marginBottom: '1rem', letterSpacing: '0.08em' }}>Shop</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
-                { href: '/gear', label: 'All Shop' },
+                { href: '/gear', label: 'All Equipment' },
+                { href: '/deals', label: 'Deals' },
                 { href: '/category/microphones', label: 'Microphones' },
                 { href: '/category/headphones-and-iems', label: 'Headphones' },
                 { href: '/category/studio-monitors', label: 'Studio Monitors' },
                 { href: '/category/dj-controllers', label: 'DJ Controllers' },
               ].map(link => (
-                <Link key={link.href} href={link.href} className="footer-link">{link.label}</Link>
+                <Link key={link.label} href={link.href} className="footer-link">{link.label}</Link>
               ))}
             </div>
           </div>
@@ -115,14 +130,13 @@ export default function Footer() {
             <h4 style={{ fontSize: '0.75rem', fontWeight: 700, color: '#D4A843', marginBottom: '1rem', letterSpacing: '0.08em' }}>Resources</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {[
-                { href: '/services', label: 'Services' },
-                { href: '/blog', label: 'Blog' },
+                { href: '/blog', label: 'Blog & Guides' },
                 { href: '/tools', label: 'Free AI Music Tools' },
-                { href: '/plugins', label: 'Plugins' },
+                { href: '/plugins', label: 'Plugins & Software' },
                 { href: '/about', label: 'About Us' },
                 { href: '/contact', label: 'Contact' },
               ].map(link => (
-                <Link key={link.href} href={link.href} className="footer-link">{link.label}</Link>
+                <Link key={link.label} href={link.href} className="footer-link">{link.label}</Link>
               ))}
             </div>
           </div>
@@ -135,7 +149,7 @@ export default function Footer() {
                 { href: '/terms-of-service', label: 'Terms of Service' },
                 { href: '/affiliate-disclosure', label: 'Affiliate Disclosure' },
               ].map(link => (
-                <Link key={link.href} href={link.href} className="footer-link">{link.label}</Link>
+                <Link key={link.label} href={link.href} className="footer-link">{link.label}</Link>
               ))}
             </div>
           </div>
@@ -144,7 +158,7 @@ export default function Footer() {
         <div className="divider" />
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
-          <p style={{ fontSize: '0.75rem', color: '#5a5a6a' }}>© {new Date().getFullYear()} Superstar Soundz. All rights reserved.</p>
+          <p style={{ fontSize: '0.75rem', color: '#5a5a6a' }}>© {new Date().getFullYear()} Superstar Soundz. Kampala, Uganda.</p>
           <p style={{ fontSize: '0.75rem', color: '#5a5a6a', textAlign: 'right' }}>As an Amazon Associate we earn from qualifying purchases.</p>
         </div>
       </div>
