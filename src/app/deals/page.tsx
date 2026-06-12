@@ -72,16 +72,19 @@ export default function DealsPage() {
                     <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>
                   )}
                 </div>
-                <div style={{ padding: '1rem' }}>
-                  <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
+                <div className="card-body" style={{ padding: '1rem' }}>
+                  <p className="card-category text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
                     {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
                   </p>
                   <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {product.short_name}
                   </h3>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div className="card-price-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
-                    <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
+                    <span className="card-view-text text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
+                    <span className="card-view-arrow text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, display: 'none' }}>
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -123,16 +126,19 @@ export default function DealsPage() {
                     <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>
                   )}
                 </div>
-                <div style={{ padding: '1rem' }}>
-                  <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
+                <div className="card-body" style={{ padding: '1rem' }}>
+                  <p className="card-category text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
                     {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
                   </p>
                   <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {product.short_name}
                   </h3>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div className="card-price-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
-                    <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
+                    <span className="card-view-text text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
+                    <span className="card-view-arrow text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, display: 'none' }}>
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -175,16 +181,19 @@ export default function DealsPage() {
                       <span className="text-muted" style={{ fontSize: '0.75rem' }}>No Image</span>
                     )}
                   </div>
-                  <div style={{ padding: '1rem' }}>
-                    <p className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
+                  <div className="card-body" style={{ padding: '1rem' }}>
+                    <p className="card-category text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, marginBottom: '0.25rem' }}>
                       {product.categories[0]?.replace('Shop: ', '') || 'Shop'}
                     </p>
                     <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {product.short_name}
                     </h3>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div className="card-price-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span className="text-accent" style={{ fontSize: '1rem', fontWeight: 700 }}>${product.price}</span>
-                      <span className="text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
+                      <span className="card-view-text text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600 }}>View</span>
+                      <span className="card-view-arrow text-accent" style={{ fontSize: '0.6875rem', fontWeight: 600, display: 'none' }}>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </span>
                     </div>
                   </div>
                 </Link>

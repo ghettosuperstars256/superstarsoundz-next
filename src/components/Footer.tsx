@@ -55,7 +55,7 @@ export default function Footer() {
                 Get the latest deals, gear guides, and production tips from our Kampala team. No spam.
               </p>
             </div>
-            <form onSubmit={handleSubscribe} style={{ display: 'flex', gap: '0.5rem', flex: '1 1 300px', maxWidth: '420px' }}>
+            <form onSubmit={handleSubscribe} className="footer-newsletter-form">
               <input
                 type="email"
                 value={email}
