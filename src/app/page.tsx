@@ -74,6 +74,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== TRUSTED BY ===== */}
+      <section style={{ padding: '2rem 0', borderBottom: '1px solid #1e1e26' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+            <p className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em' }}>TRUSTED BY EVENT ORGANIZERS & ARTISTS ACROSS UGANDA</p>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', alignItems: 'center', opacity: 0.5 }}>
+            {['Kampala Music Festival', 'Nyege Nyege', 'Camp Pine', 'Blankets & Wine', 'Kampala Symphony'].map((name, i) => (
+              <span key={i} style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#9090a0', whiteSpace: 'nowrap' }}>{name}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== SERVICES OVERVIEW ===== */}
       <section className="section">
         <div className="container">
