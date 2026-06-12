@@ -10,45 +10,62 @@ const TOOLS = [
     id: 'bpm-detector',
     name: 'BPM Detector',
     description: 'Detect the tempo of any song. Tap along or let the microphone analyze the audio in real time.',
-    icon: '⏱️',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M8 12h8M12 8v8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+    ),
     component: BpmDetector,
   },
   {
     id: 'chord-identifier',
     name: 'Chord Identifier',
     description: 'Play a chord and this tool will tell you what it is. Supports major, minor, 7th, and 30+ chord types.',
-    icon: '🎸',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="2"/><circle cx="18" cy="16" r="3" stroke="currentColor" strokeWidth="2"/></svg>
+    ),
     component: ChordIdentifier,
   },
   {
     id: 'key-finder',
     name: 'Key Finder',
-    description: 'Find the musical key of any song. Plays or hums a track and get the key with confidence score.',
-    icon: '🎵',
+    description: 'Find the musical key of any song. Play or hum a track and get the key with confidence score.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+    ),
     component: KeyFinder,
   },
   {
     id: 'scale-explorer',
     name: 'Scale Explorer',
     description: 'Browse 12 scale types across all 12 root notes. See notes on piano and guitar fretboard.',
-    icon: '🎹',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 19V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M8 19V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M12 19V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M16 19V8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M20 19V8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+    ),
     component: ScaleExplorer,
   },
   {
     id: 'metronome',
     name: 'Metronome',
     description: 'Precision metronome with visual beat indicator, tap tempo, and multiple time signatures.',
-    icon: '🥁',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="14" r="8" stroke="currentColor" strokeWidth="2"/><path d="M12 10V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M12 14l-3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M8 14h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+    ),
     component: Metronome,
   },
   {
     id: 'tuner',
     name: 'Tuner',
-    description: 'Chromatic instrument tuner with guitar, bass, and ukulere presets. Works with microphone.',
-    icon: '🎯',
+    description: 'Chromatic instrument tuner with guitar, bass, and ukulele presets. Works with microphone.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+    ),
     component: Tuner,
   },
 ];
+
+export const metadata = {
+  title: 'Free AI Music Tools',
+  description: 'Free browser-based AI music tools — BPM detector, chord identifier, key finder, scale explorer, metronome, and tuner. No downloads, no sign-ups.',
+};
 
 export default function ToolsPage() {
   return (
@@ -113,7 +130,7 @@ export default function ToolsPage() {
                   width: '48px', height: '48px', borderRadius: '12px',
                   background: 'rgba(212,168,67,0.08)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '1.5rem',
+                  color: '#D4A843',
                 }}>{tool.icon}</div>
                 <div>
                   <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f0f0f2', marginBottom: '0.25rem' }}>
@@ -141,18 +158,20 @@ export default function ToolsPage() {
             Need Professional Gear?
           </h2>
           <p style={{ color: '#9090a0', marginBottom: '1.5rem', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 1.5rem' }}>
-            Check out our curated plugin and software picks with exclusive deals.
+            Check out our curated plugin and software picks and professional audio equipment.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="/plugins" className="btn-primary" style={{
-              display: 'inline-block', padding: '0.875rem 2rem', borderRadius: '10px',
-              background: '#D4A843', color: '#000', fontWeight: 700, fontSize: '0.9375rem',
-              textDecoration: 'none',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              padding: '0.875rem 2rem', borderRadius: '10px',
+              background: 'linear-gradient(135deg, #D4A843 0%, #E8C05A 50%, #C49A38 100%)',
+              color: '#000', fontWeight: 700, fontSize: '0.9375rem', textDecoration: 'none',
             }}>
               Browse Plugins & Software
             </a>
             <a href="/gear" className="btn-secondary" style={{
-              display: 'inline-block', padding: '0.875rem 2rem', borderRadius: '10px',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              padding: '0.875rem 2rem', borderRadius: '10px',
               background: 'transparent', color: '#D4A843', fontWeight: 700, fontSize: '0.9375rem',
               textDecoration: 'none', border: '1px solid rgba(212,168,67,0.3)',
             }}>

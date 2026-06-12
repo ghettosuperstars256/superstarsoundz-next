@@ -53,6 +53,17 @@ export default function ContactPage() {
     marginBottom: '0.375rem',
   };
 
+  const subjectOptions = [
+    { value: '', label: 'Select a topic' },
+    { value: 'event', label: 'Event Production Quote' },
+    { value: 'equipment', label: 'Equipment Inquiry' },
+    { value: 'shop', label: 'Shop Question' },
+    { value: 'review', label: 'Product Review Request' },
+    { value: 'collab', label: 'Collaboration' },
+    { value: 'partnership', label: 'Partnership' },
+    { value: 'other', label: 'Other' },
+  ];
+
   return (
     <>
       <section style={{ padding: '4rem 0 2rem' }}>
@@ -60,7 +71,7 @@ export default function ContactPage() {
           <p className="label" style={{ marginBottom: '0.5rem' }}>Get in Touch</p>
           <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: '1rem' }}>Contact Us</h1>
           <p className="text-secondary" style={{ maxWidth: '600px', fontSize: '1.125rem', lineHeight: 1.6 }}>
-            Have a question, suggestion, or collaboration idea? Drop us a line.
+            Planning an event? Need equipment? Have a question? We're here to help.
           </p>
         </div>
       </section>
@@ -81,17 +92,14 @@ export default function ContactPage() {
                 <div>
                   <label style={labelStyle}>Subject</label>
                   <select name="subject" value={form.subject} onChange={handleChange} style={inputStyle}>
-                    <option value="">Select a topic</option>
-                    <option value="shop">Shop Question</option>
-                    <option value="review">Product Review Request</option>
-                    <option value="collab">Collaboration</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="other">Other</option>
+                    {subjectOptions.map(opt => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
                   </select>
                 </div>
                 <div>
                   <label style={labelStyle}>Message</label>
-                  <textarea name="message" value={form.message} onChange={handleChange} rows={5} placeholder="Tell us what's on your mind..." style={{ ...inputStyle, resize: 'vertical', fontFamily: 'inherit' }} required />
+                  <textarea name="message" value={form.message} onChange={handleChange} rows={5} placeholder="Tell us about your event, equipment needs, or question..." style={{ ...inputStyle, resize: 'vertical', fontFamily: 'inherit' }} required />
                 </div>
                 <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }} disabled={status === 'sending'}>
                   {status === 'sending' ? 'Sending...' : 'Send Message'}
@@ -113,20 +121,24 @@ export default function ContactPage() {
                     <a href="mailto:info@superstarsoundz.com" style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>info@superstarsoundz.com</a>
                   </div>
                   <div>
+                    <div className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 600, marginBottom: '0.25rem' }}>Phone / WhatsApp</div>
+                    <a href="tel:+256741669338" style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>+256 741 669 338</a>
+                  </div>
+                  <div>
                     <div className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 600, marginBottom: '0.25rem' }}>Location</div>
-                    <div style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>Worldwide — Remote First</div>
+                    <div style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>Kampala, Uganda</div>
                   </div>
                   <div>
                     <div className="text-muted" style={{ fontSize: '0.75rem', fontWeight: 600, marginBottom: '0.25rem' }}>Response Time</div>
-                    <div style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>Within 24-48 hours</div>
+                    <div style={{ color: '#f0f0f2', fontSize: '0.9375rem' }}>Within 24 hours</div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-accent-dim border-accent" style={{ borderRadius: '8px', padding: '1.5rem' }}>
-                <h3 style={{ fontSize: '0.9375rem', fontWeight: 700, marginBottom: '0.5rem' }}>For Partnership Inquiries</h3>
+                <h3 style={{ fontSize: '0.9375rem', fontWeight: 700, marginBottom: '0.5rem' }}>Event Production Inquiries</h3>
                 <p className="text-secondary" style={{ fontSize: '0.875rem', lineHeight: 1.6 }}>
-                  If you're a brand looking to partner with Superstar Soundz, please select "Partnership" in the subject field. We review all requests within 48 hours.
+                  For event quotes, select "Event Production Quote" above and include your event date, venue, expected attendance, and any specific requirements. We'll get back to you within 24 hours.
                 </p>
               </div>
             </div>

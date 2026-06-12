@@ -13,17 +13,17 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Superstar Soundz — Professional Audio Equipment, Reviews & Blog',
+    default: 'Superstar Soundz — Audio Equipment & AV Production | Kampala, Uganda',
     template: '%s | Superstar Soundz',
   },
-  description: 'Expert reviews and hand-picked audio gear for musicians, DJs, producers, and audio engineers. Find the best microphones, headphones, studio monitors, and more.',
-  keywords: ['audio equipment', 'studio gear', 'microphones', 'headphones', 'DJ controllers', 'studio monitors', 'buying guides', 'music production'],
+  description: "Kampala's premier audio equipment and AV production company. Professional gear for events, studios, and productions — plus honest reviews, buying guides, and free AI music tools.",
+  keywords: ['audio equipment', 'AV production', 'Kampala', 'Uganda', 'live sound', 'studio recording', 'DJ gear', 'microphones', 'studio monitors', 'PA systems', 'event production'],
   icons: {
     icon: '/favicon.svg',
   },
   openGraph: {
-    title: 'Superstar Soundz — Professional Audio Equipment',
-    description: 'Expert reviews and curated gear for audio professionals',
+    title: 'Superstar Soundz — Audio Equipment & AV Production | Kampala, Uganda',
+    description: "Kampala's premier audio equipment and AV production company.",
     url: 'https://superstarsoundz.com',
     siteName: 'Superstar Soundz',
     type: 'website',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Superstar Soundz — Professional Audio Equipment',
-    description: 'Expert reviews and curated gear for audio professionals',
+    title: 'Superstar Soundz — Audio Equipment & AV Production',
+    description: "Kampala's premier audio equipment and AV production company.",
   },
   alternates: {
     canonical: 'https://superstarsoundz.com',
@@ -50,15 +50,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'Organization',
+              '@type': 'LocalBusiness',
               name: 'Superstar Soundz',
               alternateName: 'SSZ',
               url: 'https://superstarsoundz.com',
               logo: 'https://superstarsoundz.com/favicon.svg',
-              description: 'Expert audio gear reviews, buying guides, free AI music tools, and professional AV production services.',
+              description: "Kampala's premier audio equipment and AV production company — supplying gear, running events, and sharing expert knowledge.",
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Kampala',
+                addressCountry: 'UG',
+              },
+              telephone: '+256741669338',
+              priceRange: '$$',
               sameAs: [
                 'https://twitter.com/superstarsoundz',
               ],
+              knowsAbout: ['Audio Equipment', 'AV Production', 'Live Sound', 'Studio Recording', 'DJ Equipment', 'Music Production'],
             }),
           }}
         />
