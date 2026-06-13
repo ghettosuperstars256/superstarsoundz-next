@@ -219,36 +219,49 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   );
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#08080a' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#08080a', overflowX: 'hidden' }}>
       {/* Desktop Sidebar */}
       {!isMobile && (
-        <aside style={{
-          width: sidebarOpen ? '260px' : '64px',
-          background: '#0a0a0e',
-          borderRight: '1px solid #1e1e26',
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          zIndex: 50,
-          transition: 'width 0.2s',
-          overflow: 'hidden',
-          boxSizing: 'border-box',
-        }}>
-          {sidebarContent}
-
-          {/* Toggle */}
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'} style={{
-            position: 'absolute', top: '1.25rem', right: '-12px', width: '24px', height: '24px',
-            background: '#1e1e26', border: '1px solid #2a2a36', borderRadius: '50%',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-            color: '#9090a0', fontSize: '0.625rem',
+        <>
+          {/* Sidebar */}
+          <aside style={{
+            width: sidebarOpen ? '260px' : '64px',
+            background: '#0a0a0e',
+            borderRight: '1px solid #1e1e26',
+            display: 'flex',
+            flexDirection: 'column',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            zIndex: 50,
+            transition: 'width 0.2s',
+            overflow: 'hidden',
+            boxSizing: 'border-box',
+            flexShrink: 0,
           }}>
+            {sidebarContent}
+          </aside>
+
+          {/* Sidebar Toggle — positioned outside the sidebar, adjacent to main content */}
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+            style={{
+              position: 'fixed',
+              top: '1.5rem',
+              left: sidebarOpen ? '248px' : '52px',
+              width: '24px', height: '24px',
+              background: '#1e1e26', border: '1px solid #2a2a36', borderRadius: '50%',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+              color: '#9090a0', fontSize: '0.625rem',
+              zIndex: 51,
+              transition: 'left 0.2s',
+            }}
+          >
             {sidebarOpen ? '◀' : '▶'}
           </button>
-        </aside>
+        </>
       )}
 
       {/* Mobile Sidebar Overlay */}
@@ -273,6 +286,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         flex: 1,
         minHeight: '100vh',
         transition: 'margin-left 0.2s',
+        minWidth: 0,
         width: !isMobile ? undefined : '100%',
       }}>
         {/* Mobile top bar */}
