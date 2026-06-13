@@ -49,7 +49,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const [user, setUser] = useState<{ name: string; email: string; role: string } | null>(null);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobile, setIsMobile] = useState(false);
@@ -219,7 +219,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   );
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#08080a', overflowX: 'hidden' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#08080a' }}>
       {/* Desktop Sidebar */}
       {!isMobile && (
         <>
