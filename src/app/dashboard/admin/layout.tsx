@@ -231,10 +231,11 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           position: 'fixed',
           top: 0,
           left: 0,
-          height: '100vh',
+          bottom: 0,
           zIndex: 50,
           transition: 'width 0.2s',
           overflow: 'hidden',
+          boxSizing: 'border-box',
         }}>
           {sidebarContent}
 
