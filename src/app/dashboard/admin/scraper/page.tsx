@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 interface ScrapedProduct {
   id: string; title: string; description: string; price: number; currency: string;
@@ -36,6 +36,15 @@ export default function ScraperPage() {
   const [error, setError] = useState('');
   const [products, setProducts] = useState<ScrapedProduct[]>([]);
   const [stats, setStats] = useState<ScrapeStats | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   // Bulk import state
   const [bulkText, setBulkText] = useState('');
@@ -121,13 +130,13 @@ export default function ScraperPage() {
         ))}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '380px 1fr', gap: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '380px 1fr', gap: '2rem' }}>
         {/* Left: Controls */}
         <div>
           {/* Source */}
           <div style={{ marginBottom: '1.25rem' }}>
             <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem', color: '#9090a0' }}>Source</label>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: '0.5rem' }}>
               {SOURCES.map(s => (
                 <button key={s.value} onClick={() => setSource(s.value)} style={{
                   padding: '0.625rem', borderRadius: '10px', fontSize: '0.75rem', fontWeight: 600,
@@ -231,7 +240,7 @@ export default function ScraperPage() {
         {/* Right: Results */}
         <div>
           {stats && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
               {[
                 { label: 'Found', value: stats.totalFound, color: '#D4A843' },
                 { label: 'New Saved', value: stats.newSaved, color: '#22c55e' },

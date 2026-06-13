@@ -3,10 +3,15 @@ import { NextRequest, NextResponse } from 'next/server';
 export const runtime = 'experimental-edge';
 
 // Paths that don't require auth
-const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout'];
+const PUBLIC_PATHS = ['/login', '/api/auth/login', '/api/auth/logout', '/api/health'];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Don't protect public API routes and static assets
+  if (pathname.startsWith('/_next') || pathname.startsWith('/favicon') || pathname.startsWith('/data/')) {
+    return NextResponse.next();
+  }
 
   // Only protect dashboard routes
   if (!pathname.startsWith('/dashboard')) {
@@ -26,8 +31,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  // For edge runtime, we do a simple structural check here
-  // Full HMAC verification happens in the API routes and page-level auth
+  // Edge runtime: simple structural + expiry check
+  // Full HMAC verification happens in requireAdmin() / requireAuth() in API routes
   try {
     const parts = token.split('.');
     if (parts.length !== 2) {

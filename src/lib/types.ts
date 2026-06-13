@@ -6,6 +6,7 @@ export interface User {
   role: 'admin' | 'user';
   createdAt: string;
   lastLogin?: string;
+  sessionVersion: number; // Increment to invalidate all sessions
 }
 
 export interface SessionData {
@@ -14,6 +15,7 @@ export interface SessionData {
   name: string;
   role: 'admin' | 'user';
   exp: number;
+  sessionVersion: number;
 }
 
 export interface ScrapedProduct {

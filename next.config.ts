@@ -1,7 +1,21 @@
 import type { NextConfig } from 'next';
+import { runMigrations, getSchemaVersion } from './src/lib/migrations';
+
+// Run migrations on build/startup
+runMigrations().then(result => {
+  if (result.migrated) {
+    console.log(`[DB] Migrated from v${result.from} to v${result.to}`);
+  }
+});
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+
+// Request body size limit (Next.js 15+)
+  // @ts-ignore — experimental API
+  serverActions: {
+    bodySizeLimit: '2mb',
+  },
 
   async headers() {
     return [
@@ -22,7 +36,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'X-XSS-Protection',
-            value: '1; mode=block',
+            value: '0', // Disabled in favor of CSP
           },
           {
             key: 'Strict-Transport-Security',
@@ -30,16 +44,71 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.resend.com;",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: https:",
+              "connect-src 'self' https://api.resend.com",
+              "frame-ancestors 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+            ].join('; '),
           },
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(self), geolocation=()',
           },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin',
+          },
+          {
+            key: 'Cross-Origin-Resource-Policy',
+            value: 'same-origin',
+          },
+        ],
+      },
+      // Static data files — allow public access with caching
+      {
+        source: '/data/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=300, stale-while-revalidate=600' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+        ],
+      },
+      // API routes — no cache, CORS
+      {
+        source: '/api/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate' },
         ],
       },
     ];
   },
+
+  // Redirect www to non-www
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.superstarsoundz.com' }],
+        destination: 'https://superstarsoundz.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
+  // PoweredBy header removal
+  poweredByHeader: false,
+
+  // Trailing slash consistency
+  trailingSlash: false,
 };
 
 export default nextConfig;

@@ -428,7 +428,7 @@ export default function HealthPage() {
       )}
 
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
         {stats.map((s, i) => (
           <div key={i} style={{
             padding: '1.25rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-lg)',

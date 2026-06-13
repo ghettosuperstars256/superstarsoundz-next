@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { corsHeaders } from '@/lib/cors';
+import { safeReadJSON, safeWriteJSON } from '@/lib/fileLock';
 
 const PRODUCTS_FILE = path.join(process.cwd(), 'src', 'data', 'products.json');
 const POSTS_FILE = path.join(process.cwd(), 'src', 'data', 'posts.json');
 
 function loadJSON(file: string): any[] {
-  try { return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf-8')) : []; } catch { return []; }
+  try { const data = fs.readFileSync(file, 'utf-8'); return JSON.parse(data); } catch { return []; }
 }
 function saveJSON(file: string, data: any[]) { fs.writeFileSync(file, JSON.stringify(data, null, 2)); }
 function generateSlug(text: string): string {
@@ -95,13 +97,42 @@ const PRODUCT_CATEGORIES = [
 
 const BRANDS = ['Focusrite', 'PreSonus', 'Native Instruments', 'Akai', 'Novation', 'Arturia', 'M-Audio', 'Behringer', 'Mackie', 'Allen & Heath', 'Rode', 'Audio-Technica', 'Shure', 'Sennheiser', 'Beyerdynamic', 'AKG', 'Yamaha', 'Roland', 'Korg', 'Moog'];
 
+import { requireAdmin } from '@/lib/auth';
+import { aiRateLimiter } from '@/lib/rateLimit';
+import { auditLog } from '@/lib/audit';
+
+function getClientIp(request: NextRequest): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+}
+
 // ============================================================
 // API HANDLER
 // ============================================================
+
+// CORS preflight
+export async function OPTIONS(request: NextRequest) {
+  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get('origin')) });
+}
+
 export async function POST(request: NextRequest) {
   try {
+    const admin = await requireAdmin();
+    const rateCheck = aiRateLimiter(getClientIp(request));
+    if (!rateCheck.allowed) {
+      return NextResponse.json({ error: 'Rate limit exceeded', retryAfter: rateCheck.retryAfter }, { status: 429 });
+    }
+
     const body = await request.json();
     const { action } = body;
+
+    auditLog({
+      action: 'ai_action',
+      userId: admin.id,
+      userEmail: admin.email,
+      ip: getClientIp(request),
+      details: `AI action: ${action}`,
+      severity: 'info',
+    });
 
     switch (action) {
       case 'generate-posts': return await generateBlogPosts();

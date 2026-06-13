@@ -1,33 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { corsHeaders } from '@/lib/cors';
+import { newsletterRateLimiter } from '@/lib/rateLimit';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const NEWSLETTER_AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
 
-// Rate limiting
-const newsletterAttempts = new Map<string, { count: number; resetAt: number }>();
-const MAX_NEWSLETTER = 3;
-const NEWSLETTER_WINDOW = 60 * 60 * 1000; // 1 hour
+function getClientIp(request: NextRequest): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+}
 
-function checkNewsletterRate(ip: string): boolean {
-  const now = Date.now();
-  const record = newsletterAttempts.get(ip);
-  if (!record || now > record.resetAt) {
-    newsletterAttempts.set(ip, { count: 1, resetAt: now + NEWSLETTER_WINDOW });
-    return true;
-  }
-  if (record.count >= MAX_NEWSLETTER) return false;
-  record.count++;
-  return true;
+export async function OPTIONS(request: NextRequest) {
+  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get('origin')) });
 }
 
 export async function POST(request: NextRequest) {
   try {
-    // Rate limit
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
-    if (!checkNewsletterRate(ip)) {
+    const ip = getClientIp(request);
+    const rateCheck = newsletterRateLimiter(ip);
+    if (!rateCheck.allowed) {
       return NextResponse.json(
         { error: 'Too many requests. Please try again later.' },
-        { status: 429 }
+        { status: 429, headers: { 'Retry-After': String(rateCheck.retryAfter || 3600) } }
       );
     }
 
@@ -45,7 +38,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Add to Resend audience if configured, otherwise just acknowledge
     if (NEWSLETTER_AUDIENCE_ID) {
       const res = await fetch(`https://api.resend.com/audiences/${NEWSLETTER_AUDIENCE_ID}/contacts`, {
         method: 'POST',
@@ -53,19 +45,13 @@ export async function POST(request: NextRequest) {
           'Authorization': `Bearer ${RESEND_API_KEY}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email,
-          unsubscribed: false,
-        }),
+        body: JSON.stringify({ email, unsubscribed: false }),
       });
 
       if (!res.ok && res.status !== 409) {
         const errorData = await res.text();
         console.error('Resend API error:', res.status, errorData);
-        return NextResponse.json(
-          { error: 'Failed to subscribe. Please try again.' },
-          { status: 500 }
-        );
+        return NextResponse.json({ error: 'Failed to subscribe. Please try again.' }, { status: 500 });
       }
     }
 

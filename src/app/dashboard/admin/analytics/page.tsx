@@ -101,9 +101,9 @@ function computeRealData() {
   const productsThisMonth = countThisMonth(products);
   const postsThisMonth = countThisMonth(posts);
 
-  const avgProductPrice = products.reduce((a, p) => a + (p.price || 0), 0) / totalProducts;
-  const maxProductPrice = Math.max(...products.map(p => p.price || 0));
-  const minProductPrice = Math.min(...products.map(p => p.price || 0));
+  const avgProductPrice = totalProducts > 0 ? products.reduce((a, p) => a + (p.price || 0), 0) / totalProducts : 0;
+  const maxProductPrice = products.length > 0 ? Math.max(...products.map(p => p.price || 0)) : 0;
+  const minProductPrice = products.length > 0 ? Math.min(...products.map(p => p.price || 0)) : 0;
 
   const stats: StatCard[] = [
     { label: 'Products', value: totalProducts.toString(), change: productsThisMonth > 0 ? `+${productsThisMonth} this month` : 'No recent changes', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
@@ -545,7 +545,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Stat Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
         {data.stats.map((stat, i) => (
           <div key={i} style={{
             padding: '1.25rem', background: C.card, borderRadius: '16px',
@@ -575,7 +575,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Row 1: Traffic Placeholder + Top Pages */}
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
         {/* Traffic Overview — Placeholder */}
         <PlaceholderCard
           title="Traffic Overview"
@@ -610,14 +610,14 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Row 2: Affiliate Sources + Price Distribution */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
         {/* Affiliate Performance — Real sources from products */}
         <SectionCard
           title="Affiliate Sources"
           extra={<span style={{ fontSize: '0.75rem', color: C.muted }}>{data.affiliateSources.length} sources from product URLs</span>}
         >
           <div style={{ padding: '1.25rem 1.5rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
               {[
                 { label: 'Total Products', value: data.totalProducts.toString(), color: C.text },
                 { label: 'In Stock', value: data.inStockProducts.toString(), color: C.success },
@@ -688,7 +688,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Row 3: Search Placeholder + Content Calendar */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
         {/* Search Performance — Placeholder */}
         <PlaceholderCard
           title="Search Performance"
@@ -707,7 +707,7 @@ export default function AnalyticsPage() {
       {/* Row 4: Category Overview */}
       <SectionCard title="Category Overview" extra={<span style={{ fontSize: '0.75rem', color: C.muted }}>{data.categorySummary.length} product categories</span>}>
         <div style={{ padding: '1.25rem 1.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '1rem' }}>
             {data.categorySummary.map((cat, i) => (
               <div key={i} style={{ padding: '1rem', background: C.tertiary, borderRadius: '10px', border: `1px solid ${C.border}` }}>
                 <div style={{ fontSize: '0.6875rem', color: C.muted, marginBottom: '0.375rem' }}>{cat.name}</div>

@@ -1,8 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { requireAdmin } from '@/lib/auth';
+import { contentRateLimiter } from '@/lib/rateLimit';
+import { auditLog } from '@/lib/audit';
+import { corsHeaders } from '@/lib/cors';
+import {
+  sanitizeString, sanitizeSlug, requireFields
+} from '@/lib/validate';
 
 const PAGES_FILE = path.join(process.cwd(), 'src', 'data', 'pages.json');
+
+function getClientIp(request: NextRequest): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+}
+
+// CORS preflight
+export async function OPTIONS(request: NextRequest) {
+  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get('origin')) });
+}
 
 function readFile(file: string) {
   try {
@@ -24,53 +40,122 @@ function generateId() {
 }
 
 export async function GET() {
+  // Public — pages are readable by anyone
   const pages = readFile(PAGES_FILE);
   return NextResponse.json(pages);
 }
 
 export async function POST(request: NextRequest) {
   try {
+    const admin = await requireAdmin();
+    const rateCheck = contentRateLimiter(getClientIp(request));
+    if (!rateCheck.allowed) {
+      return NextResponse.json({ error: 'Rate limit exceeded', retryAfter: rateCheck.retryAfter }, { status: 429 });
+    }
+
     const body = await request.json();
+    const error = requireFields(body, ['title']);
+    if (error) return NextResponse.json({ error }, { status: 400 });
+
     const pages = readFile(PAGES_FILE);
     const newPage = {
       id: generateId(),
-      title: body.title || 'Untitled',
-      slug: body.slug || body.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'untitled',
-      content: body.content || '',
-      status: body.status || 'draft',
+      title: sanitizeString(body.title, 200),
+      slug: sanitizeSlug(body.slug || body.title),
+      content: sanitizeString(body.content, 100000),
+      status: body.status === 'published' ? 'published' : 'draft',
       date: new Date().toISOString(),
-      metaDescription: body.metaDescription || '',
+      metaDescription: sanitizeString(body.metaDescription, 300),
     };
     pages.push(newPage);
     writeFile(PAGES_FILE, pages);
+
+    auditLog({
+      action: 'page_create',
+      userId: admin.id,
+      userEmail: admin.email,
+      ip: getClientIp(request),
+      details: `Created page: ${newPage.title}`,
+      severity: 'info',
+    });
+
     return NextResponse.json(newPage, { status: 201 });
-  } catch {
-    return NextResponse.json({ error: 'Failed to create page' }, { status: 500 });
+  } catch (error) {
+    return NextResponse.json({ error: String(error) }, { status: 500 });
   }
 }
 
 export async function PUT(request: NextRequest) {
   try {
+    const admin = await requireAdmin();
+    const rateCheck = contentRateLimiter(getClientIp(request));
+    if (!rateCheck.allowed) {
+      return NextResponse.json({ error: 'Rate limit exceeded', retryAfter: rateCheck.retryAfter }, { status: 429 });
+    }
+
     const body = await request.json();
+    if (!body.id) return NextResponse.json({ error: 'Missing id' }, { status: 400 });
+
     const pages = readFile(PAGES_FILE);
     const index = pages.findIndex((p: Record<string, string>) => p.id === body.id);
     if (index === -1) return NextResponse.json({ error: 'Not found' }, { status: 404 });
-    pages[index] = { ...pages[index], ...body };
+
+    pages[index] = {
+      ...pages[index],
+      title: body.title ? sanitizeString(body.title, 200) : pages[index].title,
+      slug: body.slug ? sanitizeSlug(body.slug) : pages[index].slug,
+      content: body.content !== undefined ? sanitizeString(body.content, 100000) : pages[index].content,
+      status: body.status === 'published' ? 'published' : (body.status || pages[index].status),
+      metaDescription: body.metaDescription !== undefined ? sanitizeString(body.metaDescription, 300) : pages[index].metaDescription,
+    };
     writeFile(PAGES_FILE, pages);
+
+    auditLog({
+      action: 'page_update',
+      userId: admin.id,
+      userEmail: admin.email,
+      ip: getClientIp(request),
+      details: `Updated page: ${pages[index].title} (id: ${body.id})`,
+      severity: 'info',
+    });
+
     return NextResponse.json(pages[index]);
-  } catch {
-    return NextResponse.json({ error: 'Failed to update page' }, { status: 500 });
+  } catch (error) {
+    return NextResponse.json({ error: String(error) }, { status: 500 });
   }
 }
 
 export async function DELETE(request: NextRequest) {
   try {
-    const body = await request.json();
+    const admin = await requireAdmin();
+    const rateCheck = contentRateLimiter(getClientIp(request));
+    if (!rateCheck.allowed) {
+      return NextResponse.json({ error: 'Rate limit exceeded', retryAfter: rateCheck.retryAfter }, { status: 429 });
+    }
+
+    const body = await request.json().catch(() => ({}));
+    const id = body.id || request.nextUrl.searchParams.get('id');
+
+    if (!id) return NextResponse.json({ error: 'Missing id' }, { status: 400 });
+
     const pages = readFile(PAGES_FILE);
-    const filtered = pages.filter((p: Record<string, string>) => p.id !== body.id);
-    writeFile(PAGES_FILE, filtered);
+    const index = pages.findIndex((p: Record<string, string>) => p.id === id);
+    if (index === -1) return NextResponse.json({ error: 'Page not found' }, { status: 404 });
+
+    const deleted = pages.splice(index, 1)[0];
+    writeFile(PAGES_FILE, pages);
+
+    auditLog({
+      action: 'page_delete',
+      userId: admin.id,
+      userEmail: admin.email,
+      ip: getClientIp(request),
+      details: `Deleted page: ${deleted.title} (id: ${id})`,
+      severity: 'warning',
+    });
+
     return NextResponse.json({ success: true });
-  } catch {
-    return NextResponse.json({ error: 'Failed to delete page' }, { status: 500 });
+  } catch (error) {
+    return NextResponse.json({ error: String(error) }, { status: 500 });
   }
 }

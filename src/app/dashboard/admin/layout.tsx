@@ -3,6 +3,8 @@
 import { ReactNode, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { ToastProvider } from '@/components/ToastProvider';
+import { DashboardStyles } from '@/components/dashboard-ui';
 
 // ============================================================
 // NAVIGATION CONFIG
@@ -134,10 +136,11 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       {/* Search */}
       <div style={{ padding: '0.75rem', flexShrink: 0 }}>
         <input
-          type="text"
+          type="search"
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
           placeholder="Search..."
+          aria-label="Search navigation"
           style={{
             width: '100%', padding: '0.5rem 0.75rem', background: '#141418',
             border: '1px solid #1e1e26', borderRadius: '8px', color: '#f0f0f2',
@@ -147,7 +150,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       </div>
 
       {/* Navigation */}
-      <nav style={{ flex: 1, padding: '0.5rem 0.75rem', overflowY: 'auto' }}>
+      <nav aria-label="Admin navigation" style={{ flex: 1, padding: '0.5rem 0.75rem', overflowY: 'auto' }}>
         {filteredSections.map((section, si) => (
           <div key={si} style={{ marginBottom: '1rem' }}>
             <div style={{ padding: '0.5rem', fontSize: '0.625rem', fontWeight: 700, color: '#5a5a6a', letterSpacing: '0.08em' }}>
@@ -156,7 +159,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             {section.items.map(item => {
               const isActive = pathname === item.href || (item.href !== '/dashboard/admin' && pathname.startsWith(item.href));
               return (
-                <Link key={item.href} href={item.href} onClick={handleNavClick} style={{
+                <Link key={item.href} href={item.href} onClick={handleNavClick} aria-current={isActive ? 'page' : undefined} style={{
                   display: 'flex', alignItems: 'center', gap: '0.75rem',
                   padding: '0.625rem 0.75rem', borderRadius: '8px',
                   fontSize: '0.875rem', fontWeight: 500,
@@ -236,7 +239,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           {sidebarContent}
 
           {/* Toggle */}
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'} style={{
             position: 'absolute', top: '1.25rem', right: '-12px', width: '24px', height: '24px',
             background: '#1e1e26', border: '1px solid #2a2a36', borderRadius: '50%',
             display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
@@ -278,7 +281,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             padding: '0.75rem 1rem', borderBottom: '1px solid #1e1e26',
             background: '#0a0a0e', position: 'sticky', top: 0, zIndex: 40,
           }}>
-            <button onClick={() => setMobileSidebarOpen(true)} style={{
+            <button onClick={() => setMobileSidebarOpen(true)} aria-label="Open navigation menu" style={{
               background: 'none', border: 'none', color: '#f0f0f2', cursor: 'pointer',
               padding: '0.5rem', minWidth: '44px', minHeight: '44px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -298,9 +301,12 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           </div>
         )}
 
-        <div style={{ padding: isMobile ? '1rem' : '1.5rem' }}>
-          {children}
-        </div>
+        <ToastProvider>
+          <DashboardStyles />
+          <div style={{ padding: isMobile ? '1rem' : '1.5rem' }}>
+            {children}
+          </div>
+        </ToastProvider>
       </main>
     </div>
   );

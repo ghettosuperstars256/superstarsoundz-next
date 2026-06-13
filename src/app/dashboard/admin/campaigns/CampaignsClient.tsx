@@ -104,7 +104,7 @@ function CampaignForm({ campaign, onSubmit, onCancel }: CampaignFormProps) {
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: 1000,
-        padding: '2rem',
+        padding: '1rem',
       }}
       onClick={onCancel}
     >
@@ -194,7 +194,7 @@ function CampaignForm({ campaign, onSubmit, onCancel }: CampaignFormProps) {
           {activeTab === 'basic' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {/* Name & Type Row */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>
                     Campaign Name *
@@ -254,7 +254,7 @@ function CampaignForm({ campaign, onSubmit, onCancel }: CampaignFormProps) {
               </div>
 
               {/* Category & Affiliate Row */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>
                     Category
@@ -290,7 +290,7 @@ function CampaignForm({ campaign, onSubmit, onCancel }: CampaignFormProps) {
               </div>
 
               {/* Max Results & Schedule Row */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>
                     Max Results per Keyword
@@ -337,7 +337,7 @@ function CampaignForm({ campaign, onSubmit, onCancel }: CampaignFormProps) {
                 <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, marginBottom: '0.75rem', color: 'var(--text-primary)' }}>
                   Price Range
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.375rem' }}>Min Price ($)</label>
                     <input
@@ -557,7 +557,7 @@ function CampaignCard({
       {/* Stats */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
         gap: '1px',
         background: 'var(--border)',
         margin: '0 1.25rem',
@@ -654,7 +654,7 @@ function CampaignCard({
         padding: '0.75rem 1.25rem',
         borderTop: '1px solid var(--border)',
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))',
         gap: '0.5rem',
       }}>
         {/* Run Now */}
@@ -816,7 +816,7 @@ export default function CampaignsClient({
       </div>
 
       {/* Stats Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
         {[
           { label: 'Total Campaigns', value: campaigns.length, color: '#D4A843', icon: ICONS.box },
           { label: 'Active', value: activeCampaigns.length, color: '#22c55e', icon: ICONS.play },

@@ -1,49 +1,50 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { corsHeaders } from '@/lib/cors';
+import { contactRateLimiter } from '@/lib/rateLimit';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
-// Rate limiting — shared with newsletter
-const contactAttempts = new Map<string, { count: number; resetAt: number }>();
-const MAX_CONTACT = 3;
-const CONTACT_WINDOW = 60 * 60 * 1000; // 1 hour
+function getClientIp(request: NextRequest): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+}
 
-function checkContactRate(ip: string): boolean {
-  const now = Date.now();
-  const record = contactAttempts.get(ip);
-  if (!record || now > record.resetAt) {
-    contactAttempts.set(ip, { count: 1, resetAt: now + CONTACT_WINDOW });
-    return true;
-  }
-  if (record.count >= MAX_CONTACT) return false;
-  record.count++;
-  return true;
+export async function OPTIONS(request: NextRequest) {
+  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get('origin')) });
 }
 
 export async function POST(request: NextRequest) {
   try {
-    // Rate limit
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
-    if (!checkContactRate(ip)) {
+    const ip = getClientIp(request);
+    const rateCheck = contactRateLimiter(ip);
+    if (!rateCheck.allowed) {
       return NextResponse.json(
         { error: 'Too many messages. Please try again later.' },
-        { status: 429 }
+        { status: 429, headers: { 'Retry-After': String(rateCheck.retryAfter || 3600) } }
       );
     }
 
     const body = await request.json();
     const { name, email, message } = body;
 
-    // Validate
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'All fields are required.' }, { status: 400 });
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    // Sanitize inputs
+    const cleanName = name.trim().slice(0, 100);
+    const cleanEmail = email.trim().slice(0, 254);
+    const cleanMessage = message.trim().slice(0, 5000);
+
+    if (!cleanName || !cleanEmail || !cleanMessage) {
+      return NextResponse.json({ error: 'All fields are required.' }, { status: 400 });
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
       return NextResponse.json({ error: 'Please provide a valid email address.' }, { status: 400 });
     }
 
-    if (message.length > 5000) {
-      return NextResponse.json({ error: 'Message is too long.' }, { status: 400 });
+    if (cleanMessage.length < 10) {
+      return NextResponse.json({ error: 'Message must be at least 10 characters.' }, { status: 400 });
     }
 
     if (!RESEND_API_KEY) {
@@ -62,9 +63,9 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         from: 'Superstar Soundz <hello@superstarsoundz.com>',
         to: 'ghettosuperstars256@gmail.com',
-        replyTo: email,
-        subject: `Contact: ${name}`,
-        text: `From: ${name} <${email}>\n\n${message}`,
+        replyTo: cleanEmail,
+        subject: `Contact: ${cleanName}`.slice(0, 200),
+        text: `From: ${cleanName} <${cleanEmail}>\n\n${cleanMessage}`,
       }),
     });
 

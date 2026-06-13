@@ -172,7 +172,7 @@ export default async function TopicsPage() {
       </div>
 
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
         <div style={{ padding: '1rem 1.25rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
           <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#D4A843' }}>{topics.length}</div>
           <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Active Topics</div>
@@ -220,7 +220,7 @@ export default async function TopicsPage() {
           </div>
 
           {/* Topic Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
             {topics.map((topic, i) => {
               const trend = generateTrend(topic.productCount);
               return (

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { SectionHeader, Card, Input, Button, MessageBanner } from '@/components/dashboard-ui';
 
 interface DashboardSettings {
   amazonAffiliateTag: string;
@@ -111,7 +112,7 @@ export default function SettingsPage() {
 
   return (
     <div style={{ padding: '2rem', maxWidth: '900px' }}>
-      <div style={{ marginBottom: '2rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
         <h1 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.375rem' }}>Settings</h1>
         <p style={{ color: '#9090a0', fontSize: '0.875rem' }}>
           Configure affiliate tags, scrape defaults, and account security
@@ -160,7 +161,7 @@ export default function SettingsPage() {
           <h2 style={{ fontSize: '1rem', fontWeight: 700 }}>Default Scrape Settings</h2>
         </div>
         <div style={{ padding: '1.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
             <div>
               <label style={labelStyle}>Min Price ($)</label>
               <input type="number" value={settings.minPrice}
@@ -180,7 +181,7 @@ export default function SettingsPage() {
               onChange={e => setSettings({ ...settings, minRating: parseFloat(e.target.value) || 0 })}
               min="0" max="5" step="0.1" style={inputStyle} />
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.875rem 1rem', background: '#141418', borderRadius: '8px', border: '1px solid #1e1e26', cursor: 'pointer', fontSize: '0.875rem' }}>
               <input type="checkbox" checked={settings.autoPublish}
                 onChange={e => setSettings({ ...settings, autoPublish: e.target.checked })}
@@ -246,7 +247,7 @@ export default function SettingsPage() {
         <div style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid #1e1e26' }}>
           <h2 style={{ fontSize: '1rem', fontWeight: 700 }}>Marketplace Links</h2>
         </div>
-        <div style={{ padding: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+        <div style={{ padding: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
           {[
             { name: 'Amazon Associates', color: '#D4A843', url: 'https://affiliate-program.amazon.com', desc: 'Manage your Amazon affiliate account' },
             { name: 'eBay Partner Network', color: '#3b82f6', url: 'https://partnernetwork.ebay.com', desc: 'View eBay campaign performance' },

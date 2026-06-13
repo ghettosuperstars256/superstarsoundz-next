@@ -111,7 +111,7 @@ export default async function PriceComparePage({
       {query && results.length > 0 && (
         <>
           {/* Stats */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
             <div style={{ padding: '1.25rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#D4A843' }}>{results.length}</div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Products Found</div>
@@ -217,7 +217,7 @@ export default async function PriceComparePage({
       {!query && !catFilter && (
         <div>
           <h2 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '1rem' }}>Browse by Category</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1rem' }}>
             {Array.from(categoryGroups.entries()).map(([cat, products]) => {
               const catAvg = products.reduce((s, p) => s + p.price, 0) / products.length;
               const catMin = Math.min(...products.map(p => p.price));

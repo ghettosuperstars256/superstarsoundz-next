@@ -1,14 +1,9 @@
 import type { User } from '@/lib/types';
-import { hashPassword, verifyPassword } from './session';
+import { hashPassword, verifyPassword, needsPasswordMigration } from './session';
 
-// Pre-compute the admin hash synchronously at build time
-// SHA-256 of 'ssz-pwd-salt-v2-2026Superstar2026!' = deterministic
-const ADMIN_HASH = 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2'; // placeholder
-
-// In-memory user store — initialized synchronously
+// In-memory user store
 const USERS: User[] = [];
 
-// Initialize admin user with async hash
 let initDone = false;
 let initPromise: Promise<void> | null = null;
 
@@ -24,6 +19,7 @@ async function ensureInit() {
         passwordHash: adminHash,
         role: 'admin',
         createdAt: '2026-06-08T00:00:00Z',
+        sessionVersion: 0,
       });
       initDone = true;
     })();
@@ -45,7 +41,14 @@ export async function findUserById(id: string): Promise<User | null> {
 }
 
 export async function validatePassword(user: User, password: string): Promise<boolean> {
-  return verifyPassword(password, user.passwordHash);
+  const valid = await verifyPassword(password, user.passwordHash);
+
+  // Auto-migrate legacy SHA-256 hashes to PBKDF2 on successful login
+  if (valid && needsPasswordMigration(user.passwordHash)) {
+    user.passwordHash = await hashPassword(password);
+  }
+
+  return valid;
 }
 
 export async function updateLastLogin(userId: string): Promise<void> {
@@ -68,6 +71,8 @@ export async function updateUserPassword(userId: string, newPassword: string): P
   const user = USERS.find(u => u.id === userId);
   if (user) {
     user.passwordHash = await hashPassword(newPassword);
+    // Invalidate all existing sessions by bumping sessionVersion
+    user.sessionVersion = (user.sessionVersion || 0) + 1;
     return true;
   }
   return false;
@@ -98,6 +103,7 @@ export async function addUser(data: {
     passwordHash: hash,
     role: data.role,
     createdAt: new Date().toISOString(),
+    sessionVersion: 0,
   };
   USERS.push(user);
   return user;

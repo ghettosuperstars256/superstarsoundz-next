@@ -96,11 +96,13 @@ export default function SEOPage() {
         return prev + Math.random() * 12;
       });
     }, 250);
+    // Store interval ID for cleanup
+    return () => clearInterval(interval);
   };
 
   const healthScore = Math.round(
-    (metaItems.filter(m => m.status === 'ok').length / metaItems.length) * 40 +
-    (keywords.filter(k => k.position <= 20).length / keywords.length) * 30 +
+    (metaItems.length > 0 ? (metaItems.filter(m => m.status === 'ok').length / metaItems.length) * 40 : 0) +
+    (keywords.length > 0 ? (keywords.filter(k => k.position <= 20).length / keywords.length) * 30 : 0) +
     30 // base score for having structured data
   );
 
@@ -135,7 +137,7 @@ export default function SEOPage() {
       )}
 
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
         <div style={{ padding: '1.25rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <CircularProgress value={healthScore} />
           <div>
@@ -160,7 +162,7 @@ export default function SEOPage() {
       </div>
 
       {/* Health Breakdown */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
         {[
           { label: 'Meta Descriptions', score: Math.round((metaItems.filter(m => m.metaDescription).length / metaItems.length) * 100), color: '#22c55e' },
           { label: 'Title Optimization', score: 85, color: '#22c55e' },
@@ -288,7 +290,7 @@ export default function SEOPage() {
 
       {/* Sitemap */}
       {auditSection === 'sitemap' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
           <div style={{ padding: '1.5rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', textAlign: 'center' }}>
             <div style={{ fontSize: '2rem', fontWeight: 800, color: '#D4A843' }}>97</div>
             <div style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>Total URLs</div>
@@ -303,7 +305,7 @@ export default function SEOPage() {
           </div>
           <div style={{ gridColumn: '1 / -1', padding: '1.5rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)' }}>
             <h3 style={{ fontSize: '0.875rem', fontWeight: 700, marginBottom: '1rem' }}>URL Breakdown</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '1rem' }}>
               {[
                 { type: 'Products', count: 24, color: '#D4A843' },
                 { type: 'Blog Posts', count: 20, color: '#3b82f6' },

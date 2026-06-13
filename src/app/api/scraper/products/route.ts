@@ -2,15 +2,32 @@ import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth';
 import { listScrapedProducts, updateProductStatus, deleteScrapedProduct, comparePrices } from '@/lib/scraper';
 import { log } from '@/lib/db';
+import { corsHeaders } from '@/lib/cors';
+import { paginate, parsePaginationParams } from '@/lib/paginate';
+import { apiRateLimiter } from '@/lib/rateLimit';
+
+function getClientIp(request: NextRequest): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+}
+
+export async function OPTIONS(request: NextRequest) {
+  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get('origin')) });
+}
 
 export async function GET(request: NextRequest) {
   try {
     await requireAuth();
+    const rateCheck = apiRateLimiter(getClientIp(request));
+    if (!rateCheck.allowed) {
+      return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 });
+    }
+
     const { searchParams } = new URL(request.url);
     const source = searchParams.get('source') || undefined;
     const status = searchParams.get('status') || undefined;
     const campaignId = searchParams.get('campaignId') || undefined;
     const search = searchParams.get('search') || undefined;
+    const { page, limit } = parsePaginationParams(searchParams);
 
     let products = listScrapedProducts({ source, status, campaignId });
 
@@ -23,7 +40,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({ success: true, products });
+    const paginated = paginate(products, page, limit);
+    return NextResponse.json({ success: true, ...paginated });
   } catch (error) {
     return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
   }
@@ -50,8 +68,8 @@ export async function PATCH(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
   try {
     await requireAuth();
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
+    const body = await request.json().catch(() => ({}));
+    const id = body.id || request.nextUrl.searchParams.get('id');
 
     if (!id) {
       return NextResponse.json({ success: false, error: 'Missing id' }, { status: 400 });

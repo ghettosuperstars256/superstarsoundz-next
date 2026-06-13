@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -28,7 +29,6 @@ export default function LoginPage() {
       const data = await res.json();
 
       if (data.success) {
-        // Redirect admins to admin dashboard, users to user dashboard
         const target = data.user?.role === 'admin' ? '/dashboard/admin' : '/dashboard';
         router.push(redirect !== '/dashboard' ? redirect : target);
         router.refresh();
@@ -67,27 +67,79 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem', color: '#9090a0' }}>Email</label>
+            <label htmlFor="login-email" style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem', color: '#9090a0' }}>Email</label>
             <input
-              type="email" value={email} onChange={e => setEmail(e.target.value)} required
-              style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '10px', border: '1px solid #1e1e26', background: '#141418', color: '#f0f0f2', fontSize: '0.9375rem', outline: 'none' }}
+              id="login-email"
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+              autoFocus
+              autoComplete="email"
               placeholder="you@example.com"
+              style={{
+                width: '100%', padding: '0.75rem 1rem', borderRadius: '10px',
+                border: '1px solid #1e1e26', background: '#141418',
+                color: '#f0f0f2', fontSize: '0.875rem', outline: 'none',
+              }}
             />
           </div>
           <div>
-            <label style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem', color: '#9090a0' }}>Password</label>
-            <input
-              type="password" value={password} onChange={e => setPassword(e.target.value)} required
-              style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '10px', border: '1px solid #1e1e26', background: '#141418', color: '#f0f0f2', fontSize: '0.9375rem', outline: 'none' }}
-              placeholder="Enter your password"
-            />
+            <label htmlFor="login-password" style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 600, marginBottom: '0.5rem', color: '#9090a0' }}>Password</label>
+            <div style={{ position: 'relative' }}>
+              <input
+                id="login-password"
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+                autoComplete="current-password"
+                placeholder="Enter your password"
+                style={{
+                  width: '100%', padding: '0.75rem 2.75rem 0.75rem 1rem', borderRadius: '10px',
+                  border: '1px solid #1e1e26', background: '#141418',
+                  color: '#f0f0f2', fontSize: '0.875rem', outline: 'none',
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                style={{
+                  position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)',
+                  background: 'none', border: 'none', color: '#5a5a6a', cursor: 'pointer',
+                  padding: '0.25rem', fontSize: '1rem', lineHeight: 1,
+                }}
+              >
+                {showPassword ? '🙈' : '👁️'}
+              </button>
+            </div>
           </div>
-          <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', padding: '0.875rem' }}>
+
+          {error && (
+            <div role="alert" aria-live="assertive" style={{
+              padding: '0.625rem 0.875rem', borderRadius: '8px',
+              background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)',
+              color: '#ef4444', fontSize: '0.8125rem',
+            }}>
+              {error}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            style={{
+              width: '100%', padding: '0.75rem', borderRadius: '10px',
+              background: loading ? '#5a5a6a' : 'linear-gradient(135deg, #D4A843 0%, #C49A38 100%)',
+              color: '#000', fontWeight: 700, fontSize: '0.875rem',
+              border: 'none', cursor: loading ? 'wait' : 'pointer',
+              opacity: loading ? 0.7 : 1,
+            }}
+          >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-
-        {error && <p style={{ color: '#ef4444', fontSize: '0.8125rem', marginTop: '1rem', textAlign: 'center' }}>{error}</p>}
       </div>
     </div>
   );

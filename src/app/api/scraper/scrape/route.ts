@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdmin, authError } from '@/lib/auth';
+import { apiRateLimiter } from '@/lib/rateLimit';
+import { corsHeaders } from '@/lib/cors';
+import { auditLog } from '@/lib/audit';
 import {
-  scrapeAmazon,
-  scrapeEbay,
-  scrapeAliExpress,
-  scrapeWithRSS,
-  saveScrapedProducts,
-  runCampaign,
-  getScraperStats,
+  scrapeAmazon, scrapeEbay, scrapeAliExpress, scrapeWithRSS,
+  saveScrapedProducts, runCampaign, getScraperStats,
 } from '@/lib/scraper';
 import { mapProductCategory } from '@/lib/categoryMapper';
 import { generateProductDescription, applySynonyms } from '@/lib/contentSpinner';
@@ -15,39 +14,37 @@ import { log, generateId, writeItem, readItem } from '@/lib/db';
 
 const AMAZON_AFFILIATE_TAG = process.env.AMAZON_AFFILIATE_TAG || 'ghettosuper02-20';
 
+function getClientIp(request: NextRequest): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+}
+
+export async function OPTIONS(request: NextRequest) {
+  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get('origin')) });
+}
+
 export async function POST(request: NextRequest) {
   try {
+    const admin = await requireAdmin();
+    const rateCheck = apiRateLimiter(getClientIp(request));
+    if (!rateCheck.allowed) {
+      return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 });
+    }
+
     const body = await request.json();
     const {
-      action,
-      campaignId,
-      source,
-      keywords,
-      maxResults = 20,
-      category = '',
-      spinContent = false,
-      bulkItems = [],
+      action, campaignId, source, keywords, maxResults = 20,
+      category = '', spinContent = false, bulkItems = [],
     } = body;
 
-    // ===== ACTION: run campaign =====
+    // Input validation
+    if (maxResults < 1 || maxResults > 100) {
+      return NextResponse.json({ error: 'maxResults must be between 1 and 100' }, { status: 400 });
+    }
+
+    // ACTION: run campaign
     if (action === 'run' && campaignId) {
       log(`API: Running campaign ${campaignId}`);
       const products = await runCampaign(campaignId);
-
-      if (products.length === 0) {
-        return NextResponse.json({
-          success: true,
-          products: [],
-          stats: {
-            totalFound: 0,
-            newSaved: 0,
-            duplicates: 0,
-            avgPrice: 0,
-          },
-          message: 'Campaign ran but returned 0 results. Try different keywords or check API key configuration.',
-        });
-      }
-
       return NextResponse.json({
         success: true,
         products,
@@ -57,19 +54,20 @@ export async function POST(request: NextRequest) {
           duplicates: 0,
           avgPrice: products.length > 0 ? products.reduce((s, p) => s + p.price, 0) / products.length : 0,
         },
+        message: products.length === 0 ? 'Campaign ran but returned 0 results.' : undefined,
       });
     }
 
-    // ===== ACTION: get stats =====
+    // ACTION: get stats
     if (action === 'stats') {
       const stats = getScraperStats();
       return NextResponse.json({ success: true, stats });
     }
 
-    // ===== STANDARD SCRAPE MODE =====
+    // STANDARD SCRAPE MODE
     let products: ScrapedProduct[] = [];
 
-    // ===== BULK IMPORT MODE =====
+    // BULK IMPORT MODE
     if (bulkItems && bulkItems.length > 0) {
       log(`Bulk import: ${bulkItems.length} items`);
 
@@ -89,77 +87,55 @@ export async function POST(request: NextRequest) {
 
           if (product) {
             const mapping = mapProductCategory(product.title, product.description, category);
-            if (mapping.confidence > 0) {
-              product.category = mapping.categoryName;
-            }
-
+            if (mapping.confidence > 0) product.category = mapping.categoryName;
             if (spinContent) {
               product.description = generateProductDescription({
-                title: product.title,
-                category: product.category,
-                price: product.price,
-                rating: product.rating,
-                reviewCount: product.reviewCount,
-                keyFeatures: product.specs ? Object.values(product.specs) : [],
-                brand: product.brand,
-                specs: product.specs,
+                title: product.title, category: product.category, price: product.price,
+                rating: product.rating || 0, reviewCount: product.reviewCount || 0,
+                keyFeatures: [], brand: product.brand,
               });
-              product.description = applySynonyms(product.description, 0.3);
             }
-
             products.push(product);
           }
-        } catch (e) {
-          log(`Bulk import error for ${item.value}: ${e}`, 'warn');
-        }
+        } catch { /* skip individual failures */ }
       }
-    } else {
-      // ===== STANDARD SOURCE-BASED MODE =====
-      if (!source || !keywords || !Array.isArray(keywords) || keywords.length === 0) {
-        return NextResponse.json(
-          { success: false, error: 'Missing required fields: source and keywords (array) are required' },
-          { status: 400 }
-        );
-      }
+    } else if (source && keywords) {
+      // Standard keyword scrape
+      const keywordList = Array.isArray(keywords) ? keywords : [keywords];
 
-      for (const keyword of keywords) {
-        switch (source) {
-          case 'amazon': {
-            const amazonProducts = await scrapeAmazon(keyword, maxResults);
-            products.push(...amazonProducts);
-            break;
+      for (const keyword of keywordList) {
+        try {
+          switch (source) {
+            case 'amazon': products.push(...await scrapeAmazon(keyword, maxResults)); break;
+            case 'ebay': products.push(...await scrapeEbay(keyword, maxResults)); break;
+            case 'aliexpress': products.push(...await scrapeAliExpress(keyword, maxResults)); break;
           }
-          case 'ebay': {
-            const ebayProducts = await scrapeEbay(keyword, maxResults);
-            products.push(...ebayProducts);
-            break;
-          }
-          case 'aliexpress': {
-            const aeProducts = await scrapeAliExpress(keyword, maxResults);
-            products.push(...aeProducts);
-            break;
-          }
-          case 'rss': {
-            const rssProducts = await scrapeWithRSS(keyword, keywords);
-            products.push(...rssProducts);
-            break;
-          }
-          default:
-            log(`Unknown source: ${source}`, 'warn');
-        }
+        } catch { /* skip individual source failure */ }
       }
     }
 
-    // Auto-apply category mapping to all products
+    // Apply category mapping and content spinning to all products
     for (const product of products) {
-      const mapping = mapProductCategory(product.title, product.description, product.category);
-      if (mapping.confidence > 5) {
-        product.category = mapping.categoryName;
+      if (!product.category && product.title) {
+        const mapping = mapProductCategory(product.title, product.description, category);
+        if (mapping.confidence > 0) product.category = mapping.categoryName;
+      }
+      if (spinContent && product.description) {
+        product.description = applySynonyms(product.description);
       }
     }
 
-    // Save to database
+    // Save to DB and products.json
     const saved = saveScrapedProducts(products);
+
+    auditLog({
+      action: 'scrape',
+      userId: admin.id,
+      userEmail: admin.email,
+      ip: getClientIp(request),
+      details: `Scraped ${products.length} products, saved ${saved} new`,
+      severity: 'info',
+    });
 
     return NextResponse.json({
       success: true,
@@ -172,118 +148,52 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    log(`Scrape API error: ${error}`, 'error');
-    return NextResponse.json(
-      { success: false, error: String(error) },
-      { status: 500 }
-    );
+    return authError(error);
   }
 }
 
-// ===== AMAZON ASIN SCRAPER =====
+// Helper: scrape Amazon by ASIN
 async function scrapeAmazonByASIN(asin: string, affiliateTag: string): Promise<ScrapedProduct | null> {
+  if (!asin || asin.length < 10) return null;
+  // Validate ASIN format (alphanumeric, 10 chars)
+  if (!/^[A-Z0-9]{10}$/i.test(asin)) return null;
+
   try {
-    const url = `https://www.amazon.com/dp/${asin}?tag=${affiliateTag}`;
+    const results = await scrapeAmazon(asin, 1);
+    return results[0] || null;
+  } catch { return null; }
+}
+
+// Helper: scrape product from URL
+async function scrapeProductFromUrl(url: string, affiliateTag: string): Promise<ScrapedProduct | null> {
+  if (!url || !url.startsWith('http')) return null;
+
+  try {
+    const urlObj = new URL(url);
+    const allowedHosts = ['www.amazon.com', 'amazon.com', 'www.ebay.com', 'ebay.com', 'www.aliexpress.com', 'aliexpress.com'];
+    if (!allowedHosts.includes(urlObj.hostname)) return null;
+
     const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Accept-Language': 'en-US,en;q=0.9',
-      },
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
     });
-
     if (!response.ok) return null;
+
     const html = await response.text();
-
-    const titleMatch = html.match(/<span id="productTitle"[^>]*>([^<]+)</);
-    const title = titleMatch?.[1]?.trim() || '';
-
-    const priceMatch = html.match(/class="a-price-whole">([^<]+)</);
-    const priceDecimal = html.match(/class="a-price-decimal">([^<]+)</);
-    const price = priceMatch ? parseFloat(`${priceMatch[1]}${priceDecimal?.[1] || ''}`) : 0;
-
-    const imgMatch = html.match(/<img[^>]*id="landingImage"[^>]*src="([^"]+)"/);
-    const image = imgMatch?.[1] || '';
-
-    const ratingMatch = html.match(/class="a-icon-alt">([0-9.]+) out of 5/);
-    const rating = ratingMatch ? parseFloat(ratingMatch[1]) : 0;
-
-    const brandMatch = html.match(/id="bylineInfo"[^>]*>([^<]+)</);
-    const brand = brandMatch?.[1]?.replace(/Visit the | Store/gi, '').trim() || '';
-
-    if (!title) return null;
+    const titleMatch = html.match(/<title>([^<]+)</i);
+    const title = titleMatch ? titleMatch[1].trim() : urlObj.hostname;
 
     return {
       id: generateId(),
       title,
-      description: `${title} — Amazon product. ${rating > 0 ? `Rated ${rating}/5 stars.` : ''}`,
-      price,
+      description: `Product from ${urlObj.hostname}`,
+      price: 0,
       currency: 'USD',
-      image,
-      source: 'amazon',
+      image: '',
+      source: urlObj.hostname.includes('amazon') ? 'amazon' : urlObj.hostname.includes('ebay') ? 'ebay' : 'other',
       sourceUrl: url,
       affiliateUrl: url,
       category: '',
-      brand,
-      rating,
-      reviewCount: 0,
-      inStock: true,
-      specs: {},
-      scrapedAt: new Date().toISOString(),
-      campaignId: '',
-      status: 'pending',
-    };
-  } catch {
-    return null;
-  }
-}
-
-// ===== URL SCRAPER =====
-async function scrapeProductFromUrl(url: string, affiliateTag: string): Promise<ScrapedProduct | null> {
-  try {
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Accept-Language': 'en-US,en;q=0.9',
-      },
-    });
-
-    if (!response.ok) return null;
-    const html = await response.text();
-
-    const titleMatch = html.match(/<meta[^>]*property="og:title"[^>]*content="([^"]+)"/)
-                    || html.match(/<title>([^<]+)</);
-    const title = titleMatch?.[1]?.trim() || '';
-
-    const descMatch = html.match(/<meta[^>]*property="og:description"[^>]*content="([^"]+)"/)
-                   || html.match(/<meta[^>]*name="description"[^>]*content="([^"]+)"/);
-    const description = descMatch?.[1]?.trim() || '';
-
-    const imgMatch = html.match(/<meta[^>]*property="og:image"[^>]*content="([^"]+)"/);
-    const image = imgMatch?.[1] || '';
-
-    if (!title) return null;
-
-    let affiliateUrl = url;
-    try {
-      const urlObj = new URL(url);
-      if (urlObj.hostname.includes('amazon')) {
-        urlObj.searchParams.set('tag', affiliateTag);
-        affiliateUrl = urlObj.toString();
-      }
-    } catch {}
-
-    return {
-      id: generateId(),
-      title,
-      description,
-      price: 0,
-      currency: 'USD',
-      image,
-      source: 'custom',
-      sourceUrl: url,
-      affiliateUrl,
-      category: '',
-      brand: '',
+      brand: title.split(' ')[0] || '',
       rating: 0,
       reviewCount: 0,
       inStock: true,
@@ -292,7 +202,5 @@ async function scrapeProductFromUrl(url: string, affiliateTag: string): Promise<
       campaignId: '',
       status: 'pending',
     };
-  } catch {
-    return null;
-  }
+  } catch { return null; }
 }
