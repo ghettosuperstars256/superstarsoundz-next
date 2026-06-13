@@ -42,6 +42,9 @@ const NAV_SECTIONS = [
   },
 ];
 
+const SIDEBAR_WIDTH = 260;
+const SIDEBAR_COLLAPSED = 64;
+
 // ============================================================
 // LAYOUT COMPONENT
 // ============================================================
@@ -50,11 +53,11 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const [user, setUser] = useState<{ name: string; email: string; role: string } | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect mobile
+  // Detect mobile (< 768px)
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
@@ -62,25 +65,19 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  // Lock body scroll on mobile when sidebar is open
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileSidebarOpen && isMobile) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = (mobileOpen && isMobile) ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [mobileSidebarOpen, isMobile]);
+  }, [mobileOpen, isMobile]);
 
+  // Auth check
   useEffect(() => {
     fetch('/api/auth/login', { credentials: 'include' })
       .then(r => r.json())
       .then(data => {
-        if (data.authenticated && data.user) {
-          setUser(data.user);
-        } else {
-          router.push('/login?redirect=/dashboard/admin');
-        }
+        if (data.authenticated && data.user) setUser(data.user);
+        else router.push('/login?redirect=/dashboard/admin');
       })
       .catch(() => router.push('/login?redirect=/dashboard/admin'));
   }, [router]);
@@ -91,20 +88,11 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     router.refresh();
   };
 
-  // Filter nav items by search
   const filteredSections = searchQuery
-    ? NAV_SECTIONS.map(section => ({
-        ...section,
-        items: section.items.filter(item =>
-          item.label.toLowerCase().includes(searchQuery.toLowerCase())
-        ),
-      })).filter(section => section.items.length > 0)
+    ? NAV_SECTIONS.map(s => ({ ...s, items: s.items.filter(i => i.label.toLowerCase().includes(searchQuery.toLowerCase())) })).filter(s => s.items.length > 0)
     : NAV_SECTIONS;
 
-  const handleNavClick = () => {
-    if (isMobile) setMobileSidebarOpen(false);
-  };
-
+  // ── Loading state ──
   if (!user) {
     return (
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#08080a' }}>
@@ -117,62 +105,45 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     );
   }
 
-  const sidebarContent = (
+  // ── Colors ──
+  const C = { bg: '#08080a', sidebar: '#0a0a0e', border: '#1e1e26', text: '#f0f0f2', muted: '#5a5a6a', secondary: '#9090a0', accent: '#D4A843', danger: '#ef4444' };
+
+  const sidebarW = sidebarOpen ? SIDEBAR_WIDTH : SIDEBAR_COLLAPSED;
+
+  // ── Sidebar inner content ──
+  const sidebarInner = (
     <>
       {/* Logo */}
-      <div style={{ padding: '1rem', borderBottom: '1px solid #1e1e26', display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
-        <div style={{
-          width: '36px', height: '36px', borderRadius: '10px', flexShrink: 0,
-          background: 'linear-gradient(135deg, #D4A843 0%, #E8C05A 50%, #C49A38 100%)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '0.875rem', fontWeight: 800, color: '#000',
-        }}>SS</div>
-        <div>
-          <div style={{ fontSize: '0.875rem', fontWeight: 700, color: '#f0f0f2' }}>SSZ Admin</div>
-          <div style={{ fontSize: '0.6875rem', color: '#5a5a6a' }}>Command Center</div>
-        </div>
+      <div style={{ padding: '1rem', borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
+        <div style={{ width: 36, height: 36, borderRadius: 10, flexShrink: 0, background: 'linear-gradient(135deg, #D4A843 0%, #E8C05A 50%, #C49A38 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.875rem', fontWeight: 800, color: '#000' }}>SS</div>
+        {sidebarOpen && (
+          <div style={{ minWidth: 0 }}>
+            <div style={{ fontSize: '0.875rem', fontWeight: 700, color: C.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>SSZ Admin</div>
+            <div style={{ fontSize: '0.6875rem', color: C.muted }}>Command Center</div>
+          </div>
+        )}
       </div>
 
       {/* Search */}
-      <div style={{ padding: '0.75rem', flexShrink: 0 }}>
-        <input
-          type="search"
-          value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
-          placeholder="Search..."
-          aria-label="Search navigation"
-          style={{
-            width: '100%', padding: '0.5rem 0.75rem', background: '#141418',
-            border: '1px solid #1e1e26', borderRadius: '8px', color: '#f0f0f2',
-            fontSize: '0.8125rem', outline: 'none',
-          }}
-        />
-      </div>
+      {sidebarOpen && (
+        <div style={{ padding: '0.75rem', flexShrink: 0 }}>
+          <input type="search" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder="Search nav..." aria-label="Search navigation" style={{ width: '100%', padding: '0.5rem 0.75rem', background: '#141418', border: `1px solid ${C.border}`, borderRadius: 8, color: C.text, fontSize: '0.8125rem', outline: 'none' }} />
+        </div>
+      )}
 
-      {/* Navigation */}
-      <nav aria-label="Admin navigation" style={{ flex: 1, padding: '0.5rem 0.75rem', overflowY: 'auto' }}>
+      {/* Nav */}
+      <nav style={{ flex: 1, padding: '0.5rem 0.75rem', overflowY: 'auto' }}>
         {filteredSections.map((section, si) => (
           <div key={si} style={{ marginBottom: '1rem' }}>
-            <div style={{ padding: '0.5rem', fontSize: '0.625rem', fontWeight: 700, color: '#5a5a6a', letterSpacing: '0.08em' }}>
-              {section.label}
-            </div>
+            {sidebarOpen && (
+              <div style={{ padding: '0.5rem', fontSize: '0.625rem', fontWeight: 700, color: C.muted, letterSpacing: '0.08em' }}>{section.label}</div>
+            )}
             {section.items.map(item => {
               const isActive = pathname === item.href || (item.href !== '/dashboard/admin' && pathname.startsWith(item.href));
               return (
-                <Link key={item.href} href={item.href} onClick={handleNavClick} aria-current={isActive ? 'page' : undefined} style={{
-                  display: 'flex', alignItems: 'center', gap: '0.75rem',
-                  padding: '0.625rem 0.75rem', borderRadius: '8px',
-                  fontSize: '0.875rem', fontWeight: 500,
-                  color: isActive ? '#D4A843' : '#9090a0',
-                  background: isActive ? 'rgba(212,168,67,0.08)' : 'transparent',
-                  border: isActive ? '1px solid rgba(212,168,67,0.15)' : '1px solid transparent',
-                  marginBottom: '0.125rem', textDecoration: 'none',
-                  minHeight: '44px',
-                }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ flexShrink: 0 }}>
-                    <path d={item.icon} />
-                  </svg>
-                  <span>{item.label}</span>
+                <Link key={item.href} href={item.href} onClick={() => isMobile && setMobileOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.625rem 0.75rem', borderRadius: 8, fontSize: '0.875rem', fontWeight: 500, color: isActive ? C.accent : C.secondary, background: isActive ? 'rgba(212,168,67,0.08)' : 'transparent', border: isActive ? '1px solid rgba(212,168,67,0.15)' : '1px solid transparent', marginBottom: '0.125rem', textDecoration: 'none', minHeight: 44 }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ flexShrink: 0 }}><path d={item.icon} /></svg>
+                  {sidebarOpen && <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.label}</span>}
                 </Link>
               );
             })}
@@ -181,36 +152,21 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       </nav>
 
       {/* Bottom */}
-      <div style={{ padding: '0.75rem', borderTop: '1px solid #1e1e26', flexShrink: 0 }}>
+      <div style={{ padding: '0.75rem', borderTop: `1px solid ${C.border}`, flexShrink: 0 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', padding: '0.375rem' }}>
-          <div style={{
-            width: '32px', height: '32px', borderRadius: '50%', flexShrink: 0,
-            background: 'linear-gradient(135deg, #D4A843 0%, #E8C05A 100%)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '0.75rem', fontWeight: 700, color: '#000',
-          }}>A</div>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#f0f0f2', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user.name}</div>
-            <div style={{ fontSize: '0.6875rem', color: '#5a5a6a' }}>Administrator</div>
-          </div>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', flexShrink: 0, background: 'linear-gradient(135deg, #D4A843 0%, #E8C05A 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 700, color: '#000' }}>A</div>
+          {sidebarOpen && (
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: C.text, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user.name}</div>
+              <div style={{ fontSize: '0.6875rem', color: C.muted }}>Administrator</div>
+            </div>
+          )}
         </div>
         <div style={{ display: 'flex', gap: '0.375rem' }}>
-          <Link href="/" target="_blank" style={{
-            flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.375rem',
-            padding: '0.5rem', fontSize: '0.6875rem', color: '#9090a0',
-            border: '1px solid #1e1e26', borderRadius: '6px', textDecoration: 'none',
-            minHeight: '36px',
-          }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          <Link href="/" target="_blank" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.375rem', padding: '0.5rem', fontSize: '0.6875rem', color: C.secondary, border: `1px solid ${C.border}`, borderRadius: 6, textDecoration: 'none', minHeight: 36 }}>
             View Site
           </Link>
-          <button onClick={handleLogout} style={{
-            flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.375rem',
-            padding: '0.5rem', fontSize: '0.6875rem', color: '#ef4444',
-            border: '1px solid #1e1e26', borderRadius: '6px', background: 'transparent', cursor: 'pointer',
-            minHeight: '36px',
-          }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+          <button onClick={handleLogout} style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.375rem', padding: '0.5rem', fontSize: '0.6875rem', color: C.danger, border: `1px solid ${C.border}`, borderRadius: 6, background: 'transparent', cursor: 'pointer', minHeight: 36 }}>
             Logout
           </button>
         </div>
@@ -219,100 +175,67 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   );
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#08080a' }}>
-      {/* Desktop Sidebar */}
+    <div style={{ display: 'flex', minHeight: '100vh', background: C.bg }}>
+      {/* ── Desktop Sidebar ── */}
       {!isMobile && (
         <>
-          {/* Sidebar */}
           <aside style={{
-            width: sidebarOpen ? '260px' : '64px',
-            background: '#0a0a0e',
-            borderRight: '1px solid #1e1e26',
+            width: sidebarW,
+            background: C.sidebar,
+            borderRight: `1px solid ${C.border}`,
             display: 'flex',
             flexDirection: 'column',
             position: 'fixed',
-            top: 0,
-            left: 0,
-            bottom: 0,
+            top: 0, left: 0, bottom: 0,
             zIndex: 50,
             transition: 'width 0.2s',
             overflow: 'hidden',
-            boxSizing: 'border-box',
             flexShrink: 0,
           }}>
-            {sidebarContent}
+            {sidebarInner}
           </aside>
 
-          {/* Sidebar Toggle — positioned outside the sidebar, adjacent to main content */}
-          <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
-            style={{
-              position: 'fixed',
-              top: '1.5rem',
-              left: sidebarOpen ? '248px' : '52px',
-              width: '24px', height: '24px',
-              background: '#1e1e26', border: '1px solid #2a2a36', borderRadius: '50%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-              color: '#9090a0', fontSize: '0.625rem',
-              zIndex: 51,
-              transition: 'left 0.2s',
-            }}
-          >
+          {/* Toggle button */}
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'} style={{
+            position: 'fixed', top: '1.5rem', left: sidebarW - 12, width: 24, height: 24,
+            background: '#1e1e26', border: '1px solid #2a2a36', borderRadius: '50%',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+            color: '#9090a0', fontSize: '0.625rem', zIndex: 51,
+            transition: 'left 0.2s',
+          }}>
             {sidebarOpen ? '◀' : '▶'}
           </button>
         </>
       )}
 
-      {/* Mobile Sidebar Overlay */}
-      {isMobile && mobileSidebarOpen && (
-        <div style={{
-          position: 'fixed', inset: 0, zIndex: 100,
-          background: 'rgba(0,0,0,0.6)',
-        }} onClick={() => setMobileSidebarOpen(false)}>
-          <aside style={{
-            width: '280px', height: '100vh', background: '#0a0a0e',
-            borderRight: '1px solid #1e1e26', display: 'flex', flexDirection: 'column',
-            overflowY: 'auto',
-          }} onClick={e => e.stopPropagation()}>
-            {sidebarContent}
+      {/* ── Mobile Sidebar Overlay ── */}
+      {isMobile && mobileOpen && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 100, background: 'rgba(0,0,0,0.6)' }} onClick={() => setMobileOpen(false)}>
+          <aside style={{ width: 280, height: '100vh', background: C.sidebar, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column', overflowY: 'auto' }} onClick={e => e.stopPropagation()}>
+            {sidebarInner}
           </aside>
         </div>
       )}
 
-      {/* Main Content */}
+      {/* ── Main Content ── */}
       <main style={{
-        marginLeft: !isMobile ? (sidebarOpen ? '260px' : '64px') : 0,
+        marginLeft: !isMobile ? sidebarW : 0,
         flex: 1,
         minHeight: '100vh',
         transition: 'margin-left 0.2s',
         minWidth: 0,
-        width: !isMobile ? undefined : '100%',
       }}>
         {/* Mobile top bar */}
         {isMobile && (
-          <div style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            padding: '0.75rem 1rem', borderBottom: '1px solid #1e1e26',
-            background: '#0a0a0e', position: 'sticky', top: 0, zIndex: 40,
-          }}>
-            <button onClick={() => setMobileSidebarOpen(true)} aria-label="Open navigation menu" style={{
-              background: 'none', border: 'none', color: '#f0f0f2', cursor: 'pointer',
-              padding: '0.5rem', minWidth: '44px', minHeight: '44px',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.75rem 1rem', borderBottom: `1px solid ${C.border}`, background: C.sidebar, position: 'sticky', top: 0, zIndex: 40 }}>
+            <button onClick={() => setMobileOpen(true)} aria-label="Open menu" style={{ background: 'none', border: 'none', color: C.text, cursor: 'pointer', padding: '0.5rem', minWidth: 44, minHeight: 44, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
             </button>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <div style={{
-                width: '28px', height: '28px', borderRadius: '8px',
-                background: 'linear-gradient(135deg, #D4A843 0%, #E8C05A 50%, #C49A38 100%)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '0.75rem', fontWeight: 800, color: '#000',
-              }}>SS</div>
-              <span style={{ fontSize: '0.875rem', fontWeight: 700, color: '#f0f0f2' }}>SSZ Admin</span>
+              <div style={{ width: 28, height: 28, borderRadius: 8, background: 'linear-gradient(135deg, #D4A843 0%, #E8C05A 50%, #C49A38 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 800, color: '#000' }}>SS</div>
+              <span style={{ fontSize: '0.875rem', fontWeight: 700, color: C.text }}>SSZ Admin</span>
             </div>
-            <div style={{ width: '44px' }} />
+            <div style={{ width: 44 }} />
           </div>
         )}
 

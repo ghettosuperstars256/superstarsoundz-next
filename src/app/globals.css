@@ -66,6 +66,7 @@ body {
 /* Prevent horizontal overflow on mobile */
 #root, #__next {
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* ===== SCROLLBAR ===== */
