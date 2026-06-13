@@ -175,7 +175,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   );
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: C.bg }}>
+    <div style={{ display: 'flex', height: '100vh', background: C.bg, overflow: 'hidden' }}>
       {/* ── Desktop Sidebar ── */}
       {!isMobile && (
         <>
@@ -222,8 +222,11 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         marginLeft: !isMobile ? sidebarW : 0,
         flex: 1,
         minHeight: '100vh',
+        height: '100vh',
         transition: 'margin-left 0.2s',
         minWidth: 0,
+        overflowY: 'auto',
+        overflowX: 'hidden',
       }}>
         {/* Mobile top bar */}
         {isMobile && (
