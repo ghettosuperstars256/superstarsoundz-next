@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
-import { StatCard, SectionHeader, Badge } from '@/components/dashboard-ui';
 
 const PRODUCTS_FILE = path.join(process.cwd(), 'src', 'data', 'products.json');
 const POSTS_FILE = path.join(process.cwd(), 'src', 'data', 'posts.json');
@@ -118,29 +117,39 @@ export default async function ProductsPage({
   };
 
   return (
-    <div>
-      <SectionHeader
-        title="Products"
-        subtitle={`${allProducts.length} products in ${categories.length} categories`}
-        action={
-          <Link href="/dashboard/admin/scraper" style={{
-            display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-            padding: '0.625rem 1.25rem', borderRadius: '10px',
-            background: 'linear-gradient(135deg, #D4A843 0%, #E8C05A 50%, #C49A38 100%)',
-            color: '#000', textDecoration: 'none', fontWeight: 600, fontSize: '0.8125rem',
-          }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 4v16m8-8H4"/></svg>
-            Scrape New
-          </Link>
-        }
-      />
+    <div style={{ padding: '2rem' }}>
+      {/* Header */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+        <div>
+          <h1 style={{ fontSize: '1.75rem', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '0.25rem' }}>Products</h1>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>{allProducts.length} products in catalog</p>
+        </div>
+        <Link href="/dashboard/scraper" className="btn-primary" style={{ fontSize: '0.8125rem', padding: '0.625rem 1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 4v16m8-8H4"/></svg>
+          Scrape New Products
+        </Link>
+      </div>
 
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
-        <StatCard label="Total Products" value={allProducts.length} color="#D4A843" icon="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-        <StatCard label="In Stock" value={inStock} color="#22c55e" icon="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        <StatCard label="Avg Price" value={`$${avgPrice.toFixed(0)}`} color="#3b82f6" icon="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-        <StatCard label="Featured" value={featured} color="#f59e0b" icon="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+        {[
+          { label: 'Total Products', value: allProducts.length, color: '#D4A843', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
+          { label: 'In Stock', value: inStock, color: '#22c55e', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
+          { label: 'Avg Price', value: `$${avgPrice.toFixed(0)}`, color: '#3b82f6', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1' },
+          { label: 'Featured', value: featured, color: '#f59e0b', icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z' },
+        ].map((s, i) => (
+          <div key={i} style={{ padding: '1rem 1.25rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
+                <div style={{ fontSize: '1.5rem', fontWeight: 800, color: s.color }}>{s.value}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{s.label}</div>
+              </div>
+              <div style={{ width: '32px', height: '32px', borderRadius: 'var(--radius-sm)', background: `${s.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={s.color} strokeWidth="1.5"><path d={s.icon} /></svg>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Filters */}
@@ -175,7 +184,7 @@ export default async function ProductsPage({
       {paginated.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '4rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)' }}>
           <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>No products found matching your filters.</p>
-          <Link href="/dashboard/admin/scraper" className="btn-primary" style={{ fontSize: '0.8125rem' }}>Scrape Products</Link>
+          <Link href="/dashboard/scraper" className="btn-primary" style={{ fontSize: '0.8125rem' }}>Scrape Products</Link>
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem' }}>
@@ -185,14 +194,11 @@ export default async function ProductsPage({
             return (
               <div key={product.id} style={{
                 background: 'var(--bg-card)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)',
-                overflow: 'hidden', transition: 'all 0.2s ease', position: 'relative',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--border-light)'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.3)'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
-              >
+                overflow: 'hidden', transition: 'all 0.15s', position: 'relative',
+              }}>
                 {product.featured && (
                   <div style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', zIndex: 1 }}>
-                    <Badge color="#f59e0b">★ Featured</Badge>
+                    <span style={{ fontSize: '0.625rem', fontWeight: 700, padding: '0.25rem 0.5rem', borderRadius: '4px', background: 'rgba(245,158,11,0.15)', color: '#f59e0b' }}>FEATURED</span>
                   </div>
                 )}
 
@@ -210,7 +216,7 @@ export default async function ProductsPage({
                   {/* Categories */}
                   <div style={{ display: 'flex', gap: '0.375rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
                     {product.categories.slice(0, 2).map(cat => (
-                      <Badge key={cat} color="#D4A843">{cat}</Badge>
+                      <span key={cat} style={{ fontSize: '0.625rem', padding: '0.125rem 0.5rem', borderRadius: '4px', background: 'rgba(212,168,67,0.1)', color: '#D4A843', border: '1px solid rgba(212,168,67,0.2)' }}>{cat}</span>
                     ))}
                   </div>
 
