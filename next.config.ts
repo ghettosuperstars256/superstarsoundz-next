@@ -1,12 +1,7 @@
 import type { NextConfig } from 'next';
-import { runMigrations, getSchemaVersion } from './src/lib/migrations';
 
-// Run migrations on build/startup
-runMigrations().then(result => {
-  if (result.migrated) {
-    console.log(`[DB] Migrated from v${result.from} to v${result.to}`);
-  }
-});
+// Migrations are run by the API routes on-demand, not at build time
+// to avoid blocking the build with synchronous file I/O.
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
